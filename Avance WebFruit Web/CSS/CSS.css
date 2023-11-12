@@ -1,0 +1,97 @@
+/*
+Dioggo: 
+FUENTES:
+*/
+@font-face{
+    font-family: 'babyDoll';
+    src: url("../FONTS/Baby\ Doll.ttf"); /*Dioggo: Esto de aca es una fuente que no es la que se ha elegido aún, solo es una momentanea*/
+}
+
+@font-face{
+    font-family: 'absender';
+    src: url("../FONTS/absender1.ttf");/*Dioggo: Esto de aca es una fuente que no es la que se ha elegido aún, solo es una momentanea*/
+}
+
+body{
+    display: flex;
+    margin: 0; /*Dioggo: Esto de aca, esta para que las cajas de la pagina, se peguen a los bordes de esta*/
+    flex-direction: column;
+    background-image: url("../IMG/albumFondo.jpg"); /*Dioggo: Si has leido algo de mis comentarios anteriores, en la parte del HTML, 
+    más especificamente en el texto de bienvenida, sabrás que esta imagen, opaca dicho texto, 
+    por lo que si saben como hacer que el fondo sea algo más transparente, haga los cambios, o comenten alguna idea*/
+    
+}header{
+    color:white;
+    background-color: #3a414a;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    padding: 0.25cm;
+}#idiomas img{
+    width:4em;
+    margin-left: 1em;
+}#usuario{
+    display: flex;
+    flex-direction: row;
+}
+#usuario a{
+    font-family: "absender";
+    display: flex;
+    margin-right: 1em;
+    font-size: 1.5em;
+    text-decoration: none;
+    color: white;
+    align-items: center;
+}
+#usuario img{
+    border-radius: 20px;
+    width: 4em;
+}
+section{
+    color: white;
+    width: 60%;
+}
+aside{
+    font-family: "babyDoll";  
+    color:white;
+    width: 40%;
+    background-color: #333333;
+}#separador{
+    display: flex;
+    flex-direction: row;
+}form{
+    margin:3em;
+    display: flex;
+    flex-direction: column;
+
+}#introduccion{
+    margin:3em;
+}.campos{
+    text-decoration: none;
+    border-radius: 10px;
+    font-family: "babyDoll";  
+}#logoForm{
+    display: flex;
+    justify-items: center;
+    align-items: center;
+    flex-direction: column;
+    font-size: 1.5em;
+}
+#logoForm img{
+    width: 7em;
+    border-radius: 150px;
+ 
+}#submitButton{
+    width: 4cm;
+    padding: 0.5em;
+    border-radius: 20px;
+    font-size: 1.5em;
+    color: white;
+    background-color: orangered;
+    border: none;
+    font-family: "babyDoll";  
+}#submitCaja{
+    display: flex;
+    justify-content: center;
+  
+}

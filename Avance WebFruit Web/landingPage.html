@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />    
+    <title>Formulario Prueba</title>
+    <link rel="stylesheet" type="text/css" href="CSS/CSS.css">
+</head>
+
+<body> 
+    <header>
+        <div id="idiomas">
+            <a href=""><img src="IMG/espaniol.png"></a>
+            <a href=""><img src="IMG/ingles.png"></a>
+            
+        </div>
+        <div id="usuario">
+            <a href="#">Iniciar Sesion</a>
+            <img src="IMG/VN.png" alt="">
+        </div>
+    </header>
+    <!---Dioggo: He puesto aca un div, debido a que si no lo está, no habra separacion entre el 
+        header, Section y Aside, si alguien conoce alguna forma en la que se pueda arreglar eso, comentelo, o agreguelo--->
+<div id="separador">
+    <section>
+        <div id="introduccion">
+        <h1>Bienvenido</h1>
+        <p>Vinyl GOATS es una tienda online de discos vinilos, CD, y todo lo relacionado con tu musica y artistas favoritos, ¿Que esperas? Un número de grandes albumes te esperan, aquí, en Vinyl GOATS</p>
+        <!---Dioggo: Este texto no se muestra, debido a que el fondo opaca completamente el texto en blanco, así que pueden poner algun fondo al texto, u opacar el fondo en el css --->
+        </div>
+    </section>
+
+    <aside>
+        
+        <div id="logoForm">    <!---Dioggo:  Esta caja agrupa tanto la imagen del quokka, la cual, será reemplazada por el logo que se eleija más tarde,
+            si quieren cambian el <h2> por un <p>, u otra cosa que se les ocurra--->
+            <h2>VinylGOATs</h2>
+            <img src="IMG/quokkaGoat.jpg" alt="">
+        </div>
+        
+        <form>
+            <label>Nombre De Usuario</label>
+            <input class="campos" type="text" name="cNombre" placeholder="Nombre"/>
+            <label>Correo</label>
+            <input class="campos" type="email" name="campoCorreo" placeholder="Correo"/>
+            <label>Contraseña</label>
+            <input class="campos" type="password" name="campoContraseña" placeholder="Contraseña"/>
+            <br>
+            
+                <div id="submitCaja">
+                    <input id="submitButton" type="submit" name="submit" value="Registrarse"/><!---Dioggo: En este lugar puse otro div, debido a que no se centra individualmente, y no se hace responsive si es que la agrego alguna otra propiedad.--->
+                </div>
+            
+        </form>
+    </aside>
+</div>
+
+
+</body>
+</html>
+
+<!---Dioggo: Son libres de modificar el documento si es que piensan que puede haber algún cambio, pero no olviden antes 
+    hacer una copia de seguridad, esto en caso el cambio que se vaya a hacer, sea significativo --->
