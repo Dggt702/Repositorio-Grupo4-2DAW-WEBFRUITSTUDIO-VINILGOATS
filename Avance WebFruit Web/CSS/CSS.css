@@ -13,6 +13,11 @@ FUENTES:
 }
 
 @font-face{
+    font-family:'jackpot';
+    src: url("../FONTS/Jackpot.ttf");
+}
+
+@font-face{
     font-family:'lemonMilkLight';
     src: url("../FONTS/LEMONMILK-Light.otf");
 }
@@ -26,20 +31,26 @@ body{
     display: flex;
     margin: 0; /*Dioggo: Esto de aca, esta para que las cajas de la pagina, se peguen a los bordes de esta*/
     flex-direction: column;
-    background-image: url("../IMG/albumFondo.jpg"); /*Dioggo: Si has leido algo de mis comentarios anteriores, en la parte del HTML, 
+    background: linear-gradient(rgba(5,7,12,0.75),rgba(5,7,12,0.75)), url("../IMG/albumFondo.jpg");
+    /*Dioggo: Si has leido algo de mis comentarios anteriores, en la parte del HTML, 
     más especificamente en el texto de bienvenida, sabrás que esta imagen, opaca dicho texto, 
     por lo que si saben como hacer que el fondo sea algo más transparente, haga los cambios, o comenten alguna idea*/
+    background-size: cover;
     
+
+
 }header{
     color:white;
-    background-color: #3a414a;
+    background-color: #ee8813;
     display: flex;
     justify-content: space-between;
+    align-items: center;
     flex-direction: row;
-    padding: 0.25cm;
+    padding: 0.5em;
 }#idiomas img{
-    width:4em;
+    width:2em;
     margin-left: 1em;
+    align-self: center;
 }#usuario{
     display: flex;
     flex-direction: row;
@@ -48,16 +59,18 @@ body{
     font-family: "lemonMilkLight";
     display: flex;
     margin-right: 1em;
-    font-size: 1.5em;
+    font-size: 1em;
     text-decoration: none;
     color: white;
     align-items: center;
 }
 #usuario img{
-    border-radius: 20px;
-    width: 4em;
+    border-radius: 100%;
+    width: 3em;
 }
 section{
+    display: flex;
+    align-items: center;
     color: white;
     width: 60%;
 }
@@ -65,7 +78,7 @@ aside{
     font-family: "lemonMilkBold";  
     color:white;
     width: 40%;
-    background-color: #333333;
+    background-color:#3a414a;
 }#separador{
     display: flex;
     flex-direction: row;
@@ -75,8 +88,14 @@ aside{
     flex-direction: column;
 
 }#introduccion{
+    text-align: left;
+    font-family: "lemonMilkLight";  
     margin:3em;
-}.campos{
+}#introduccion h1{
+    font-size: 1cm;
+    font-family: "jackpot";
+}
+.campos{
     text-decoration: none;
     border-radius: 10px;
     font-family: "lemonMilkLight";  
