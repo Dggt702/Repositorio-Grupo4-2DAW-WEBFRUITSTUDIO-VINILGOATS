@@ -51,7 +51,14 @@ body{
     width:2em;
     margin-left: 1em;
     align-self: center;
-}#usuario{
+    transition: transform 0.3s ease;   
+}#idiomas img:hover{
+    width:2em;
+    margin-left: 1em;
+    transform: scale(1.1);
+    align-self: center;
+}
+#usuario{
     display: flex;
     flex-direction: row;
 }
@@ -63,6 +70,11 @@ body{
     text-decoration: none;
     color: white;
     align-items: center;
+    transition: transform 0.3s ease;    
+}
+#usuario a:hover{
+    text-decoration: underline;
+    transform: scale(1.1);
 }
 #usuario img{
     border-radius: 100%;
@@ -75,10 +87,11 @@ section{
     width: 60%;
 }
 aside{
+    margin:2em;
     font-family: "lemonMilkBold";  
     color:white;
     width: 40%;
-    background-color:#3a414a;
+    background: rgba(1,7,12,0.5);
 }#separador{
     display: flex;
     flex-direction: row;
@@ -88,14 +101,32 @@ aside{
     flex-direction: column;
 
 }#introduccion{
-    text-align: left;
-    font-family: "lemonMilkLight";  
-    margin:3em;
-}#introduccion h1{
-    font-size: 1cm;
+    text-align: center;
+    margin:4em;
     font-family: "jackpot";
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}#bienvenidoP{
+    background-color: #ee8813;
+    text-align: center;
+    border-radius: 1em;
+    width: 70%;
+    padding: 0.10em;
+    color: #3a414a;
+    font-size: 1cm;
+}
+#texto{
+    text-align: center;
+    border-radius: 1em;
+    width: 60%;
+    color: white;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    
 }
 .campos{
+    border:none;
+    padding: 0.5em;
     text-decoration: none;
     border-radius: 10px;
     font-family: "lemonMilkLight";  
