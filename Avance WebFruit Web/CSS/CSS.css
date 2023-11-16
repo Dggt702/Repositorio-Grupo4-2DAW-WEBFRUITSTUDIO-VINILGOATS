@@ -8,6 +8,16 @@ FUENTES:
 }
 
 @font-face{
+    font-family:'lemonMilkBold';
+    src: url("../FONTS/LEMONMILK-Bold.otf");
+}
+
+@font-face{
+    font-family:'lemonMilkLight';
+    src: url("../FONTS/LEMONMILK-Light.otf");
+}
+
+@font-face{
     font-family: 'absender';
     src: url("../FONTS/absender1.ttf");/*Dioggo: Esto de aca es una fuente que no es la que se ha elegido aún, solo es una momentanea*/
 }
@@ -35,7 +45,7 @@ body{
     flex-direction: row;
 }
 #usuario a{
-    font-family: "absender";
+    font-family: "lemonMilkLight";
     display: flex;
     margin-right: 1em;
     font-size: 1.5em;
@@ -52,7 +62,7 @@ section{
     width: 60%;
 }
 aside{
-    font-family: "babyDoll";  
+    font-family: "lemonMilkBold";  
     color:white;
     width: 40%;
     background-color: #333333;
@@ -69,7 +79,7 @@ aside{
 }.campos{
     text-decoration: none;
     border-radius: 10px;
-    font-family: "babyDoll";  
+    font-family: "lemonMilkLight";  
 }#logoForm{
     display: flex;
     justify-items: center;
@@ -82,14 +92,15 @@ aside{
     border-radius: 150px;
  
 }#submitButton{
-    width: 4cm;
+    margin:1em;
+    width: 6cm;
     padding: 0.5em;
     border-radius: 20px;
     font-size: 1.5em;
     color: white;
     background-color: orangered;
     border: none;
-    font-family: "babyDoll";  
+    font-family: "lemonMilkLight";  
 }#submitCaja{
     display: flex;
     justify-content: center;
