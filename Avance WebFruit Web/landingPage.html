@@ -4,6 +4,11 @@
     <meta charset="UTF-8" />    
     <title>Formulario Prueba</title>
     <link rel="stylesheet" type="text/css" href="CSS/CSS.css">
+    <style>
+        .error {
+            color: red;
+        }
+    </style>
 </head>
 
 <body> 
@@ -37,25 +42,104 @@
             <img src="IMG/quokkaGoat.jpg" alt="">
         </div>
         
-        <form>
-            <label>Nombre De Usuario</label>
-            <input class="campos" type="text" name="cNombre" placeholder="Nombre"/>
+        <form id="registroForm">
+            <label for="nombre">Nombre De Usuario<span class="error">*</span>:</label>
+            <input class="campos" type="text" name="cNombre" placeholder="Nombre" required pattern="^[a-zA-Z]+(?: [a-zA-Z]+)*$"/>
             <br>
-            <label>Correo</label>
-            <input class="campos" type="email" name="campoCorreo" placeholder="Correo"/>
+
+            <label for="password">Correo electrónico<span class="error">*</span>:</label>
+            <input class="campos" type="email" name="campoCorreo" placeholder="Correo" required/>
             <br>
-            <label>Contraseña</label>
-            <input class="campos" type="password" name="campoContraseña" placeholder="Contraseña"/>
+
+            <label for="password">Contraseña<span class="error">*</span>:</label>
+            <input class="campos" type="password" name="campoContraseña" placeholder="Contraseña" required pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&]).{8,}$"/>
+            <br>
+
+            <label for="confirmPassword">Confirmar Contraseña <span class="error">*</span>:</label>
+            <input class="campos" type="password" name="CampoconfirmContraseña" placeholder="ConfirmContraseña" required>
+            <br>
+
+            <label for="sexo">Sexo:</label>
+            <select class="campos" id="sexo" name="sexo" aria-placeholder="sexo">
+                <option value="masculino">Masculino</option>
+                <option value="femenino">Femenino</option>
+                <option value="otro">Otro</option>
+            </select>
             <br>
             
-                <div id="submitCaja">
-                    <input id="submitButton" type="submit" name="submit" value="Registrarse"/><!---Dioggo: En este lugar puse otro div, debido a que no se centra individualmente, y no se hace responsive si es que la agrego alguna otra propiedad.--->
-                </div>
+            <label for="fechaNacimiento">Fecha de Nacimiento:</label>
+            <input class="campos" type="date" id="fechaNacimiento" name="fechaNacimiento" placeholder="fechaNacimiento">
+            <br>
+
+            <label for="direccion">Dirección:</label>
+            <input class="campos" type="text" id="direccion" name="direccion" placeholder="direccion">
+            <br>
+
+            <label for="pais">País:</label>
+            <select class="campos" id="pais" name="pais" aria-placeholder="pais">
+                <option value="espana">España</option>
+                <option value="mexico">México</option>
+                <option value="argentina">Argentina</option>
+                <!-- Agregar más países según sea necesario -->
+            </select>
+            <br>
+
+            <div id="submitCaja">
+                <input type="submit" value="Registrar" id="submit" name="submit">
+            </div>
             
         </form>
     </aside>
 </div>
 
+<div id="separador">
+    <section>
+        <!-- ... Contenido de la sección ... -->
+    </section>
+
+    <aside>
+        <!-- ... Contenido del aside ... -->
+    </aside>
+</div>
+
+<footer id="footer">
+    <p id="pFooter">&copy; 2023 VinylGOATs. Todos los derechos reservados.</p>
+</footer>
+
+<script>
+    document.getElementById('registroForm').addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        // Realizar validación de campos aquí antes de enviar el formulario
+        if (validarFormulario()) {
+            alert('Usuario registrado correctamente');
+            // Aquí puedes enviar los datos al servicio web utilizando AJAX o Fetch
+        }
+    });
+
+    function validarFormulario() {
+        // Realizar validación de cada campo aquí
+        // Puedes mostrar mensajes de error y cambiar el estilo de los campos si es necesario
+
+        // Ejemplo de validación de contraseña y confirmación de contraseña
+        var password = document.getElementById('password').value;
+        var confirmPassword = document.getElementById('confirmPassword').value;
+
+        if (password !== confirmPassword) {
+            alert('Las contraseñas no coinciden');
+            return false;
+        }
+
+        // Validación adicional para la contraseña según tus criterios
+        var regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+        if (!regex.test(password)) {
+            alert('La contraseña no cumple con los requisitos');
+            return false;
+        }
+
+        return true;
+    }
+</script>
 
 </body>
 </html>

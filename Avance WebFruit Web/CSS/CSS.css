@@ -1,7 +1,9 @@
 /*
-Dioggo: 
+Dioggo:
 FUENTES:
 */
+
+
 @font-face{
     font-family: 'babyDoll';
     src: url("../FONTS/Baby\ Doll.ttf"); /*Dioggo: Esto de aca es una fuente que no es la que se ha elegido aún, solo es una momentanea*/
@@ -148,7 +150,8 @@ aside{
     border-radius: 20px;
     font-size: 1.5em;
     color: white;
-    background-color: orangered;
+    background-color: #ee8813;
+    background-color: #ee8813;
     border: none;
     font-family: "lemonMilkLight";  
 }#submitCaja{
@@ -156,3 +159,21 @@ aside{
     justify-content: center;
   
 }
+#footer{
+    background-color: #ee8813;
+    color: rgb(255, 255, 255);
+}
+#pFooter{
+    margin: 1em;
+}
+/* Oculta un elemento en dispositivos móviles */
+@media only screen and (max-width: 600px) {
+    header{
+      background-color: green;
+    }
+    #separador{
+        display: flex;
+        flex-direction: column;
+    }
+  }
+  
