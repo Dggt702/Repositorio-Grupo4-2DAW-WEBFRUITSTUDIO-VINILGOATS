@@ -210,13 +210,7 @@ aside{
 
 #icon
 {
-    height: 3vh;
-    background-color: white; /*encontrar mejores iconos*/
-}
-
-#icon:hover
-{
-    background:black; /*encontrar mejores iconos*/
+    height: 3vh; /*encontrar mejores iconos*/
 }
 
 @media only screen and (max-width: 600px) {
