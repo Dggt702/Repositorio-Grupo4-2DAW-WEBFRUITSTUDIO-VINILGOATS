@@ -5,11 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Formulario Prueba</title>
     <link rel="stylesheet" type="text/css" href="CSS/CSS.css">
-    <style>
-        .error {
-            color: red;
-        }
-    </style>
 </head>
 
 <body> 
@@ -49,13 +44,17 @@
         
         <form id="registroForm">
             <label for="nombre">Nombre De Usuario<span class="error">*</span>:</label>
-            <input class="campos" type="text" name="cNombre" placeholder="Nombre" required pattern="^[a-zA-Z]+(?: [a-zA-Z]+)*$"/>
+            <input id="nombre" class="campos" type="text" name="cNombre" placeholder="Nombre"/>
             <br>
+            <div id="errorN">
 
+            </div>
             <label>Correo electrónico<span class="error">*</span>:</label>
-            <input class="campos" type="email" name="campoCorreo" placeholder="Correo" required/>
+            <input id="correo" class="campos" type="email" name="campoCorreo" placeholder="Correo"/>
             <br>
+            <div id="errorC">
 
+            </div>
             <label for="password">Contraseña<span class="error">*</span>:</label>
             <input id="password" class="campos" type="password" name="campoContraseña" placeholder="Contraseña" required pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&]).{8,}$"/>
             <br>
@@ -122,7 +121,7 @@
         <img id="icon" src="Icons/youtube.png" alt="Icono de Youtube">
     </div>
 </footer>
-    <script src="functions.js"></script>
+    <script src="JavaScript/functions.js"></script>
 </body>
 </html>
 
