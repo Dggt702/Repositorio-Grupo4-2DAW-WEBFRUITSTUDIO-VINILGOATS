@@ -1,7 +1,8 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
     <meta charset="UTF-8" />    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Formulario Prueba</title>
     <link rel="stylesheet" type="text/css" href="CSS/CSS.css">
     <style>
@@ -28,9 +29,10 @@
 <div id="separador">
     <section>
         <div id="introduccion">
-        <p id="bienvenidoP">BIENVENIDO</p>
-        <p id="texto">Vinyl GOATS es una tienda online de discos vinilos, CD, y todo lo relacionado con tu musica y artistas favoritos, ¿Que esperas? Un número de grandes albumes te esperan, aquí, en Vinyl GOATS</p>
-        <!---Dioggo: Este texto no se muestra, debido a que el fondo opaca completamente el texto en blanco, así que pueden poner algun fondo al texto, u opacar el fondo en el css --->
+            <p id="bienvenidoP">VINYL G.O.A.T.S</p>
+            <div id="texto-introduccion">
+                <p>Vinyl GOATS es una tienda online de discos vinilos, CD, y todo lo relacionado con tu música y artistas favoritos. ¿Qué esperas? Un número de grandes álbumes te esperan, aquí, en Vinyl GOATS</p>
+            </div>
         </div>
     </section>
 
@@ -38,7 +40,7 @@
         
         <div id="logoForm">    <!---Dioggo:  Esta caja agrupa tanto la imagen del quokka, la cual, será reemplazada por el logo que se eleija más tarde,
             si quieren cambian el <h2> por un <p>, u otra cosa que se les ocurra--->
-            <h2>VinylGOATs</h2>
+            <h2>REGÍSTRATE!</h2>
             <img src="IMG/quokkaGoat.jpg" alt="">
         </div>
         
@@ -59,35 +61,39 @@
             <input id="confirmPassword" class="campos" type="password" name="confirmContraseña" placeholder="Confirmar Contraseña" required>
             <br>
 
-            <label for="sexo">Sexo:</label>
-            <select class="campos" id="sexo" name="sexo" aria-placeholder="sexo">
-                <option value="masculino">Masculino</option>
-                <option value="femenino">Femenino</option>
-                <option value="otro">Otro</option>
-            </select>
-            <br>
-            
-            <label for="fechaNacimiento">Fecha de Nacimiento:</label>
-            <input class="campos" type="date" id="fechaNacimiento" name="fechaNacimiento" placeholder="fechaNacimiento">
-            <br>
-
-            <label for="direccion">Dirección:</label>
-            <input class="campos" type="text" id="direccion" name="direccion" placeholder="direccion">
-            <br>
-
-            <label for="pais">País:</label>
-            <select class="campos" id="pais" name="pais" aria-placeholder="pais">
-                <option value="espana">España</option>
-                <option value="mexico">México</option>
-                <option value="argentina">Argentina</option>
-                <!-- Agregar más países según sea necesario -->
-            </select>
-            <br>
-
+            <div id="infoOculta">
+                <label for="sexo">Sexo:</label>
+                <select class="campos" id="sexo" name="sexo" aria-placeholder="sexo">
+                    <option value="masculino">Masculino</option>
+                    <option value="femenino">Femenino</option>
+                    <option value="otro">Otro</option>
+                </select>
+                <br id="sexoBr">
+        
+                <label for="fechaNacimiento">Fecha de Nacimiento:</label>
+                <input class="campos" type="date" id="fechaNacimiento" name="fechaNacimiento" placeholder="fechaNacimiento">
+                <br id="fechaBr">
+        
+                <label for="direccion">Dirección:</label>
+                <input class="campos" type="text" id="direccion" name="direccion" placeholder="direccion">
+                <br id="direccionBr">
+        
+                <label for="pais">País:</label>
+                <select class="campos" id="pais" name="pais" aria-placeholder="pais">
+                    <option value="espana">España</option>
+                    <option value="mexico">México</option>
+                    <option value="argentina">Argentina</option>
+                    <!-- Agregar más países según sea necesario -->
+                </select>
+                <br id="paisBr">
+            </div>
+        
             <div id="submitCaja">
                 <input type="submit" value="Registrar" id="submitButton" name="submit">
             </div>
-            
+        
+            <!-- Botón para mostrar más -->
+            <a href="#infoOculta" id="mostrarMas">Mostrar Más</a>
         </form>
     </aside>
 </div>
