@@ -172,6 +172,9 @@ aside{
 #footer{
     background-color: #ee8813;
     color: rgb(255, 255, 255);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
 #pFooter{
     margin: 1em;
@@ -195,6 +198,27 @@ aside{
     display: block; /* Muestra los campos cuando el botón es activado */
 }
 /* Oculta un elemento en dispositivos móviles */
+#cosas
+{
+    height: 100vh;
+}
+
+#icons
+{
+    margin: 1em;
+}
+
+#icon
+{
+    height: 3vh;
+    background-color: white; /*encontrar mejores iconos*/
+}
+
+#icon:hover
+{
+    background:black; /*encontrar mejores iconos*/
+}
+
 @media only screen and (max-width: 600px) {
     body {
         background-size: auto;
