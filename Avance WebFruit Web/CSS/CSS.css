@@ -33,7 +33,7 @@ body{
     display: flex;
     margin: 0; /*Dioggo: Esto de aca, esta para que las cajas de la pagina, se peguen a los bordes de esta*/
     flex-direction: column;
-    background: linear-gradient(rgba(5,7,12,0.75),rgba(5,7,12,0.75)), url("../IMG/albumFondo.jpg");
+    background: linear-gradient(rgba(5,7,12,0.9),rgba(5,7,12,0.9)), url("../IMG/albumFondo.jpg");
     /*Dioggo: Si has leido algo de mis comentarios anteriores, en la parte del HTML, 
     más especificamente en el texto de bienvenida, sabrás que esta imagen, opaca dicho texto, 
     por lo que si saben como hacer que el fondo sea algo más transparente, haga los cambios, o comenten alguna idea*/
@@ -43,7 +43,7 @@ body{
 
 }header{
     color:white;
-    background-color: #ee8813;
+    background-color: rgb(238, 136, 19,0.85);
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -54,11 +54,28 @@ body{
     margin-left: 1em;
     align-self: center;
     transition: transform 0.3s ease;   
-}#idiomas img:hover{
+}
+#idiomas img:hover{
     width:2em;
     margin-left: 1em;
     transform: scale(1.1);
     align-self: center;
+}
+
+/* logo */ 
+#logo-cabra{
+    display: flex;
+    
+}
+
+#logo-cabra a .nombre{
+    color: white;
+    font-style: none;
+}
+
+#logo-cabra a img{
+    width: 10em;    
+    border-radius: 100%;
 }
 #usuario{
     display: flex;
@@ -91,8 +108,8 @@ aside{
     margin:2em;
     font-family: "lemonMilkBold";  
     color:white;
-    width: 40%;
-    background: rgba(1,7,12,0.5);
+    width: 30%;
+    background: rgba(1,7,12,0.75);
 }#separador{
     display: flex;
     flex-direction: row;
@@ -115,19 +132,22 @@ aside{
     color: white;
     font-family: "lemonMilkLight"; /* Utiliza la misma fuente que el resto de la página */
     margin: 0 auto;
-    background: rgba(1, 7, 12, 0.5); /* Fondo similar al del aside */
+    background: rgba(1,7,12,0.6); /* Fondo similar al del aside */
     padding: 1em; /* Ajusta el relleno según tus preferencias */
 }
 
-#bienvenidoP{
-    background-color: #ee8813;
+#bienvenidoP {
+    /*background-color: rgba(238, 136, 19, 0.8);*/
     text-align: center;
-    border-radius: 1em;
+    border-radius: 10px;
     width: 70%;
-    padding: 0.10em;
+    padding: 10px;
     color: #ffffff;
-    font-size: 1cm;
+    font-size: 3em;
+    margin: 20px auto;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
+
 #texto{
     text-align: center;
     border-radius: 1em;
@@ -170,8 +190,9 @@ aside{
   
 }
 #footer{
-    background-color: #ee8813;
+    background-color: rgb(238, 136, 19,0.85);
     color: rgb(255, 255, 255);
+    width: 100%;
 }
 #pFooter{
     margin: 1em;
