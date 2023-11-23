@@ -49,16 +49,16 @@
             <input class="campos" type="text" name="cNombre" placeholder="Nombre" required pattern="^[a-zA-Z]+(?: [a-zA-Z]+)*$"/>
             <br>
 
-            <label for="password">Correo electrónico<span class="error">*</span>:</label>
+            <label>Correo electrónico<span class="error">*</span>:</label>
             <input class="campos" type="email" name="campoCorreo" placeholder="Correo" required/>
             <br>
 
             <label for="password">Contraseña<span class="error">*</span>:</label>
-            <input class="campos" type="password" name="campoContraseña" placeholder="Contraseña" required pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&]).{8,}$"/>
+            <input id="password" class="campos" type="password" name="campoContraseña" placeholder="Contraseña" required pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&]).{8,}$"/>
             <br>
 
             <label for="confirmPassword">Confirmar Contraseña <span class="error">*</span>:</label>
-            <input class="campos" type="password" name="CampoconfirmContraseña" placeholder="ConfirmContraseña" required>
+            <input id="confirmPassword" class="campos" type="password" name="confirmContraseña" placeholder="Confirmar Contraseña" required>
             <br>
 
             <div id="infoOculta">
@@ -89,7 +89,7 @@
             </div>
         
             <div id="submitCaja">
-                <input type="submit" value="Registrar" id="submit" name="submit">
+                <input type="submit" value="Registrar" id="submitButton" name="submit">
             </div>
         
             <!-- Botón para mostrar más -->
@@ -113,6 +113,7 @@
 </footer>
 
 <script>
+ 
     document.getElementById('registroForm').addEventListener('submit', function(event) {
         event.preventDefault();
 
