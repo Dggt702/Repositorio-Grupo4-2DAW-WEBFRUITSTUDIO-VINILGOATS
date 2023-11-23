@@ -84,7 +84,6 @@ body{
 }
 section{
     display: flex;
-    align-items: center;
     color: white;
     width: 60%;
 }
@@ -105,17 +104,28 @@ aside{
 }#introduccion{
     text-align: center;
     margin:4em;
-    font-family: "jackpot";
     display: flex;
     flex-direction: column;
     align-items: center;
-}#bienvenidoP{
+}
+#texto-introduccion {
+    text-align: center;
+    border-radius: 1em;
+    width: 80%;
+    color: white;
+    font-family: "lemonMilkLight"; /* Utiliza la misma fuente que el resto de la página */
+    margin: 0 auto;
+    background: rgba(1, 7, 12, 0.5); /* Fondo similar al del aside */
+    padding: 1em; /* Ajusta el relleno según tus preferencias */
+}
+
+#bienvenidoP{
     background-color: #ee8813;
     text-align: center;
     border-radius: 1em;
     width: 70%;
     padding: 0.10em;
-    color: #3a414a;
+    color: #ffffff;
     font-size: 1cm;
 }
 #texto{
@@ -166,14 +176,79 @@ aside{
 #pFooter{
     margin: 1em;
 }
+#infoOculta {
+    display: none; /* Oculta el contenedor inicialmente */
+}
+
+#mostrarMas:target ~ #infoOculta {
+    display: block; /* Muestra el contenedor cuando el botón es activado */
+}
+
+#sexo, #fechaNacimiento, #direccion, #pais {
+    display: none; /* Oculta los campos inicialmente */
+}
+
+#mostrarMas:target ~ #sexo,
+#mostrarMas:target ~ #fechaNacimiento,
+#mostrarMas:target ~ #direccion,
+#mostrarMas:target ~ #pais {
+    display: block; /* Muestra los campos cuando el botón es activado */
+}
 /* Oculta un elemento en dispositivos móviles */
 @media only screen and (max-width: 600px) {
-    header{
-      background-color: green;
+    body {
+        background-size: auto;
     }
-    #separador{
+    header {
+        padding: 0.5em 1em;
+    }
+    #idiomas img {
+        width: 1.5em;
+    }
+    #usuario a {
+        font-size: 0.8em;
+    }
+    #separador {
         display: flex;
         flex-direction: column;
+        margin: 0.1em;
     }
-  }
-  
+    section, aside {
+        width: 100%;
+        margin: 0;
+    }
+    form {
+        margin: 1em;
+    }
+    #logoForm img {
+        width: 5em;
+    }
+    #submitButton {
+        width: 100%;
+    }
+    #introduccion {
+        text-align: center;
+        margin: 0.25em;
+    }
+    #texto-introduccion {
+        width: 90%;
+    }
+    #bienvenidoP {
+        background-color: #ee8813;
+        text-align: center;
+        border-radius: 1em;
+        width: 70%;
+        padding: 0.10em;
+        color: #ffffff;
+        font-size: 1cm;
+        margin: 0.5em auto;
+    }
+    #texto {
+        text-align: center;
+        border-radius: 1em;
+        width: 80%;
+        color: white;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        margin: 0 auto;
+    }
+}
