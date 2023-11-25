@@ -145,8 +145,7 @@ aside{
     font-family: "lemonMilkLight"; /* Utiliza la misma fuente que el resto de la página */
     margin: 0 auto;
     background: rgba(1,7,12,0.6); /* Fondo similar al del aside */
-    padding: 1.5em; /* Ajusta el relleno según tus preferencias */
-    font-size: 1.5em;
+    padding: 1em; /* Ajusta el relleno según tus preferencias */
 }
 
 #bienvenidoP {
@@ -156,8 +155,7 @@ aside{
     width: 70%;
     padding: 10px;
     color: #ffffff;
-    font-size: 4em;
-    font-weight: bold;
+    font-size: 3em;
     margin: 20px auto;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
@@ -213,6 +211,24 @@ aside{
 }
 #pFooter{
     margin: 1em;
+}
+#infoOculta {
+    display: none; /* Oculta el contenedor inicialmente */
+}
+
+#mostrarMas:target ~ #infoOculta {
+    display: block; /* Muestra el contenedor cuando el botón es activado */
+}
+
+#sexo, #fechaNacimiento, #direccion, #pais {
+    display: none; /* Oculta los campos inicialmente */
+}
+
+#mostrarMas:target ~ #sexo,
+#mostrarMas:target ~ #fechaNacimiento,
+#mostrarMas:target ~ #direccion,
+#mostrarMas:target ~ #pais {
+    display: block; /* Muestra los campos cuando el botón es activado */
 }
 /* Oculta un elemento en dispositivos móviles */
 #cosas
