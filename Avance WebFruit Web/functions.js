@@ -29,4 +29,15 @@ function validarFormulario() {
     }
 
     return true;
-}
+};
+
+function mostrarMas() {
+    // Obtén el elemento oculto
+    var infoOculta = document.getElementById("infoOculta");
+
+    // Cambia la propiedad hidden al contrario de su estado actual
+    infoOculta.hidden = !infoOculta.hidden;
+
+    // Oculta el botón después de mostrar los campos adicionales
+    document.getElementById("mostrarMas").hidden = true;
+};

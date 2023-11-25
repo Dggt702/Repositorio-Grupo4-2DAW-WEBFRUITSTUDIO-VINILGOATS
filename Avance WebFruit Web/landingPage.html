@@ -32,7 +32,7 @@
 <div id="separador">
     <section>
         <div id="introduccion">
-            <p id="bienvenidoP">¿TE GUSTA    LA MÚSICA?</p>
+            <p id="bienvenidoP">¿TE GUSTA LA MÚSICA?</p>   
             <div id="texto-introduccion">
                 <p>Vinyl GOATS es una tienda online de discos vinilos, CD, y todo lo relacionado con tu música y artistas favoritos. ¿Qué esperas? Un número de grandes álbumes te esperan, aquí, en Vinyl GOATS</p>
             </div>
@@ -64,7 +64,8 @@
             <input id="confirmPassword" class="campos" type="password" name="confirmContraseña" placeholder="Confirmar Contraseña" required>
             <br>
 
-            <div id="infoOculta">
+            <div id="infoOculta" hidden>
+                <!-- Campos adicionales -->
                 <label for="sexo">Sexo:</label>
                 <select class="campos" id="sexo" name="sexo" aria-placeholder="sexo">
                     <option value="masculino">Masculino</option>
@@ -72,14 +73,17 @@
                     <option value="otro">Otro</option>
                 </select>
                 <br id="sexoBr">
-        
+                <br>
+            
                 <label for="fechaNacimiento">Fecha de Nacimiento:</label>
                 <input class="campos" type="date" id="fechaNacimiento" name="fechaNacimiento" placeholder="fechaNacimiento">
                 <br id="fechaBr">
+                <br>
         
                 <label for="direccion">Dirección:</label>
                 <input class="campos" type="text" id="direccion" name="direccion" placeholder="direccion">
                 <br id="direccionBr">
+                <br>
         
                 <label for="pais">País:</label>
                 <select class="campos" id="pais" name="pais" aria-placeholder="pais">
@@ -89,14 +93,16 @@
                     <!-- Agregar más países según sea necesario -->
                 </select>
                 <br id="paisBr">
-            </div>
-        
-            <div id="submitCaja">
-                <input type="submit" value="Registrar" id="submitButton" name="submit">
+                <br>    
             </div>
         
             <!-- Botón para mostrar más -->
-            <a href="#infoOculta" id="mostrarMas">Mostrar Más</a>
+            <a href="#" id="mostrarMas" onclick="mostrarMas()">Mostrar Más</a>
+
+            <div id="submitCaja">
+                <input type="submit" value="Registrar" id="submitButton" name="submit">
+            </div>
+         
         </form>
     </aside>
 </div>
