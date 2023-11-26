@@ -120,7 +120,7 @@ aside{
 
 }
 
-#errorN, #errorC
+#errorN, #errorC, #errorP
 {
     color: rgb(238, 136, 19,0.85);
     font-family: "lemonMilkBold";

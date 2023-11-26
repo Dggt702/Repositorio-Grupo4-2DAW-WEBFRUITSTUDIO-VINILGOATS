@@ -1,23 +1,34 @@
 document.addEventListener("click", validar);
 
-function validarFormulario() 
+function validarPassword()
 {
-    // Ejemplo de validación de contraseña y confirmación de contraseña
-    var password = document.getElementById('password').value;
-    var confirmPassword = document.getElementById('confirmPassword').value;
-
+    let elemento = document.getElementById("password");
+    let regexP = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+    let errorP = document.getElementById("errorP");
+    let password = document.getElementById('password').value;
+    let confirmPassword = document.getElementById('confirmPassword').value;
+    if (!regexP.test(elemento.value)) 
+    {
+       errorP.innerHTML = "La contraseña no cumple con los requisitos. Tiene que tener mayúsculas, mínusculas, números y símbolos.";
+    }
     if (password !== confirmPassword) {
-        error(elemento, "Las contraseñas no coinciden");
+        errorP.innerHTML = "Las contraseñas no coinciden";
         return false;
     }
-
-    // Validación adicional para la contraseña según tus criterios
-    var regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
-    if (!regex.test(password)) {
-        error(elemento, "La contraseña no cumple con los requisitos");
+    if (elemento.value === "")
+    {
+        errorP.innerHTML = "Debe introducir su contraseña.";
         return false;
     }
-
+    else if (elemento.validity.patternMismatch) 
+    {
+        errorP.innerHTML = "La contraseña no cumple con los requisitos. Tiene que tener mayúsculas, mínusculas, números y símbolos.";
+        return false;
+    }
+    else
+    {
+        errorP.innerHTML = "";
+    }
     return true;
 }
 
@@ -39,6 +50,10 @@ function validarNombre()
     {
         errorN.innerHTML = "Formato incorrecto.";
         return false;
+    }
+    else
+    {
+        errorN.innerHTML = "";
     }
     return true;
 }
@@ -62,12 +77,16 @@ function validarEmail()
         errorC.innerHTML = "Formato incorrecto. Debe introducir un email válido.";
         return false;
     }
+    else
+    {
+        errorC.innerHTML = "";
+    }
     return true;
 }
 
 function validar(e)
 {
-    if(validarNombre() && validarEmail() && validarFormulario() && confirm("¿Seguro que quiere enviar el formulario?"))
+    if(validarNombre() && validarEmail() && validarPassword() && confirm("¿Seguro que quiere enviar el formulario?"))
     {
         location.href = "Page2.html";
         return true;
