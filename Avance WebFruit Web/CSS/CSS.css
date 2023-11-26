@@ -197,12 +197,24 @@ aside{
     display: flex;
     flex-direction: column;
 
-}#introduccion{
+}
+
+#errorN, #errorC
+{
+    color: rgb(238, 136, 19,0.85);
+    font-family: "lemonMilkBold";
+    font-size: 0.5em;
+}
+
+#introduccion{
     text-align: center;
     margin:4em;
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+.error {
+    color: rgb(238, 136, 19,0.85);
 }
 #texto-introduccion {
     text-align: center;
@@ -266,11 +278,15 @@ aside{
 }#submitCaja{
     display: flex;
     justify-content: center;
+
   
 }
 #footer{
     background-color: rgb(238, 136, 19,0.85);
     color: rgb(255, 255, 255);
+    display: flex;
+    flex-direction: row;    
+    justify-content: space-between;
 }
 #pFooter{
     margin: 1em;
@@ -302,13 +318,8 @@ aside{
 
 #icon
 {
-    height: 3vh;
-    background-color: white; /*encontrar mejores iconos*/
-}
-
-#icon:hover
-{
-    background:black; /*encontrar mejores iconos*/
+    height: 3vh; /*encontrar mejores iconos*/
+    margin-right: 1vh;
 }
 @media only screen and (max-width: 600px) {
     body {

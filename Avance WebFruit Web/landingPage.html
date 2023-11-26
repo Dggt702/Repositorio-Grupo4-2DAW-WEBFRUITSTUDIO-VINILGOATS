@@ -5,11 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Formulario Prueba</title>
     <link rel="stylesheet" type="text/css" href="CSS/CSS.css">
-    <style>
-        .error {
-            color: red;
-        }
-    </style>
 </head>
 
 <body> 
@@ -44,13 +39,21 @@
         
         <form id="registroForm">
             <label for="nombre">Nombre De Usuario<span class="error">*</span>:</label>
+<<<<<<< HEAD
             <input class="campos" type="text" id="nombreCampo" name="cNombre" placeholder="Nombre" required pattern="^[a-zA-Z]+(?: [a-zA-Z]+)*$"/>
+=======
+            <input id="nombre" class="campos" type="text" name="cNombre" placeholder="Nombre"/>
+>>>>>>> e1fc459ab23b2608996a94bbc37e8a5611dd3ffe
             <br>
+            <div id="errorN">
 
+            </div>
             <label>Correo electrónico<span class="error">*</span>:</label>
-            <input class="campos" type="email" name="campoCorreo" placeholder="Correo" required/>
+            <input id="correo" class="campos" type="email" name="campoCorreo" placeholder="Correo"/>
             <br>
+            <div id="errorC">
 
+            </div>
             <label for="password">Contraseña<span class="error">*</span>:</label>
             <input id="password" class="campos" type="password" name="campoContraseña" placeholder="Contraseña" required pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&]).{8,}$"/>
             <br>
@@ -108,10 +111,15 @@
 
 <footer id="footer">
     <p id="pFooter">&copy; 2023 VinylGOATs. Todos los derechos reservados.</p>
+    <div id="icons">
+        <img id="icon" src="Icons/whatsapp.png" alt="Icono de WhatsApp">
+        <img id="icon" src="Icons/telegram.png" alt="Icono de Telegram">
+        <img id="icon" src="Icons/twitter.png" alt="Icono de Twitter">
+        <img id="icon" src="Icons/instagram.png" alt="Icono de Instagram">
+        <img id="icon" src="Icons/facebook.png" alt="Icono de Facebook">
+        <img id="icon" src="Icons/youtube.png" alt="Icono de Youtube">
+    </div>
 </footer>
-    <script src="functions.js"></script>
+    <script src="JavaScript/functions.js"></script>
 </body>
 </html>
-
-<!---Dioggo: Son libres de modificar el documento si es que piensan que puede haber algún cambio, pero no olviden antes 
-    hacer una copia de seguridad, esto en caso el cambio que se vaya a hacer, sea significativo --->
