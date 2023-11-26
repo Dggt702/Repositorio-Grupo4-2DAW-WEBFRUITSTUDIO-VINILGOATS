@@ -14,17 +14,12 @@
 
 <body> 
     <header>
-        <div id="idiomas">
-            <a href=""><img src="IMG/espaniol.png"></a>
-            <a href=""><img src="IMG/ingles.png"></a>
-            
-        </div>
         <div id="logo-cabra">
-            <a href=""><img src="IMG/LOGO_VINYL_GOATS_2_TRANSPARENCIA.png"></a>
+            <a href="Page2.html"><img src="IMG/LOGO_VINYL_GOATS_2_TRANSPARENCIA.png"></a>
         </div>
-        <div id="usuario">
+        <div class="usuario">
             <a href="#">Iniciar Sesion</a>
-            <img src="IMG/VN.png" alt="">
+          
         </div>
     </header>
     <!---Dioggo: He puesto aca un div, debido a que si no lo está, no habra separacion entre el 
@@ -32,7 +27,7 @@
 <div id="separador">
     <section>
         <div id="introduccion">
-            <p id="bienvenidoP">¿TE GUSTA    LA MÚSICA?</p>
+            <p id="bienvenidoP">¿TE GUSTA LA MÚSICA?</p>
             <div id="texto-introduccion">
                 <p>Vinyl GOATS es una tienda online de discos vinilos, CD, y todo lo relacionado con tu música y artistas favoritos. ¿Qué esperas? Un número de grandes álbumes te esperan, aquí, en Vinyl GOATS</p>
             </div>
@@ -49,7 +44,7 @@
         
         <form id="registroForm">
             <label for="nombre">Nombre De Usuario<span class="error">*</span>:</label>
-            <input class="campos" type="text" name="cNombre" placeholder="Nombre" required pattern="^[a-zA-Z]+(?: [a-zA-Z]+)*$"/>
+            <input class="campos" type="text" id="nombreCampo" name="cNombre" placeholder="Nombre" required pattern="^[a-zA-Z]+(?: [a-zA-Z]+)*$"/>
             <br>
 
             <label>Correo electrónico<span class="error">*</span>:</label>
