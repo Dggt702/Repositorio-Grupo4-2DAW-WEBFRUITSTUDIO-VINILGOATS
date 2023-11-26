@@ -48,24 +48,68 @@ body{
     justify-content: space-between;
     align-items: center;
     flex-direction: row;
-    padding: 0.5em;
-}#idiomas img{
+}nav{
+    padding: 1em;
+    
+}
+#idiomas img{
     width:2em;
     margin-left: 1em;
     align-self: center;
-    transition: transform 0.3s ease;   
+    transition: transform 0.3s ease-in-out;   
 }
 #idiomas img:hover{
     width:2em;
     margin-left: 1em;
     transform: scale(1.1);
     align-self: center;
+}#slide{
+    position: relative;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items:first baseline;
+    
+}.slideCapa{
+    overflow: hidden;
+    width: 50%;
+    display: flex;
+    justify-content: center;
+}.btnSlider{
+    position:absolute;
+    color: white;
+    font-size: 2.2em;
+    width: 1.5em;
+    height: 1.6em;
+    font-weight: bold;
+    font-family: monospace;
+    background:rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+    top:50%;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform:translateY(-50%);
+}.btnSlider:hover{
+    background:rgba(0, 0, 0, 0.8);
 }
-
+#btnSliderIzquierda{
+    left: 12em;
+}#btnSliderDerecha{
+    right: 12em;
+}.slider{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    transition: all 1s ease-in;
+}.slider img{
+    transition: transform 1s ease-in-out;
+    width: 100%;
+}
 /* logo */ 
 #logo-cabra{
     display: flex;
-    
 }
 
 #logo-cabra a .nombre{
@@ -74,14 +118,62 @@ body{
 }
 
 #logo-cabra a img{
-    width: 10em;    
+    width: 10em;
     border-radius: 100%;
+}#usuarioTR{
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+}#usuarioR{
+    font-size: 1em;
 }
-#usuario{
+#lista{
+    padding: 1.2em;
+    background-color: rgb(238, 136, 19,0.85);
+    width: 8cm;
+    top:6em;
+    right: 0cm;
+    display: none;   
+    position: absolute;
+    flex-direction: column;
+}#lista a{
+    color: white;
+    padding: 5px;
+    text-decoration: none;
+    
+}.usuario{
+    padding: 2em;
     display: flex;
     flex-direction: row;
+    align-items: center;
 }
-#usuario a{
+.usuario a{
+    position: relative;
+    display: flex;
+    font-family: "lemonMilkLight";
+    margin-right: 1em;
+    font-size: 1em;
+    text-decoration: none;
+    color: white;
+}
+#lista a:hover{
+    background-color: rgb(105, 60, 8);
+}#usuarioTR:hover #lista{
+    display: flex;
+    
+}#register:hover{
+    text-decoration: underline;
+}
+
+.usuario img{
+    border-radius: 100%;
+    width: 2em;
+}
+section{
+    display: flex;
+    color: white;
+    width: 60%;
+}#register{
     font-family: "lemonMilkLight";
     display: flex;
     margin-right: 1em;
@@ -90,19 +182,6 @@ body{
     color: white;
     align-items: center;
     transition: transform 0.3s ease;    
-}
-#usuario a:hover{
-    text-decoration: underline;
-    transform: scale(1.1);
-}
-#usuario img{
-    border-radius: 100%;
-    width: 3em;
-}
-section{
-    display: flex;
-    color: white;
-    width: 60%;
 }
 aside{
     margin:2em;
@@ -231,10 +310,6 @@ aside{
     display: block; /* Muestra los campos cuando el botón es activado */
 }
 /* Oculta un elemento en dispositivos móviles */
-#cosas
-{
-    height: 100vh;
-}
 
 #icons
 {
@@ -246,7 +321,6 @@ aside{
     height: 3vh; /*encontrar mejores iconos*/
     margin-right: 1vh;
 }
-
 @media only screen and (max-width: 600px) {
     body {
         background-size: auto;

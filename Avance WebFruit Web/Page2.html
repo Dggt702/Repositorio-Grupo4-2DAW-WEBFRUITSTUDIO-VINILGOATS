@@ -6,19 +6,46 @@
     <title>Document</title>
     <link rel="stylesheet" type="text/css" href="CSS/CSS.css">
 </head>
-<body>
+<body onload="cargar()">
+<script src="functions.js"></script>
     <header>
-        <div id="idiomas">
-            <a href=""><img src="IMG/espaniol.png"></a>
-            <a href=""><img src="IMG/ingles.png"></a>
-            
+        
+        <div id="logo-cabra">
+            <a href="Page2.html"><img src="IMG/LOGO_VINYL_GOATS_2_TRANSPARENCIA.png"></a>
         </div>
-        <div id="usuario">
-            <a href="#">Iniciar Sesion</a>
-            <img src="IMG/VN.png" alt="">
+        
+        <div id="usuarioTR" class="usuario">
+                <a id="usuarioR" href=""></a> 
+                <div id="lista">
+                    <a href="" onclick="desloguear()">Cerrar Sesión</a>
+                    <a href="">Más opciones</a>
+                </div>
+                <img src="IMG/VN.png" alt="">
+        </div>
+        <div id="usuarioFR" class="usuario">
+            <a id="register" href="landingPage.html">REGISTRATE</a>
         </div>
     </header>
-    <div id="cosas">
+    <nav>
+        <div id="idiomas">  
+            <a href=""><img src="IMG/espaniol.png"></a>
+            <a href=""><img src="IMG/ingles.png"></a>
+        </div>
+        
+    </nav>
+    <div id="slide">
+        <div class="slideCapa">
+            
+            <div class="slider">
+                <img src="IMG/SLIDER/1.png" alt="">
+                <img src="IMG/SLIDER/2.png" alt="">
+                <img src="IMG/SLIDER/3.png" alt="">
+                <img src="IMG/SLIDER/4.png" alt="">
+            </div>
+            <div class="btnSlider" id="btnSliderIzquierda">&#60;</div>
+            <div class="btnSlider" id="btnSliderDerecha">&#62;</div>
+
+        </div>
     </div>
     <footer id="footer">
         <p id="pFooter">&copy; 2023 VinylGOATs. Todos los derechos reservados.</p>
