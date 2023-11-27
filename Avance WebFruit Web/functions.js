@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 
 document.getElementById('registroForm').addEventListener('submit', function(event) {
     event.preventDefault();
@@ -40,9 +40,8 @@ function cargar(){
 function validarFormulario() {
     // Realizar validación de cada campo aquí
     // Puedes mostrar mensajes de error y cambiar el estilo de los campos si es necesario
-=======
+
 document.addEventListener("click", validar);
->>>>>>> e1fc459ab23b2608996a94bbc37e8a5611dd3ffe
 
 function validarFormulario() 
 {
@@ -64,8 +63,7 @@ function validarFormulario()
 
     return true;
 }
-
-<<<<<<< HEAD
+}
 function slider(){
 
 const btnDerecho = document.querySelector("#btnSliderDerecha");
@@ -118,9 +116,8 @@ var intervalo=setInterval(slideAutomatico,5000);
 btnDerecho.addEventListener("click",slideManualDerecha);
 btnIzquierdo.addEventListener("click",slideManualIzquierda);
 
+}
 
-
-=======
 function validarNombre()
 {
     let elemento = document.getElementById("nombre");
@@ -177,5 +174,4 @@ function validar(e)
         e.preventDefault();
         return false;
     }
->>>>>>> e1fc459ab23b2608996a94bbc37e8a5611dd3ffe
 }
