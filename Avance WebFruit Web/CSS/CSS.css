@@ -291,25 +291,44 @@ aside{
 #pFooter{
     margin: 1em;
 }
-#infoOculta {
+
+#mostrarMas, #mostrarMenos
+{
+    color: rgb(238, 136, 19,0.85);
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+#mostrarMenos
+{
+    display: none;
+}
+
+#infoOculta 
+{
     display: none; /* Oculta el contenedor inicialmente */
 }
 
-#mostrarMas:target ~ #infoOculta {
-    display: block; /* Muestra el contenedor cuando el botón es activado */
+/*#mostrarMas:target ~ #infoOculta {
+    display: block; 
 }
 
 #sexo, #fechaNacimiento, #direccion, #pais {
-    display: none; /* Oculta los campos inicialmente */
+    display: none; 
 }
 
 #mostrarMas:target ~ #sexo,
 #mostrarMas:target ~ #fechaNacimiento,
 #mostrarMas:target ~ #direccion,
 #mostrarMas:target ~ #pais {
-    display: block; /* Muestra los campos cuando el botón es activado */
-}
+    display: block; 
+}*/
 /* Oculta un elemento en dispositivos móviles */
+
+#submitButton
+{
+    cursor: pointer;
+}
 
 #icons
 {
@@ -320,6 +339,7 @@ aside{
 {
     height: 3vh; /*encontrar mejores iconos*/
     margin-right: 1vh;
+    cursor: pointer;
 }
 @media only screen and (max-width: 600px) {
     body {
