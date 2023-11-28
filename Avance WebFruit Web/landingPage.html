@@ -39,29 +39,25 @@
         
         <form id="registroForm">
             <label for="nombre">Nombre De Usuario<span class="error">*</span>:</label>
-<<<<<<< HEAD
-            <input class="campos" type="text" id="nombreCampo" name="cNombre" placeholder="Nombre" required pattern="^[a-zA-Z]+(?: [a-zA-Z]+)*$"/>
-=======
             <input id="nombre" class="campos" type="text" name="cNombre" placeholder="Nombre"/>
->>>>>>> e1fc459ab23b2608996a94bbc37e8a5611dd3ffe
             <br>
-            <div id="errorN">
+            <div id="errorN"> <!-- Un div para poner los mensajitos de los errores del nombre -->
 
             </div>
             <label>Correo electrónico<span class="error">*</span>:</label>
             <input id="correo" class="campos" type="email" name="campoCorreo" placeholder="Correo"/>
             <br>
-            <div id="errorC">
+            <div id="errorC"> <!-- Un div para poner los mensajitos de los errores del correo -->
 
             </div>
             <label for="password">Contraseña<span class="error">*</span>:</label>
-            <input id="password" class="campos" type="password" name="campoContraseña" placeholder="Contraseña" required pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&]).{8,}$"/>
+            <input id="password" class="campos" type="password" name="campoContraseña" placeholder="Contraseña"/>
             <br>
 
-            <label for="confirmPassword">Confirmar Contraseña <span class="error">*</span>:</label>
+            <label for="confirmPassword">Confirmar Contraseña<span class="error">*</span>:</label>
             <input id="confirmPassword" class="campos" type="password" name="confirmContraseña" placeholder="Confirmar Contraseña" required>
             <br>
-            <div id="errorP">
+            <div id="errorP"> <!-- Un div para poner los mensajitos de los errores de las contraseñas -->
                 
             </div>
 
