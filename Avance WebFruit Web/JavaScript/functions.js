@@ -103,6 +103,11 @@ function inicio()
         return true;
     }
 
+    function redirigir()
+    {
+        location.replace("Page2.html");
+    }
+
     function confirmarPassword()
     {
         let errorP = document.getElementById("errorP");
@@ -129,34 +134,41 @@ function inicio()
     document.getElementById("password").addEventListener("blur", validarPassword);
     document.getElementById("confirmPassword").addEventListener("blur", confirmarPassword);
 
-    function validar(e) {
-        // Realizar verificaciones una por una
-        if (!validarNombre()) {
+    function validar(e) 
+    {
+        // Realiza las verificaciones una por una
+        if (!validarNombre()) 
+        {
             e.preventDefault();
             return false;
         }
     
-        if (!validarEmail()) {
+        if (!validarEmail()) 
+        {
             e.preventDefault();
             return false;
         }
     
-        if (!validarPassword()) {
+        if (!validarPassword()) 
+        {
             e.preventDefault();
             return false;
         }
     
-        if (!confirmarPassword()) {
+        if (!confirmarPassword()) 
+        {
             e.preventDefault();
             return false;
         }
     
-        // Preguntar al usuario antes de enviar el formulario
-        if (confirm("¿Seguro que quiere enviar el formulario?")) {
-            // Redirigir a la página deseada
-            window.location.href = "Page2.html";
+        // Pregunta al usuario antes de enviar el formulario
+        if (confirm("¿Seguro que quiere enviar el formulario?")) 
+        {
+            // Redirige a la página deseada
+            redirigir();
             return true;
-        } else {
+        } else 
+        {
             e.preventDefault();
             return false;
         }
