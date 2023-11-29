@@ -199,11 +199,12 @@ aside{
 
 }
 
-#errorN, #errorC, #errorP /* Pone las letras de los divs correspondientes en el color del footer y del header y en un tamaño más pequeño */
+#errorN, #errorC, #errorP /* Pone las letras de los divs correspondientes en el color del footer y del header y en un tamaño más pequeño. */
 {
     color: rgb(238, 136, 19,0.85);
     font-family: "lemonMilkBold";
     font-size: 0.5em;
+    cursor: default; /* También he cambiado el cursor para que se vea más bonito */
 }
 
 #introduccion{
@@ -309,22 +310,6 @@ aside{
     display: none; /* Oculta el contenedor inicialmente */
 }
 
-/*#mostrarMas:target ~ #infoOculta {
-    display: block; 
-}
-
-#sexo, #fechaNacimiento, #direccion, #pais {
-    display: none; 
-}
-
-#mostrarMas:target ~ #sexo,
-#mostrarMas:target ~ #fechaNacimiento,
-#mostrarMas:target ~ #direccion,
-#mostrarMas:target ~ #pais {
-    display: block; 
-}*/
-/* Oculta un elemento en dispositivos móviles */
-
 #submitButton
 {
     cursor: pointer;
@@ -337,7 +322,7 @@ aside{
 
 #icon
 {
-    height: 3vh; /*encontrar mejores iconos*/
+    height: 3vh;
     margin-right: 1vh;
     cursor: pointer;
 }

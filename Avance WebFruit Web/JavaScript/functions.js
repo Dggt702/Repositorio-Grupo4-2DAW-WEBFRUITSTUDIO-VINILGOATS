@@ -1,144 +1,164 @@
-document.addEventListener("click", validar); // Al hacer click 
+window.onload = inicio;
 
-var mostrarMas = document.getElementById("mostrarMas");
-mostrarMas.addEventListener("click", mostrarVisibilidad);
-let mostrarMenos = document.getElementById("mostrarMenos");
-mostrarMenos.addEventListener("click", quitarVisibilidad);
-
-function mostrarVisibilidad()
+function inicio()
 {
-    document.getElementById("infoOculta").style.display = "block";
-    mostrarMas.style.display = "none";
-    mostrarMenos.style.display = "block";
-}
+    let boton = document.getElementById("submitButton"); // Cogemos el id del boton para que luego
+    boton.addEventListener("click", validar); // Al hacer click podamos validarlo
 
-function quitarVisibilidad()
-{
-    document.getElementById("infoOculta").style.display = "none";
-    mostrarMas.style.display = "block";
-    mostrarMenos.style.display = "none";
-}
+    var mostrarMas = document.getElementById("mostrarMas");
+    mostrarMas.addEventListener("click", mostrarVisibilidad);
+    let mostrarMenos = document.getElementById("mostrarMenos");
+    mostrarMenos.addEventListener("click", quitarVisibilidad);
 
-function validarNombre()
-{
-    let elemento = document.getElementById("nombre");
-    let regexN = /^[a-zA-Z]+(?: [a-zA-Z]+)*$/;
-    let errorN = document.getElementById("errorN");
-    if (elemento.value === "")
+    function mostrarVisibilidad()
     {
-       errorN.innerHTML = "Debe introducir su nombre.";
+        document.getElementById("infoOculta").style.display = "block";
+        mostrarMas.style.display = "none";
+        mostrarMenos.style.display = "block";
     }
-    else if (!regexN.test(elemento.value)) 
-    {
-        errorN.innerHTML = "El nombre no cumple con los requisitos.";
-        return false;
-    }
-    else if (elemento.validity.patternMismatch) 
-    {
-        errorN.innerHTML = "El nombre no cumple con los requisitos.";
-        return false;
-    }
-    else
-    {
-        errorN.innerHTML = "";
-    }
-    return true;
-}
 
-function validarEmail()
-{
-    let elemento = document.getElementById("correo");
-    let regexC = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-    let errorC = document.getElementById("errorC");
-    if (elemento.value === "")
+    function quitarVisibilidad()
     {
-        errorC.innerHTML = "Debe introducir un email válido.";
-        return false;
+        document.getElementById("infoOculta").style.display = "none";
+        mostrarMas.style.display = "block";
+        mostrarMenos.style.display = "none";
     }
-    else if (!regexC.test(elemento.value)) 
-    {
-       errorC.innerHTML = "El correo electrónico no cumple con los requisitos.";
-    }
-    else if (elemento.validity.patternMismatch) 
-    {
-        errorC.innerHTML = "Formato incorrecto. Debe introducir un email válido.";
-        return false;
-    }
-    else
-    {
-        errorC.innerHTML = "";
-    }
-    return true;
-}
 
-function validarPassword()
-{
-    let regexP = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
-    let errorP = document.getElementById("errorP");
-    let password = document.getElementById("password");
-    if (password.value === "")
+    function validarNombre()
     {
-        errorP.innerHTML = "Debe introducir su contraseña. Tiene que tener al menos una mayúscula, una mínuscula, un número y un símbolo.";
-        return false;
+        let elemento = document.getElementById("nombre");
+        let regexN = /^[a-zA-Z]+(?: [a-zA-Z]+)*$/;
+        let errorN = document.getElementById("errorN");
+        if (elemento.value === "")
+        {
+        errorN.innerHTML = "Debe introducir su nombre.";
+        }
+        else if (!regexN.test(elemento.value)) 
+        {
+            errorN.innerHTML = "El nombre no cumple con los requisitos.";
+            return false;
+        }
+        else if (elemento.validity.patternMismatch) 
+        {
+            errorN.innerHTML = "El nombre no cumple con los requisitos.";
+            return false;
+        }
+        else
+        {
+            errorN.innerHTML = "";
+        }
+        return true;
     }
-    else if (!regexP.test(elemento.value)) 
+
+    function validarEmail()
     {
-       errorP.innerHTML = "La contraseña no cumple con los requisitos. Tiene que tener al menos una mayúscula, una mínuscula, un número y un símbolo.";
+        let elemento = document.getElementById("correo");
+        let regexC = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+        let errorC = document.getElementById("errorC");
+        if (elemento.value === "")
+        {
+            errorC.innerHTML = "Debe introducir un email válido.";
+            return false;
+        }
+        else if (!regexC.test(elemento.value)) 
+        {
+        errorC.innerHTML = "El correo electrónico no cumple con los requisitos.";
+        }
+        else if (elemento.validity.patternMismatch) 
+        {
+            errorC.innerHTML = "Formato incorrecto. Debe introducir un email válido.";
+            return false;
+        }
+        else
+        {
+            errorC.innerHTML = "";
+        }
+        return true;
     }
-    
-    else if (elemento.validity.patternMismatch) 
+
+    function validarPassword()
     {
+        let password = document.getElementById("password");
+        let regexP = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+        let errorP = document.getElementById("errorP");
+        if (password.value === "")
+        {
+            errorP.innerHTML = "Debe introducir su contraseña. Tiene que tener al menos una mayúscula, una mínuscula, un número y un símbolo.";
+            return false;
+        }
+        else if (!regexP.test(password.value)) 
+        {
         errorP.innerHTML = "La contraseña no cumple con los requisitos. Tiene que tener al menos una mayúscula, una mínuscula, un número y un símbolo.";
-        return false;
-    }
-    else
-    {
-        errorP.innerHTML = "";
-    }
-    return true;
-}
-
-function confirmarPassword()
-{
-    let errorP = document.getElementById("errorP");
-    let password = document.getElementById("password");
-    let confirmPassword = document.getElementById("confirmPassword");
-    if (confirmPassword.value === "")
-    {
-        errorP.innerHTML = "Debe confirmar su contraseña.";
-        return false;
-    }
-    if (password !== confirmPassword) {
-        errorP.innerHTML = "Las contraseñas no coinciden.";
-        return false;
-    }
-    else
-    {
-        errorP.innerHTML = "";
-    }
-    return true;
-}
-
-function pulsarBoton() // esta funcion ya funciona (CREO)
-{
-    let boton = document.getElementById("submitButton");
-    boton.onclick = function()
-    { 
-        console.log("Button Clicked");
-        return true;
-    }   
-}
-
-function validar(e)
-{
-    if(validarNombre() && validarEmail() && validarPassword() && confirmarPassword() && pulsarBoton() && confirm("¿Seguro que quiere enviar el formulario?"))
-    {
-        location.href = "Page2.html";
+        }
+        
+        else if (password.validity.patternMismatch) 
+        {
+            errorP.innerHTML = "La contraseña no cumple con los requisitos. Tiene que tener al menos una mayúscula, una mínuscula, un número y un símbolo.";
+            return false;
+        }
+        else
+        {
+            errorP.innerHTML = "";
+        }
         return true;
     }
-    else
+
+    function confirmarPassword()
     {
-        e.preventDefault();
-        return false;
+        let errorP = document.getElementById("errorP");
+        let password = document.getElementById("password");
+        let confirmPassword = document.getElementById("confirmPassword");
+        if (confirmPassword.value === "")
+        {
+            errorP.innerHTML = "Debe confirmar su contraseña.";
+            return false;
+        }
+        if (password.value !== confirmPassword.value) {
+            errorP.innerHTML = "Las contraseñas no coinciden.";
+            return false;
+        }
+        else
+        {
+            errorP.innerHTML = "";
+        }
+        return true;
+    }
+
+    document.getElementById("nombre").addEventListener("blur", validarNombre);
+    document.getElementById("correo").addEventListener("blur", validarEmail);
+    document.getElementById("password").addEventListener("blur", validarPassword);
+    document.getElementById("confirmPassword").addEventListener("blur", confirmarPassword);
+
+    function validar(e) {
+        // Realizar verificaciones una por una
+        if (!validarNombre()) {
+            e.preventDefault();
+            return false;
+        }
+    
+        if (!validarEmail()) {
+            e.preventDefault();
+            return false;
+        }
+    
+        if (!validarPassword()) {
+            e.preventDefault();
+            return false;
+        }
+    
+        if (!confirmarPassword()) {
+            e.preventDefault();
+            return false;
+        }
+    
+        // Preguntar al usuario antes de enviar el formulario
+        if (confirm("¿Seguro que quiere enviar el formulario?")) {
+            // Redirigir a la página deseada
+            window.location.href = "Page2.html";
+            return true;
+        } else {
+            e.preventDefault();
+            return false;
+        }
     }
 }
