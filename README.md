@@ -26,7 +26,7 @@ Dentro de la carpeta de “Avance WebFruit Web”, donde está respectivos archi
 
 Historial de Commits:
 
-Hemos realizado 41 Commits para llegar a la versión actual de nuestro código.
+Hemos realizado 46 Commits para llegar a la versión actual de nuestro código.
 
 Derechos de Autor
 
