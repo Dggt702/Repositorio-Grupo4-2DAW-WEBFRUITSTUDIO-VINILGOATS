@@ -47,8 +47,8 @@ function inicio()
         else // En caso contrario, de que todo esté correcto y hayan escrito todo correcto
         {
             errorN.innerHTML = ""; // No saltará ningun error o se borrará el error
+            return true;
         }
-        return true;
     }
 
     function validarEmail() // Con esta función validamos el correo electrónico
@@ -74,8 +74,8 @@ function inicio()
         else // En caso contrario, de que todo esté correcto y hayan escrito todo correcto
         {
             errorC.innerHTML = ""; // No saltará ningun error o se borrará el error
+            return true;
         }
-        return true;
     }
 
     function validarPassword() // Con esta función validamos la contraseña
@@ -85,27 +85,27 @@ function inicio()
         let errorP = document.getElementById("errorP"); // Cogemos el id del errorP (el div donde van los errores de la contraseña, donde vamos a escribir cuáles son los problemas que hemos visto que con la contraseña)
         if (password.value === "") // Si el campo de la contraseña está vacía
         {
-            errorP.innerHTML = "Debe introducir su contraseña. Tiene que tener al menos una mayúscula, una mínuscula, un número y un símbolo."; // Les indicamos en el div errorP que escriban su contraseña
+            errorP.innerHTML = "Debe introducir su contraseña. Tiene que tener al menos ocho caracteres, una mayúscula, una mínuscula, un número y un símbolo."; // Les indicamos en el div errorP que escriban su contraseña
             return false;
         }
         else if (!regexP.test(password.value)) // Si la contraseña que escriben no coincide con la expresión regular
         {
-            errorP.innerHTML = "La contraseña no cumple con los requisitos. Tiene que tener al menos una mayúscula, una mínuscula, un número y un símbolo."; // Les indicamos en el div errorP que escriban una contraseña que cumpla con los requisitos
+            errorP.innerHTML = "La contraseña no cumple con los requisitos. Tiene que tener al menos ocho caracteres, una mayúscula, una mínuscula, un número y un símbolo."; // Les indicamos en el div errorP que escriban una contraseña que cumpla con los requisitos
             return false;
         }
         else if (password.validity.patternMismatch) // Si la contraseña que escriben no coincide con la expresión regular
         {
-            errorP.innerHTML = "La contraseña no cumple con los requisitos. Tiene que tener al menos una mayúscula, una mínuscula, un número y un símbolo."; // Les indicamos en el div errorP que escriban una contraseña que cumpla con los requisitos
+            errorP.innerHTML = "La contraseña no cumple con los requisitos. Tiene que tener al menos ocho caracteres, una mayúscula, una mínuscula, un número y un símbolo."; // Les indicamos en el div errorP que escriban una contraseña que cumpla con los requisitos
             return false;
         }
         else // En caso contrario, de que todo esté correcto y hayan escrito todo correcto
         {
             errorP.innerHTML = ""; // No saltará ningun error o se borrará el error
+            return true;
         }
-        return true;
     }
 
-    function redirigir()
+    function redirigir() // Redirige a la página deseada
     {
         location.replace("Page2.html");
     }
@@ -128,8 +128,8 @@ function inicio()
         else // En caso contrario, de que todo esté correcto y hayan escrito todo correcto
         {
             errorP.innerHTML = ""; // No saltará ningun error o se borrará el error
+            return true;
         }
-        return true;
     }
 
     // Con el evento 'blur' hacemos que haga foco en las funciones necesarias de validación:
@@ -137,6 +137,122 @@ function inicio()
     document.getElementById("correo").addEventListener("blur", validarEmail);
     document.getElementById("password").addEventListener("blur", validarPassword);
     document.getElementById("confirmPassword").addEventListener("blur", confirmarPassword);
+    document.getElementById("fechaNacimiento").addEventListener("blur", validarFechaNacimiento);
+    document.getElementById("direccion").addEventListener("blur", validarDireccion);
+    document.getElementById("dni").addEventListener("blur", validarDNI);
+    document.getElementById("numTarjeta").addEventListener("blur", validarTarjeta);
+
+    
+    function validarFechaNacimiento() {
+        let fechaNacimientoInput = document.getElementById("fechaNacimiento"); // Cogemos el id de la fecha de nacimiento
+        let fechaNacimiento = new Date(fechaNacimientoInput.value); // Sacamos un new Date
+        let fechaActual = new Date(); // Obtenemos la fecha actual
+        let edad = fechaActual.getFullYear() - fechaNacimiento.getFullYear();
+        let meses = fechaActual.getMonth() - fechaNacimiento.getMonth(); // Calculamos la edad
+        
+        if (!fechaNacimientoInput) {
+            document.getElementById("errorF").innerHTML = "Por favor, seleccione una fecha de nacimiento."; // Mostramos el mensaje de error
+            return false;
+        }
+        if (meses < 0 || (meses === 0 && fechaActual.getDate() < fechaNacimiento.getDate())) // Comprobamos si ya ha pasado su cumpleaños de este año
+        {
+            edad--;
+        }
+        if (edad < 18) // Validamos que la edad sea mayor o igual a 18  
+        {   
+            document.getElementById("errorF").innerHTML = "Debes ser mayor de 18 años."; // Mostramos el mensaje de error
+            return false;
+        }
+        else 
+        {
+            document.getElementById("errorF").innerHTML = ""; // No saltará ningun error o se borrará el error
+            return true;
+        }
+    }
+    
+    function validarDireccion() {
+        let direccionInput = document.getElementById("direccion"); // Cogemos el id de la dirección
+        let direccion = direccionInput.value.trim();
+        
+        if (direccion === "") // Si el campo de la comfirmación de la dirección está vacía
+        {
+            document.getElementById("errorD").innerHTML = "Por favor, escribe tu dirección."; // Les indicamos en el div errorDNI que escriban su dirección
+            return false;
+        }
+        else
+        {
+            document.getElementById("errorD").innerHTML = ""; // No saltará ningun error o se borrará el error
+            return true;
+        }
+        
+    }
+    
+    function validarDNI() {
+        let dniInput = document.getElementById("dni"); // Cogemos el id del DNI
+        let dni = dniInput.value.trim();
+        let regexDNI = /^[0-9]{8}[TRWAGMYFPDXBNJZSQVHLCKE]$/; // La expresión regular del DNI
+        let errorDNI = document.getElementById("errorDNI"); // Cogemos el id del errorDNI (el div donde van los errores del DNI, donde vamos a escribir cuáles son los problemas que hemos visto que con el DNI)
+    
+        if (dni === "")  // Si el campo de la comfirmación del DNI está vacío
+        {
+          errorDNI.innerHTML = "Por favor, escriba su DNI."; // Les indicamos en el div errorDNI que escriban su DNI
+            return false;
+        }
+        if (!regexDNI.test(dni)) 
+        {
+            errorDNI.innerHTML = "El número de DNI debe tener 8 dígitos numéricos seguidos de una letra válida.";
+            return false;
+        }
+        // Extraemos los dígitos y la letra del DNI para realizar la comprobación de la letra
+        let digitos = dni.slice(0,9);
+        let letra = dni.slice(-1);
+
+        // Calculamos la letra esperada según el algoritmo establecido
+        let letras = "TRWAGMYFPDXBNJZSQVHLCKE";
+        let letraEsperada = letras[dni.slice(0, 8) % 23];
+
+        // Verificamos que la letra proporcionada coincida con la esperada
+        if (letra.toUpperCase() !== letraEsperada) {
+            errorDNI.innerHTML = "La letra del DNI no es válida.";
+            return false;
+        }
+        else
+        {
+            errorDNI.innerHTML = ""; // No saltará ningun error o se borrará el error
+            return true; 
+        } 
+    }
+
+    function validarTarjeta()
+    {
+            // Validación de la tarjeta de crédito (si se proporciona dirección completa)
+            var direccion = document.getElementById("direccion").value; // Cogemos el id de la dirección
+            var pais = document.getElementById("pais").value; // Cogemos el id del país
+            var numTarjeta = document.getElementById("numTarjeta").value; // Cogemos el id de la tarjeta
+            let errorNT = document.getElementById("errorNT"); // Cogemos el id del errorNT (el div donde van los errores del número de la tarjeta, donde vamos a escribir cuáles son los problemas que hemos visto que con el número de la tarjeta)
+            var regexTarjeta = /^\d{16}$/;
+
+            if (direccion && pais && numTarjeta) 
+            {
+            
+                if (numTarjeta === "")  // Si el campo de la comfirmación del número de tarjeta está vacío
+                {
+                    errorNT.innerHTML = "Por favor, escriba su número de tarjeta."; // Les indicamos en el div errorNT que escriban su número de tarjeta
+                }
+                // Validación de la tarjeta de crédito (16 dígitos)
+                if (!regexTarjeta.test(numTarjeta)) 
+                {
+                    errorNT.innerHTML = "El número de tarjeta debe tener 16 dígitos numéricos válidos.";
+                    return false;
+                }
+                else 
+                {
+                    errorNT.innerHTML = ""; // No saltará ningun error o se borrará el error
+                    return true;
+                }
+            }
+}
+
 
     function validar(e) // Con esta función validamos todo el formulario
     {
@@ -163,6 +279,32 @@ function inicio()
         {
             e.preventDefault();
             return false;
+        }
+
+        // Validación de información oculta
+        if (document.getElementById("mostrarMas").style.display === "none")
+        {
+            // Valida la información oculta solo si está desplegada
+            if (!validarFechaNacimiento()) 
+            {
+                e.preventDefault();
+                return false;
+            }
+            if (!validarDireccion()) 
+            {
+                e.preventDefault();
+                return false;
+            }
+            if (!validarDNI()) 
+            {
+                e.preventDefault();
+                return false;
+            }
+            if (!validarTarjeta())
+            {
+                e.preventDefault();
+                return false;
+            }
         }
     
         // Pregunta al usuario antes de enviar el formulario

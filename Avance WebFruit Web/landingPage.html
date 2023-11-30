@@ -77,10 +77,16 @@
                 <label for="fechaNacimiento">Fecha de Nacimiento:</label>
                 <input class="campos" type="date" id="fechaNacimiento" name="fechaNacimiento" placeholder="fechaNacimiento">
                 <br id="fechaBr">
+                <div id="errorF"> <!-- Un div para poner los mensajitos de los errores de la fecha de nacimiento -->
+
+                </div>
         
                 <label for="direccion">Dirección:</label>
                 <input class="campos" type="text" id="direccion" name="direccion" placeholder="dirección">
                 <br id="direccionBr">
+                <div id="errorD"> <!-- Un div para poner los mensajitos de los errores de la dirección -->
+
+                </div>
         
                 <label for="pais">País:</label>
                 <select class="campos" id="pais" name="pais" aria-placeholder="pais">
@@ -90,6 +96,29 @@
                     <!-- Agregar más países según sea necesario -->
                 </select>
                 <br id="paisBr">
+
+                <label for="dni">DNI:</label>
+                <input class="campos" type="text" id="dni" name="dni" placeholder="dni">
+                <br id="dniBr">
+                <div id="errorDNI">
+
+                </div>
+
+                <label for="numTarjeta">Número de Tarjeta de Crédito:</label>
+                <input type="text" id="numTarjeta" name="numTarjeta">
+                <br>
+                <div id="errorNT">
+
+                </div>
+
+                <label for="notificaciones">Activar notificaciones de la página:</label>
+                <input type="checkbox" id="notificaciones" name="notificaciones">
+                <br>
+
+                <label for="revistaDigital">Recepción de la revista digital:</label>
+                <input type="checkbox" id="revistaDigital" name="revistaDigital">
+                <br>
+
             </div>
         
             <div id="submitCaja">
