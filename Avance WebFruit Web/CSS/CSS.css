@@ -33,11 +33,11 @@ body{
     display: flex;
     margin: 0; /*Dioggo: Esto de aca, esta para que las cajas de la pagina, se peguen a los bordes de esta*/
     flex-direction: column;
-    background: linear-gradient(rgba(5,7,12,0.9),rgba(5,7,12,0.9)), url("../IMG/albumFondo.jpg");
+    background: linear-gradient(rgba(5,7,12,0.9),rgba(5,7,12,0.9)), url("../IMG/img.jpg");
     /*Dioggo: Si has leido algo de mis comentarios anteriores, en la parte del HTML, 
     más especificamente en el texto de bienvenida, sabrás que esta imagen, opaca dicho texto, 
     por lo que si saben como hacer que el fondo sea algo más transparente, haga los cambios, o comenten alguna idea*/
-    background-size: cover;
+    
     
 
 
@@ -110,6 +110,13 @@ body{
 /* logo */ 
 #logo-cabra{
     display: flex;
+}#logo-cabra a{
+    display: flex;
+    color:black;
+    text-decoration: none;
+    font-family: "LemonMilkBold";
+    font-size: 1em;
+    align-items: center;
 }
 
 #logo-cabra a .nombre{
@@ -118,7 +125,7 @@ body{
 }
 
 #logo-cabra a img{
-    width: 10em;
+    width: 5em;
     border-radius: 100%;
 }#usuarioTR{
     display: flex;
@@ -300,6 +307,7 @@ aside{
     justify-content: space-between;
 }
 #pFooter{
+    font-family: "LemonMilkBold";
     margin: 1em;
 }
 
