@@ -226,9 +226,9 @@ function inicio()
     function validarTarjeta()
     {
             // Validación de la tarjeta de crédito (si se proporciona dirección completa)
-            var direccion = document.getElementById("direccion").value; // Cogemos el id de la dirección
-            var pais = document.getElementById("pais").value; // Cogemos el id del país
-            var numTarjeta = document.getElementById("numTarjeta").value; // Cogemos el id de la tarjeta
+            var direccion = document.getElementById("direccion"); // Cogemos el id de la dirección
+            var pais = document.getElementById("pais"); // Cogemos el id del país
+            var numTarjeta = document.getElementById("numTarjeta"); // Cogemos el id de la tarjeta
             let errorNT = document.getElementById("errorNT"); // Cogemos el id del errorNT (el div donde van los errores del número de la tarjeta, donde vamos a escribir cuáles son los problemas que hemos visto que con el número de la tarjeta)
             var regexTarjeta = /^\d{16}$/;
 
