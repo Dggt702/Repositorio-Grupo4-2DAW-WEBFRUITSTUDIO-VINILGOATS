@@ -8,12 +8,11 @@ document.getElementById('registroForm').addEventListener('submit', function(even
         nombreUsuario = document.getElementById("nombreCampo").value;
         localStorage.setItem("userRegister",true);
         localStorage.setItem("nUser",nombreUsuario);
-        location.href = "Page2.html";
-        
-        
+        location.href = "Page2.html";       
         // Aquí puedes enviar los datos al servicio web utilizando AJAX o Fetch
     }
 });
+
 function desloguear(){
     localStorage.clear();
     location.href = "Page2.html";
@@ -40,7 +39,6 @@ function cargar(){
 function validarFormulario() {
     // Realizar validación de cada campo aquí
     // Puedes mostrar mensajes de error y cambiar el estilo de los campos si es necesario
-
 document.addEventListener("click", validar);
 
 function validarFormulario() 
@@ -86,8 +84,7 @@ function slideAutomatico(){
 
 function slideManualIzquierda(){
       clearInterval(intervalo);
-    
-    let percentage = index * -100;
+    let percentage = index * 100;
     index--;
     sliderInner.style.transform = "translateX("+percentage+"%)";
     if(index<=0){
@@ -95,7 +92,6 @@ function slideManualIzquierda(){
     }
     intervalo=setInterval(slideAutomatico,5000);
 }
-
 function slideManualDerecha(){
     clearInterval(intervalo);
     let percentage = index * -100;
@@ -104,17 +100,12 @@ function slideManualDerecha(){
     if(index>images.length-1){
         index=0;
     }
-    if(index<=0){
-        index=1;
-    }
     intervalo=setInterval(slideAutomatico,5000);
 }
 
-
-
-var intervalo=setInterval(slideAutomatico,5000);
-btnDerecho.addEventListener("click",slideManualDerecha);
-btnIzquierdo.addEventListener("click",slideManualIzquierda);
+    var intervalo=setInterval(slideAutomatico,5000);
+    /*btnDerecho.addEventListener("click",slideManualDerecha);
+    btnIzquierdo.addEventListener("click",slideManualIzquierda);*/
 
 }
 
