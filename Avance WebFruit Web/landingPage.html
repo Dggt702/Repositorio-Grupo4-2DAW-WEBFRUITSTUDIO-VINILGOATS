@@ -21,7 +21,7 @@
     <!---Dioggo: He puesto aca un div, debido a que si no lo está, no habra separacion entre el 
         header, Section y Aside, si alguien conoce alguna forma en la que se pueda arreglar eso, comentelo, o agreguelo--->
 <div id="separador">
-    <section>
+    <section id="section_landing">
         <div id="introduccion">
             <p id="bienvenidoP">¿TE GUSTA LA MÚSICA?</p>
             <div id="texto-introduccion">
@@ -74,17 +74,21 @@
                     <option value="otro">Otro</option>
                 </select>
                 <br id="sexoBr">
+                <br>
         
                 <label for="fechaNacimiento">Fecha de Nacimiento:</label>
                 <input class="campos" type="date" id="fechaNacimiento" name="fechaNacimiento" placeholder="fechaNacimiento">
                 <br id="fechaBr">
+                <br>
                 <div id="errorF"> <!-- Un div para poner los mensajitos de los errores de la fecha de nacimiento -->
+                    
 
                 </div>
         
                 <label for="direccion">Dirección:</label>
                 <input class="campos" type="text" id="direccion" name="direccion" placeholder="Dirección">
                 <br id="direccionBr">
+                <br>
                 <div id="errorD"> <!-- Un div para poner los mensajitos de los errores de la dirección -->
 
                 </div>
@@ -94,19 +98,29 @@
                     <option value="espana">España</option>
                     <option value="mexico">México</option>
                     <option value="argentina">Argentina</option>
+                    <option value="peru">Perú</option>
+                    <option value="colombia">Colombia</option>
+                    <option value="andorra">Andorra</option>
+                    <option value="portugal">Portugal</option>
+                    <option value="italia">Italia</option>
+                    <option value="francia">Francia</option>
+                    <option value="alemania">Alemania</option>
                     <!-- Agregar más países según sea necesario -->
                 </select>
                 <br id="paisBr">
+                <br>
 
                 <label for="dni">DNI:</label>
                 <input class="campos" type="text" id="dni" name="dni" placeholder="DNI">
                 <br id="dniBr">
+                <br>
                 <div id="errorDNI">
 
                 </div>
 
                 <label for="numTarjeta">Número de Tarjeta de Crédito:</label>
                 <input type="text" id="numTarjeta" name="numTarjeta">
+                <br>
                 <br>
                 <div id="errorNT">
 
