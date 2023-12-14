@@ -41,6 +41,7 @@ if (isset($_POST["submit"])){
 
     $proceso = new Funciones();
     $proceso->grabar($usuario);
+    header ("Location: ../VISTA/landingPage.html");
 }
 
 ?>
