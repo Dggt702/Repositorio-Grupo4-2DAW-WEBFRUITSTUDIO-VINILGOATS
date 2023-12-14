@@ -20,14 +20,14 @@ if (isset($_POST["submit"])){
     $numTarjeta=$_POST["numTarjeta"];
     
     $notificaciones=$_POST["notificaciones"];
-    if($notificaciones==0){
+    if($notificaciones==1){
         $notificaciones=true;
     }else{
         $notificaciones=false;
     }
 
     $revistaDigital=$_POST["revistaDigital"];
-    if($revistaDigital==0){
+    if($revistaDigital==1){
         $revistaDigital=true;
     }else{
         $revistaDigital=false;
