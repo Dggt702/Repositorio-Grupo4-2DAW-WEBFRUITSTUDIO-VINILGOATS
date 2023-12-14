@@ -10,7 +10,7 @@ class BBDD {
    
     private $servidor;
     private $usuario;
-    private $password;
+    private $password; 
     private $nombre;
     public $mysql;
     
