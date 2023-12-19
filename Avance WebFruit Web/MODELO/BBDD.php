@@ -15,7 +15,7 @@ class BBDD {
     public $mysql;
     
     public function __construct() {
-        $this->usuario = "dioggo"; 
+        $this->usuario = "admin_vb"; 
         $this->password = "";
         $this->nombre="bdd_vnbros";
         $this->servidor="localhost";

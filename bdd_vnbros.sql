@@ -48,6 +48,44 @@ CREATE TABLE `usuarios` (
 INSERT INTO `usuarios` (`nombre`, `correo`, `contraseña`, `sexo`, `fecha_de_nacimiento`, `direccion`, `pais`, `DNI`, `tarjeta_de_credito`, `notificaciones`, `revista_digital`) VALUES
 ('Dioggo Alonso Vasquez Rivera', 'dioggovr702@gmail.com', '$revistaDigital2', 'masculino', '2005-08-28', 'mI CASA', 'espana', '07096238W', 2147483647, 0, 0);
 
+INSERT INTO `usuarios` (`nombre`, `correo`, `contraseña`, `sexo`, `fecha_de_nacimiento`, `direccion`, `pais`, `DNI`, `tarjeta_de_credito`, `notificaciones`, `revista_digital`) VALUES
+('Javier Herce Sánchez', 'javierhs2003@gmail.com', '$Ccontraseña123', 'masculino', '2003-08-20', 'mI CASA 2', 'espana', '51740969P', 7463847412, 0, 0);
+
+
+CREATE TABLE `sexo` (
+  `id` int(11) NOT NULL,
+  `nombre` varchar(20) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- Insertar valores posibles para el campo 'nombre'
+INSERT INTO `sexo` (`id`, `nombre`) VALUES
+(1, 'Masculino'),
+(2, 'Femenino'),
+(3, 'Otro');
+
+
+CREATE TABLE `paises` (
+  `id` int(11) NOT NULL,
+  `nombre` varchar(100) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- Insertar valores posibles para el campo 'nombre'
+INSERT INTO `paises` (`id`, `nombre`) VALUES
+(1, 'España'),
+(2, 'México'),
+(3, 'Argentina'),
+(4, 'Perú'),
+(5, 'Colombia'),
+(6, 'Andorra'),
+(7, 'Portugal'),
+(8, 'Italia'),
+(9, 'Francia'),
+(10, 'Alemania');
+-- Agregar más países 
+
+
 --
 -- Índices para tablas volcadas
 --
