@@ -325,3 +325,50 @@ function inicio()
         }
     }
 }
+
+function slider(){
+
+    const btnDerecho = document.querySelector("#btnSliderDerecha");
+    const btnIzquierdo = document.querySelector("#btnSliderIzquierda");
+    
+    let sliderInner=document.querySelector(".slider");
+    let images = sliderInner.querySelectorAll("img");
+    let index = 1;
+    
+    function slideAutomatico(){
+        let percentage = index * -100;
+        sliderInner.style.transform = "translateX("+percentage+"%)";
+        index++;
+    
+        if(index>images.length - 1){
+            index=0;
+            
+        }
+    }
+    
+    function slideManualIzquierda(){
+          clearInterval(intervalo);
+        let percentage = index * 100;
+        index--;
+        sliderInner.style.transform = "translateX("+percentage+"%)";
+        if(index<=0){
+            index=1;
+        }
+        intervalo=setInterval(slideAutomatico,5000);
+    }
+    function slideManualDerecha(){
+        clearInterval(intervalo);
+        let percentage = index * -100;
+        sliderInner.style.transform = "translateX("+percentage+"%)";
+        index++;
+        if(index>images.length-1){
+            index=0;
+        }
+        intervalo=setInterval(slideAutomatico,5000);
+    }
+    
+        var intervalo=setInterval(slideAutomatico,5000);
+        /*btnDerecho.addEventListener("click",slideManualDerecha);
+        btnIzquierdo.addEventListener("click",slideManualIzquierda);*/
+    
+    }

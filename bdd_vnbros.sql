@@ -27,6 +27,9 @@ SET time_zone = "+00:00";
 -- Estructura de tabla para la tabla `usuarios`
 --
 
+CREATE DATABASE IF NOT EXISTS bdd_vnbros;
+USE bdd_vnbros;
+
 CREATE TABLE `usuarios` (
   `nombre` varchar(50) NOT NULL,
   `correo` varchar(125) NOT NULL,
