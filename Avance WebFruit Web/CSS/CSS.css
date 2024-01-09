@@ -55,6 +55,7 @@ body{
 #idiomas img{
     width:2em;
     margin-left: 1em;
+    margin-right: 1em;
     align-self: center;
     transition: transform 0.3s ease-in-out;   
 }
@@ -69,6 +70,7 @@ body{
     display: flex;
     justify-content: center;
     align-items:first baseline;
+    margin: 4em;
     
 }.slideCapa{
     overflow: hidden;
@@ -176,11 +178,86 @@ body{
     border-radius: 100%;
     width: 2em;
 }
-section{
+
+/* Javi: navbar.css */
+
+.navbar {
+    align-items: center;
+    display: flex;
+    justify-content: space-around;
+    background-color: #333;
+    padding: 10px;
+    color: white;
+}
+
+.navbar a {
+    text-decoration: none;
+    color: white;
+}
+
+.navbar a:hover {
+    border-bottom: 2px solid white;
+}
+
+
+#section_landing{
     display: flex;
     color: white;
     width: 60%;
-}#register{
+}
+
+/* vinilos.css */
+
+#vinilos {
+    color: white;
+    text-align: center;
+    margin: 20px 0;
+}
+
+#vinilos h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.vinilo-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.vinilo {
+    width: 250px;
+    margin: 15px;
+    padding: 10px;
+    background:rgba(0, 0, 0, 0.8);
+    border: 1px solid #ddd;
+    border-radius: 8px;
+}
+
+.vinilo img {
+    max-width: 100%;
+    border-radius: 8px;
+}
+
+.vinilo p {
+    margin: 10px 0;
+}
+
+.vinilo button {
+    background-color: #007BFF;
+    color: white;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.vinilo button:hover {
+    background-color: #0056b3;
+}
+
+
+#register{
     font-family: "lemonMilkLight";
     display: flex;
     margin-right: 1em;
@@ -401,3 +478,54 @@ aside{
         margin: 0 auto;
     }
 }
+/*CSS De infoDiscos.html */
+
+#sectionInfo{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.viniloInfo{
+    width: 40%;
+    display: flex;
+    flex-direction:column;
+    align-items: center;
+    border: solid;
+    border-color: white;
+    margin-top: 4em;
+    margin-bottom: 4em;
+
+}
+
+.viniloCanciones{
+    width: 40%;
+    display: flex;
+    flex-direction:column;
+    align-items: center;
+    border: solid;
+    border-color: white;
+    margin-top: 4em;
+    margin-bottom: 4em;
+}
+
+.tituloVinilos h1{
+    color:#ee8813; 
+    font-size: 2em;
+}
+
+#tabla{
+    color: white; 
+}
+
+#tabla thead tr th{
+    color: #ee8813; 
+}
+
+
+.viniloInfo img{
+  width: 75%;
+  margin-top: 1em;
+}
+

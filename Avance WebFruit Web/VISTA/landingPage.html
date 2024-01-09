@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VinylGOATs</title>
+    <link rel="stylesheet" type="text/css" href="../CSS/CSS.css">
+    <link rel="icon" type="image/png" href="../IMG/LOGO_VINYL_GOATS_1_SIN_LETRAS_TRANSPARENCIA.png" />
+</head>
+
+<body> 
+    <header>
+        <div id="logo-cabra">
+            <a href="Page2.html"><img src="../IMG/LOGO_VINYL_GOATS_1_SIN_LETRAS_TRANSPARENCIA.png">Vinyl GOATS</a>
+            
+        </div>
+        <div class="usuario">
+            <a href="#">Iniciar Sesion</a>
+          
+        </div>
+    </header>
+    <!---Dioggo: He puesto aca un div, debido a que si no lo está, no habra separacion entre el 
+        header, Section y Aside, si alguien conoce alguna forma en la que se pueda arreglar eso, comentelo, o agreguelo--->
+<div id="separador">
+    <section id="section_landing">
+        <div id="introduccion">
+            <p id="bienvenidoP">¿TE GUSTA LA MÚSICA?</p>
+            <div id="texto-introduccion">
+                <p>Vinyl GOATS es una tienda online de discos vinilos, CD, y todo lo relacionado con tu música y artistas favoritos. ¿Qué esperas? Un número de grandes álbumes te esperan, aquí, en Vinyl GOATS</p>
+            </div>
+        </div>
+    </section>
+
+    <aside>
+        
+        <div id="logoForm">    <!---Dioggo:  Esta caja agrupa tanto la imagen del quokka, la cual, será reemplazada por el logo que se eleija más tarde,
+            si quieren cambian el <h2> por un <p>, u otra cosa que se les ocurra--->
+            <h2>REGÍSTRATE</h2>
+            <img src="../IMG/LOGO_VINYL_GOATS_1_SIN_LETRAS_TRANSPARENCIA.png" alt="">
+        </div>
+        <form method="post" action="../CONTROLADOR/logeo.php" id="registroForm">
+            <label for="nombre">Nombre De Usuario<span class="error">*</span>:</label>
+            <input id="nombre" class="campos" type="text" name="cNombre" placeholder="Nombre"/>
+            <br>
+            <div id="errorN"> <!-- Un div para poner los mensajitos de los errores del nombre -->
+
+            </div>
+            <label>Correo electrónico<span class="error">*</span>:</label>
+            <input id="correo" class="campos" type="email" name="campoCorreo" placeholder="Correo"/>
+            <br>
+            <div id="errorC"> <!-- Un div para poner los mensajitos de los errores del correo -->
+
+            </div>
+            <label for="password">Contraseña<span class="error">*</span>:</label>
+            <input id="password" class="campos" type="password" name="campoContraseña" placeholder="Contraseña"/>
+            <br>
+
+            <label for="confirmPassword">Confirmar Contraseña<span class="error">*</span>:</label>
+            <input id="confirmPassword" class="campos" type="password" name="confirmContraseña" placeholder="Confirmar Contraseña" required>
+            <br>
+            <div id="errorP"> <!-- Un div para poner los mensajitos de los errores de las contraseñas -->
+                
+            </div>
+
+            <!-- Botón para mostrar más -->
+            <p id="mostrarMas">Mostrar Más</p>
+            <p id="mostrarMenos">Mostrar Menos</p>
+
+            <div id="infoOculta">
+                <label for="sexo">Sexo:</label>
+                <select class="campos" id="sexo" name="sexo" aria-placeholder="sexo">
+                    <option value="masculino">Masculino</option>
+                    <option value="femenino">Femenino</option>
+                    <option value="otro">Otro</option>
+                </select>
+                <br id="sexoBr">
+                <br>
+        
+                <label for="fechaNacimiento">Fecha de Nacimiento:</label>
+                <input class="campos" type="date" id="fechaNacimiento" name="fechaNacimiento" placeholder="fechaNacimiento">
+                <br id="fechaBr">
+                <br>
+                <div id="errorF"> <!-- Un div para poner los mensajitos de los errores de la fecha de nacimiento -->
+                    
+
+                </div>
+        
+                <label for="direccion">Dirección:</label>
+                <input class="campos" type="text" id="direccion" name="direccion" placeholder="Dirección">
+                <br id="direccionBr">
+                <br>
+                <div id="errorD"> <!-- Un div para poner los mensajitos de los errores de la dirección -->
+
+                </div>
+        
+                <label for="pais">País:</label>
+                <select class="campos" id="pais" name="pais" aria-placeholder="pais">
+                    <option value="espana">España</option>
+                    <option value="mexico">México</option>
+                    <option value="argentina">Argentina</option>
+                    <option value="peru">Perú</option>
+                    <option value="colombia">Colombia</option>
+                    <option value="andorra">Andorra</option>
+                    <option value="portugal">Portugal</option>
+                    <option value="italia">Italia</option>
+                    <option value="francia">Francia</option>
+                    <option value="alemania">Alemania</option>
+                    <!-- Agregar más países según sea necesario -->
+                </select>
+                <br id="paisBr">
+                <br>
+
+                <label for="dni">DNI:</label>
+                <input class="campos" type="text" id="dni" name="dni" placeholder="DNI">
+                <br id="dniBr">
+                <br>
+                <div id="errorDNI">
+
+                </div>
+
+                <label for="numTarjeta">Número de Tarjeta de Crédito:</label>
+                <input type="text" id="numTarjeta" name="numTarjeta">
+                <br>
+                <br>
+                <div id="errorNT">
+
+                </div>
+
+                <label for="notificaciones"><p id="notificaciones">Activar notificaciones de la página:</label>
+                <input type="checkbox" id="notificaciones" name="notificaciones"></p>
+                
+
+                <label for="revistaDigital"><p id="revistaDigital">Recepción de la revista digital:</label>
+                <input type="checkbox" id="revistaDigital" name="revistaDigital"></p>
+                <br>
+
+            </div>
+        
+            <div id="submitCaja">
+                <input type="submit" value="Registrar" id="submitButton" name="submit">
+            </div>
+        
+        </form>
+    </aside>
+</div>
+
+<div id="separador">
+    <section>
+        <!-- ... Contenido de la sección ... -->
+    </section>
+
+    <aside>
+        <!-- ... Contenido del aside ... -->
+    </aside>
+</div>
+
+<footer id="footer">
+    <p id="pFooter">&copy; 2023 VinylGOATs. Todos los derechos reservados.</p>
+    <div id="icons">
+        <img id="icon" src="../Icons/whatsapp.png" alt="Icono de WhatsApp">
+        <img id="icon" src="../Icons/telegram.png" alt="Icono de Telegram">
+        <img id="icon" src="../Icons/twitter.png" alt="Icono de Twitter">
+        <img id="icon" src="../Icons/instagram.png" alt="Icono de Instagram">
+        <img id="icon" src="../Icons/facebook.png" alt="Icono de Facebook">
+        <img id="icon" src="../Icons/youtube.png" alt="Icono de Youtube">
+    </div>
+</footer>
+    <script src="../JavaScript/functions.js"></script>
+</body>
+</html>
