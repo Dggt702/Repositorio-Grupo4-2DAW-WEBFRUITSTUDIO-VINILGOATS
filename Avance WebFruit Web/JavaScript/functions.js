@@ -375,17 +375,18 @@ function slider(){
 
     // Datos de ejemplo de productos/servicios
 
-const products = [
+    const products = 
+    [
 
-    { id: 1, name: "EL ÚLTIMO TOUR DEL MUNDO - BAD BUNNY", description: "Precio: 20.00€" },
+        { id: 1, name: "EL ÚLTIMO TOUR DEL MUNDO - BAD BUNNY", description: "Precio: 20.00€" },
 
-    { id: 2, name: "Rodeo - Travis Scott", description: "Precio: 25.00€" },
+        { id: 2, name: "Rodeo - Travis Scott", description: "Precio: 25.00€" },
 
-    { id: 1, name: "Dangerous - Michael Jackson", description: "Precio: 30.00€" },
+        { id: 1, name: "Dangerous - Michael Jackson", description: "Precio: 30.00€" },
 
-    { id: 2, name: "Nimrod - Green Day", description: "Precio: 25.00€" },
+        { id: 2, name: "Nimrod - Green Day", description: "Precio: 25.00€" },
 
-    // Agrega más productos aquí...
+        // Agrega más productos aquí...
 
   ];
 
@@ -403,15 +404,36 @@ const products = [
     // Función para mostrar los productos en donde están en los vinilos
     function showProducts(productsToShow) 
     {
-        const gallery = document.getElementById('vinilos');
-        gallery.innerHTML = '';
+        const vinilosSection = document.getElementById('vinilos');
+        vinilosSection.innerHTML = '';
         productsToShow.forEach(product => {
-        const productCard = document.createElement('div');
-        productCard.classList.add('product-card');
-        productCard.innerHTML = `
-            <h3>${product.name}</h3>
-            <p>${product.description}</p>
-          `;
-        gallery.appendChild(productCard);
+            const colDiv = document.createElement('div');
+            colDiv.classList.add('col-3', 'col-sm-3', 'col-md-3', 'col-lg-3', 'col-xl-3');
+
+            const viniloDiv = document.createElement('div');
+            viniloDiv.classList.add('vinilo');
+            viniloDiv.classList.add('viniloSeleccionado');
+
+            const img = document.createElement('img');
+            img.src = `../IMG/VINILOS/${product.name}.jpg`; // Ajusta el nombre de la imagen según tus archivos
+            img.alt = `Vinilo ${product.id}`;
+
+            const productLink = document.createElement('a');
+            productLink.href = `./infoDiscos${product.id}.html`;
+            productLink.textContent = product.name;
+
+            const priceParagraph = document.createElement('p');
+            priceParagraph.textContent = product.description;
+
+            const addButton = document.createElement('button');
+            addButton.textContent = 'Añadir al carrito';
+
+            viniloDiv.appendChild(img);
+            viniloDiv.appendChild(productLink);
+            viniloDiv.appendChild(priceParagraph);
+            viniloDiv.appendChild(addButton);
+
+            colDiv.appendChild(viniloDiv);
+            vinilosSection.appendChild(colDiv);
         });
     }

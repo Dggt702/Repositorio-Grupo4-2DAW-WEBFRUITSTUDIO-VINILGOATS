@@ -394,7 +394,11 @@ nav{
 #vinilos #titulo{
     font-size: 2em;
     margin-bottom: 1.5em;
+}
 
+.viniloSeleccionado
+{
+    text-align: center;
 }
 
 #register{
