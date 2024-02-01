@@ -1,0 +1,57 @@
+/* bootstrap pagina quienesSomos.html */
+.contenedorQuienesSomos{
+    margin-top: 2em;
+}
+
+.infoVinilos{
+    display: flex;
+    flex-direction: column;
+    color:white;
+}
+.infoVinilos h1:first-child{
+    font-family: "italic";
+}
+ .valores{
+    background-color:rgba(238, 136, 19,0.5);
+    padding: 0.5em;
+    text-align: center;
+    border: solid;
+    border-color: white;
+}
+
+.valores a{
+    text-decoration: none;
+    color: white;
+}
+body #caja1{
+    border: solid;
+    border-color: white;
+}
+
+.tablaQuienesSomos{
+  display: none;
+}
+
+.tablaQuienesSomos:target{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    color: white;
+    background-color:rgba(238, 136, 19,0.2);
+    padding: 2em;
+
+  }
+  .tablaQuienesSomos:target .parrafos{
+    align-self: center;
+    font-size: 1.3em;
+  }
+
+  .tablaQuienesSomos:target .imagenes{
+    border-radius: 30em;
+    align-self: center; 
+    height: 70%;
+    padding: 1em;
+    background-color: rgba(234, 234, 234, 0.2);
+  }
+
+ 

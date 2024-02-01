@@ -1,0 +1,38 @@
+
+.container{
+    margin-top: 2em;
+    color: white;
+}
+
+#tituloSostenibilidad{
+    padding: 1em;
+    text-align: center;
+    font-size: 3em;
+    background-color:rgba(238, 136, 19,0.3);
+}
+.titulosEnunciados{
+    text-align: center;
+    padding-bottom:1em;
+}
+#imagenCodigoEtico{
+    display: flex;
+    justify-content: center;
+}
+#imagenSostenibilidad{
+    display: flex;
+    justify-content: center;
+}
+
+#imagenMedioAmbiental{
+    display: flex;
+    justify-content: center;
+}
+#colorDiferente{
+    background-color:rgba(238, 136, 19,0.3);
+
+}
+.bootstrapSostenibilidad{
+    text-align: justify;
+    padding:2em;
+}
+

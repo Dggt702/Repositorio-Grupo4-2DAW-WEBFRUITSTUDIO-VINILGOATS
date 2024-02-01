@@ -256,6 +256,11 @@ body{
     background-color: #0056b3;
 }
 
+#vinilos #titulo{
+    font-size: 2em;
+    margin-bottom: 1.5em;
+
+}
 
 #register{
     font-family: "lemonMilkLight";
@@ -383,9 +388,37 @@ aside{
     flex-direction: row;    
     justify-content: space-between;
 }
-#pFooter{
-    font-family: "LemonMilkBold";
+#footer .container-fluid .row{
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.pFooter{
+    align-self: center;
+    font-size: 0.8em;
+    font-family: "arial";
     margin: 1em;
+}
+.infoNosotros{
+    display: flex;
+    flex-direction: column;
+    text-align: start;
+    margin-bottom: 1em;
+    /* border: solid; */
+    
+}
+.infoNosotros p:first-child {
+    margin-top: 1em;
+    margin-bottom: 0%;
+    font-size: 0.8em; 
+    font-family: "arial";  
+}
+
+.infoNosotros a{
+    color: white;
+    text-decoration:none;
+    font-size: 0.7em; 
+
 }
 
 #mostrarMas, #mostrarMenos
@@ -410,7 +443,7 @@ aside{
     cursor: pointer;
 }
 
-#icons
+.icons
 {
     margin: 1em;
 }
@@ -421,6 +454,16 @@ aside{
     margin-right: 1vh;
     cursor: pointer;
 }
+
+/* bootstrap 5 */
+
+    .container{
+        border-radius: 1em;
+        margin-bottom: 2em;
+        background-color: rgba(79, 74, 74, 0.3); 
+    }
+
+
 @media only screen and (max-width: 600px) {
     body {
         background-size: auto;
