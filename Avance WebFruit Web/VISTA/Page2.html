@@ -17,6 +17,99 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
     <!-- Header (logo y "regístrate")-->
     <header>
+        
+        <!--Javi: menu hamburguesa-->
+        <nav class="nav">
+
+            <div class="nav__container">
+    
+                <h1 class="nav__title"></h1>
+    
+                <a href="#menu" class="nav__menu">
+                    <img src="../assets/menu.svg" class="nav__icon">
+                </a>
+    
+                <a href="#" class="nav__menu nav__menu--second">
+                    <img src="../assets/close.svg" class="nav__icon ">
+                </a>
+    
+                <ul class="dropdown" id="menu">
+    
+                    <li class="dropdown__list">
+                        <a href="../VISTA/Page2.html" class="dropdown__link">
+                            <img src="../assets/house.svg" class="dropdown__icon">
+                            <span href="../VISTA/Page2.html" class="dropdown__span">Inicio</span>
+                        </a>
+                    </li>
+    
+                    <li class="dropdown__list">
+                        <a href="#" class="dropdown__link">
+                            <img src="../assets/projects.svg" class="dropdown__icon">
+                            <span class="dropdown__span">Projects</span>
+                            <img src="../assets/down.svg" class="dropdown__arrow">
+    
+                            <input type="checkbox" class="dropdown__check">
+                        </a>
+    
+                        <div class="dropdown__content">
+    
+                            <ul class="dropdown__sub">
+    
+                                <li class="dropdown__li">
+                                    <a href="#" class="dropdown__anchor">Project 1</a>
+                                </li>
+                                <li class="dropdown__li">
+                                    <a href="#" class="dropdown__anchor">Project 2</a>
+                                </li>
+                                <li class="dropdown__li">
+                                    <a href="#" class="dropdown__anchor">Project 3</a>
+                                </li>
+    
+                            </ul>
+    
+                        </div>
+                    </li>
+    
+                    <li class="dropdown__list">
+                        <a href="#" class="dropdown__link">
+                            <img src="../assets/email.svg" class="dropdown__icon">
+                            <span class="dropdown__span">Contacto</span>
+                            <img src="../assets/down.svg" class="dropdown__arrow">
+    
+                            <input type="checkbox" class="dropdown__check">
+                        </a>
+    
+                        <div class="dropdown__content">
+    
+                            <ul class="dropdown__sub">
+    
+                                <li class="dropdown__li">
+                                    <a href="#" class="dropdown__anchor">Contact 1</a>
+                                </li>
+                                <li class="dropdown__li">
+                                    <a href="#" class="dropdown__anchor">Contact 2</a>
+                                </li>
+                              
+    
+                            </ul>
+    
+                        </div>
+                    </li>
+    
+                    <li class="dropdown__list">
+                        <a href="#" class="dropdown__link">
+                            <img src="../assets/help.svg" class="dropdown__icon">
+                            <span class="dropdown__span">Ayuda</span>
+                        </a>
+                    </li>
+    
+                </ul>
+    
+            </div>
+    
+        </nav>
+        <!--Javi: menu hamburguesa-->
+
         <div id="logo-cabra">
             <a href="../VISTA/Page2.html"><img src="../IMG/LOGO_VINYL_GOATS_1_SIN_LETRAS_TRANSPARENCIA.png">Vinyl GOATS</a>
         </div>
