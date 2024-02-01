@@ -372,3 +372,46 @@ function slider(){
         btnIzquierdo.addEventListener("click",slideManualIzquierda);*/
     
     }
+
+    // Datos de ejemplo de productos/servicios
+
+const products = [
+
+    { id: 1, name: "EL ÚLTIMO TOUR DEL MUNDO - BAD BUNNY", description: "Precio: 20.00€" },
+
+    { id: 2, name: "Rodeo - Travis Scott", description: "Precio: 25.00€" },
+
+    { id: 1, name: "Dangerous - Michael Jackson", description: "Precio: 30.00€" },
+
+    { id: 2, name: "Nimrod - Green Day", description: "Precio: 25.00€" },
+
+    // Agrega más productos aquí...
+
+  ];
+
+    // Función para buscar productos
+    function search() 
+    {
+        const searchInput = document.getElementById('searchInput');
+        const searchTerm = searchInput.value.toLowerCase();
+        const searchResults = products.filter(product =>
+            product.name.toLowerCase().includes(searchTerm) || product.description.toLowerCase().includes(searchTerm)
+        );
+        showProducts(searchResults);
+    }
+
+    // Función para mostrar los productos en donde están en los vinilos
+    function showProducts(productsToShow) 
+    {
+        const gallery = document.getElementById('vinilos');
+        gallery.innerHTML = '';
+        productsToShow.forEach(product => {
+        const productCard = document.createElement('div');
+        productCard.classList.add('product-card');
+        productCard.innerHTML = `
+            <h3>${product.name}</h3>
+            <p>${product.description}</p>
+          `;
+        gallery.appendChild(productCard);
+        });
+    }
