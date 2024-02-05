@@ -69,7 +69,7 @@ body{
     display: flex;
     justify-content: center;
     align-items:first baseline;
-    margin: 4em;
+    margin: 3em;
     
 }.slideCapa{
     overflow: hidden;
@@ -178,7 +178,7 @@ body{
     width: 2em;
 }
 
-/* Javi: navbar.css */
+/* navbar.css */
 
 .navbar {
     align-items: center;
@@ -199,10 +199,27 @@ body{
 }
 
 
+/* Menú lateral css:inicio*/
+.nav-pills li a:hover{
+    background-color: rgb(105, 60, 8);
+}
+
+
+/* Menu lateral css:fin */
+
+
 #section_landing{
     display: flex;
     color: white;
     width: 60%;
+}
+
+#contenido_main{
+    display: flex;
+    width: 80%;
+    flex-direction: column;
+    flex-wrap: wrap;
+    margin-left: 1.5em;
 }
 
 /* vinilos.css */
@@ -225,7 +242,7 @@ body{
 }
 
 .vinilo {
-    width: 250px;
+    width:90%;
     margin: 15px;
     padding: 10px;
     background:rgba(0, 0, 0, 0.8);
@@ -523,6 +540,8 @@ aside{
         font-family: Verdana, Geneva, Tahoma, sans-serif;
         margin: 0 auto;
     }
+
+
 }
 /*CSS De infoDiscos.html */
 
