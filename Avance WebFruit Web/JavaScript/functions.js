@@ -437,3 +437,45 @@ function slider(){
             vinilosSection.appendChild(colDiv);
         });
     }
+    
+    /*document.addEventListener("DOMContentLoaded", function() {
+        let botonCarrito = document.getElementById("iconCarrito");
+        botonCarrito.addEventListener("click", funcionar);
+    });
+
+    function funcionar()
+    {
+        alert("hola");
+    }*/
+
+    /*const btnCart = document.querySelector(".container-icon");
+    const containerCartProducts = document.querySelector(".containter-cart-products");
+
+    btnCart.addEventListener("click", () => {
+        containerCartProducts.classList.toggle("hidden-cart");
+    });
+
+    const cartInfo = document.querySelector(".cart-product");*/
+
+    document.addEventListener("DOMContentLoaded", function() {
+        const btnCart = document.getElementById("iconCarrito"); // Cambiar el selector a ID
+        const containerCartProducts = document.querySelector(".container-cart-products");
+    
+        btnCart.addEventListener("click", () => {
+            containerCartProducts.classList.toggle("hidden-cart");
+        });
+    });
+    
+    const cartInfo = document.querySelector(".cart-product");
+    const rowProduct = document.querySelector(".row-product"); 
+
+    // lista de todos los contenedores de productos
+    const productList = document.querySelector(".container-items");
+
+    // array de productos
+    let allProducts  = [];
+
+    productList.addEventListener("click", e =>
+    {
+        console.log(e);
+    })
