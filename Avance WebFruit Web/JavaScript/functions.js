@@ -457,11 +457,13 @@ function slider(){
 
     const cartInfo = document.querySelector(".cart-product");*/
 
-    document.addEventListener("DOMContentLoaded", function() {
-        const btnCart = document.getElementById("iconCarrito"); // Cambiar el selector a ID
+    document.addEventListener("DOMContentLoaded", function() 
+    {
+        const btnCart = document.getElementById("iconCarrito");
         const containerCartProducts = document.querySelector(".container-cart-products");
     
-        btnCart.addEventListener("click", () => {
+        btnCart.addEventListener("click", () => 
+        {
             containerCartProducts.classList.toggle("hidden-cart");
         });
     });
