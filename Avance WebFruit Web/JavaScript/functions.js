@@ -437,64 +437,53 @@ function slider(){
             vinilosSection.appendChild(colDiv);
         });
     }
-    
-    /*document.addEventListener("DOMContentLoaded", function() {
-        let botonCarrito = document.getElementById("iconCarrito");
-        botonCarrito.addEventListener("click", funcionar);
-    });
-
-    function funcionar()
-    {
-        alert("hola");
-    }*/
-
-    /*const btnCart = document.querySelector(".container-icon");
-    const containerCartProducts = document.querySelector(".containter-cart-products");
-
-    btnCart.addEventListener("click", () => {
-        containerCartProducts.classList.toggle("hidden-cart");
-    });
-
-    const cartInfo = document.querySelector(".cart-product");*/
 
     document.addEventListener("DOMContentLoaded", function() 
     {
         const btnCart = document.getElementById("iconCarrito");
         const containerCartProducts = document.querySelector(".container-cart-products");
+        //const cartInfo = document.querySelector(".cart-product");
+        const rowProduct = document.querySelector(".row-product"); 
+        // lista de todos los contenedores de productos
+        const productList = document.querySelector(".container-vinilos");
+        // array de productos
+        let allProducts  = [];
     
         btnCart.addEventListener("click", () => 
         {
             containerCartProducts.classList.toggle("hidden-cart");
         });
 
-        const cartInfo = document.querySelector(".cart-product");
-        const rowProduct = document.querySelector(".row-product"); 
-
-        // lista de todos los contenedores de productos
-        const productList = document.querySelector(".container-vinilos");
-
-        // array de productos
-        let allProducts  = [];
-
+        // El event listener para que al hacer click sobre los botones para añadir al carrito se añadan al carrito
         productList.addEventListener("click", e =>
         {
             if(e.target.classList.contains("btn-add-cart"))
             {
-                const product = e.target.parentElement;
+                const productV = e.target.parentElement;
                 const infoProduct = 
                 {
                     quantity: 1,
-                    title: product.querySelector("a").textContent,
-                    price: product.querySelector("p").textContent,
+                    title: productV.querySelector("a").textContent,
+                    price: productV.querySelector("p").textContent,
+                };
+
+                const existingProduct = allProducts.find(product => product.title === infoProduct.title);
+                if (existingProduct)
+                {
+                    existingProduct.quantity++;
                 }
-                allProducts = [...allProducts, infoProduct];
-                showHTML();
+                else
+                {
+                    allProducts.push(infoProduct);
+                }   
             }
+            showHTML();
         });
+    
 
         const showHTML = () =>
         {
-            rowProduct.innerHTML  = "";
+            rowProduct.innerHTML  = ""; // con esto limpiamos el HTML y así no salen todos los vinilos repetidos un montón de veces al hacer click sobre uno
             allProducts.forEach(product => 
                 {
                     const containerProduct = document.createElement('div');
