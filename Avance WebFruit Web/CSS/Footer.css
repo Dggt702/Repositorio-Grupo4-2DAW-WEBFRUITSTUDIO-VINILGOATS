@@ -1,0 +1,39 @@
+#footer{
+    background-color: rgb(238, 136, 19,0.85);
+    color: rgb(255, 255, 255);
+    display: flex;
+    flex-direction: row;    
+    justify-content: space-between;
+}
+#footer .container-fluid .row{
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.pFooter{
+    align-self: center;
+    font-size: 0.8em;
+    font-family: "arial";
+    margin: 1em;
+}
+.infoNosotros{
+    display: flex;
+    flex-direction: column;
+    text-align: start;
+    margin-bottom: 1em;
+    /* border: solid; */
+    
+}
+.infoNosotros p:first-child {
+    margin-top: 1em;
+    margin-bottom: 0%;
+    font-size: 0.8em; 
+    font-family: "arial";  
+}
+
+.infoNosotros a{
+    color: white;
+    text-decoration:none;
+    font-size: 0.7em; 
+
+}

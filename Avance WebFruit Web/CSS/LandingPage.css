@@ -1,0 +1,145 @@
+#section_landing{
+    display: flex;
+    color: white;
+    width: 60%;
+}
+aside{
+    margin:2em;
+    font-family: "lemonMilkBold";  
+    color:white;
+    width: 30%;
+    background: rgba(1,7,12,0.75);
+}
+
+#separador{
+    display: flex;
+    flex-direction: row;
+}
+
+form{
+    margin:3em;
+    display: flex;
+    flex-direction: column;
+
+}
+
+
+#errorN, #errorC, #errorP, #errorF, #errorD, #errorDNI, #errorNT /* Pone las letras de los divs correspondientes en el color del footer y del header y en un tamaño más pequeño. */
+{
+    color: rgb(238, 136, 19,0.85);
+    font-family: "lemonMilkBold";
+    font-size: 0.5em;
+    cursor: default; /* También he cambiado el cursor para que se vea más bonito */
+}
+
+#notificaciones, #revistaDigital /* Pone las notificaciones y lo de recibir la revista digital en el color naranja de antes y en una letra ligeramente más pequeña */
+{   
+    color: rgb(238, 136, 19,0.85);
+    font-family: "lemonMilkBold";
+    font-size: 0.7em;
+    cursor: default;
+}
+
+#introduccion{
+    text-align: center;
+    margin:4em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.error {
+    color: rgb(238, 136, 19,0.85);
+}
+
+#texto-introduccion {
+    text-align: center;
+    border-radius: 1em;
+    width: 80%;
+    color: white;
+    font-family: "lemonMilkLight"; /* Utiliza la misma fuente que el resto de la página */
+    margin: 0 auto;
+    background: rgba(1,7,12,0.6); /* Fondo similar al del aside */
+    padding: 1em; /* Ajusta el relleno según tus preferencias */
+}
+
+#bienvenidoP {
+    /*background-color: rgba(238, 136, 19, 0.8);*/
+    text-align: center;
+    border-radius: 10px;
+    width: 70%;
+    padding: 10px;
+    color: rgb(238, 136, 19,0.85);
+    font-size: 4em;
+    margin: 20px auto;
+    font-family: "lemonMilkBold";
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+#texto{
+    text-align: center;
+    border-radius: 1em;
+    width: 60%;
+    color: white;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    
+}
+
+.campos{
+    border:none;
+    padding: 0.5em;
+    text-decoration: none;
+    border-radius: 10px;
+    font-family: "Open Sans", Arial, sans-serif;
+    font-size: 1em;
+}#logoForm{
+    display: flex;
+    justify-items: center;
+    align-items: center;
+    flex-direction: column;
+    font-size: 1.5em;
+}
+#logoForm img{
+    width: 7em;
+    border-radius: 150px;
+ 
+}#submitButton{
+    margin:1em;
+    width: 6cm;
+    padding: 0.5em;
+    border-radius: 20px;
+    font-size: 1.5em;
+    color: white;
+    background-color: #ee8813;
+    background-color: #ee8813;
+    border: none;
+    font-family: "lemonMilkLight";  
+}#submitCaja{
+    display: flex;
+    justify-content: center;
+
+  
+}
+
+
+#mostrarMas, #mostrarMenos
+{
+    color: rgb(238, 136, 19,0.85);
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+#mostrarMenos
+{
+    display: none;
+}
+
+#infoOculta 
+{
+    display: none; /* Oculta el contenedor inicialmente */
+}
+
+#submitButton
+{
+    cursor: pointer;
+}

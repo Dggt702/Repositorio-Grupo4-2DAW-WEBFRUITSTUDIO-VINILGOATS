@@ -5,7 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>VinylGOATs</title>
     <link rel="stylesheet" type="text/css" href="../CSS/CSS.css">
-    <link rel="stylesheet" type="text/css" href="../CSS/navbar.css"> <!-- Agregamos el nuevo archivo CSS para la barra de navegación -->
+    <link rel="stylesheet" type="text/css" href="../CSS/Header.css">
+    <link rel="stylesheet" type="text/css" href="../CSS/Nav.css">
+    <link rel="stylesheet" type="text/css" href="../CSS/SectionCSS/Aside.css">
+    <link rel="stylesheet" type="text/css" href="../CSS/SectionCSS/Slider.css">
+    <link rel="stylesheet" type="text/css" href="../CSS/SectionCSS/SectionMain.css">
+    <link rel="stylesheet" type="text/css" href="../CSS/Footer.css">
     <link rel="icon" type="image/png" href="../IMG/LOGO_VINYL_GOATS_1_SIN_LETRAS_TRANSPARENCIA.png" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     
@@ -32,50 +37,44 @@
             <a href="../VISTA/Page2.html"><img src="../IMG/LOGO_VINYL_GOATS_1_SIN_LETRAS_TRANSPARENCIA.png">Vinyl GOATS</a>
         </div>
         
-        <!-- <div id="usuarioTR" class="usuario">
-            <a id="usuarioR" href=""></a> 
-            <div id="lista">
-                <a href="" onclick="desloguear()">Cerrar Sesión</a>
-                <a href="">Más opciones</a>
-            </div>
-            <img src="../IMG/VN.png" alt="">
-        </div> -->
         
-        <img id="iconCarrito" src="../Icons/carritoCompra.png" alt="Carrito de la Compra">
-        <div class="container-cart-products hidden-cart">
-            <div class="row-product">
-                <div class="cart-product">
-                    <div class="info-cart-product">
-                        <span class="cantidad-producto-carrito"></span>
-                        <p class="titulo-producto-carrito">El carrito está vacío</p>
-                        <span class="precio-producto-carrito"></span>
-                    </div>
-                    <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke-width="1.5"
-                        stroke="currentColor"
-                        class="icon-close"
-                    >
-                        <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        d="M6 18L18 6M6 6l12 12"
+        <div id="headerArribaDerecha">
+            <img id="iconCarrito" src="../Icons/carritoCompra.png" alt="Carrito de la Compra">
+            <div class="container-cart-products hidden-cart">
+                <div class="row-product">
+                    <div class="cart-product">
+                        <div class="info-cart-product">
+                            <span class="cantidad-producto-carrito"></span>
+                            <p class="titulo-producto-carrito">El carrito está vacío</p>
+                            <span class="precio-producto-carrito"></span>
+                        </div>
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke-width="1.5"
+                            stroke="currentColor"
+                            class="icon-close"
                         >
-                        </path>
-                    </svg>
+                            <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            d="M6 18L18 6M6 6l12 12"
+                            >
+                            </path>
+                        </svg>
+                    </div>
+                </div>
+                
+                <div class="cart-total">
+                    <h3>Total</h3>
+                    <span class="total-pagar">$200</span>
                 </div>
             </div>
-            
-            <div class="cart-total">
-                <h3>Total</h3>
-                <span class="total-pagar">$200</span>
-            </div>
-        </div>
 
-        <div id="usuarioFR" class="usuario">
-            <a id="register" href="../VISTA/landingPage.html">REGISTRATE</a>
+            <div id="usuarioFR" class="usuario">
+                <a id="register" href="../VISTA/landingPage.html">REGISTRATE</a>
+            </div>
         </div>
     </header>
 

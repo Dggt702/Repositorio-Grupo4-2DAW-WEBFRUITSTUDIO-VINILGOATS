@@ -1,0 +1,155 @@
+header{
+    color:white;
+    background-color: rgb(238, 136, 19,0.85);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+}
+#logo-cabra{
+    display: flex;
+}
+#logo-cabra a{
+    display: flex;
+    color:black;
+    text-decoration: none;
+    font-family: "LemonMilkBold";
+    font-size: 1em;
+    align-items: center;
+}
+
+#logo-cabra a .nombre{
+    color: white;
+    font-style: none;
+}
+
+#logo-cabra a img{
+    width: 5em;
+    border-radius: 100%;
+}
+.usuario{
+    padding: 2em;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.usuario a{
+    position: relative;
+    display: flex;
+    font-family: "lemonMilkLight";
+    margin-right: 1em;
+    font-size: 1em;
+    text-decoration: none;
+    color: white;
+}
+
+#register:hover{
+    text-decoration: underline;
+}
+
+.usuario img{
+    border-radius: 100%;
+    width: 2em;
+}
+
+.hidden-cart
+{
+    display: none;
+}
+
+.container-cart-products
+{
+    position: absolute;
+    top: 50px;
+    right: 0;
+
+    background-color: #fff;
+    width: 400px;
+    z-index: 1;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.20);
+    border-radius: 10px;
+}
+
+.cart-product
+{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 30px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.20);
+}
+
+.info-cart-product
+{
+    display: flex;
+    justify-content: space-between;
+    flex: 0.8;
+}
+
+.titulo-producto-carrito
+{
+    font-size: 20px;
+    color: rgb(238, 136, 19,0.85);
+}
+
+.precio-producto-carrito
+{
+    font-weight: 700;
+    font-size: 20px;
+    margin-left: 10px;
+    color: rgb(238, 136, 19,0.85);
+}
+
+.cantidad-producto-carrito
+{
+    font-weight: 400;
+    font-size: 20px;
+    color: black;
+}
+
+.icon-close
+{
+    width: 25px;
+    height: 25px;
+    color: black;
+}
+
+.icon-close:hover
+{
+    stroke: rgb(238, 136, 19,0.85);
+    cursor: pointer;
+}
+
+.cart-total
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 0;
+    gap: 20px;
+    color: black;
+}
+
+.cart-total h3
+{
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.total-pagar
+{
+    font-size: 20px;
+    font-weight: 900;
+    color: rgb(238, 136, 19,0.85);
+}
+
+#register{
+    font-family: "lemonMilkLight";
+    display: flex;
+    margin-right: 1em;
+    font-size: 1em;
+    text-decoration: none;
+    color: white;
+    align-items: center;
+    transition: transform 0.3s ease;    
+}
