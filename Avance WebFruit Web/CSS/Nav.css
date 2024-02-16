@@ -1,3 +1,12 @@
+#div-caja-nav{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 90%;
+    align-items: center;
+    justify-content: space-between;
+    margin: auto;
+}
 #idiomas img{
     width:2em;
     margin-left: 1em;

@@ -24,71 +24,81 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
     <!-- Header (logo y "regístrate")-->
     <header>
+        <div id="div-caja-header">
 
-        <div class="search-container">
-
-            <input type="text" id="searchInput" placeholder="Buscar productos/servicios">
-        
-            <button onclick="search()">Buscar</button>
-        
-        </div>
-
-        <div id="logo-cabra">
-            <a href="../VISTA/Page2.html"><img src="../IMG/LOGO_VINYL_GOATS_1_SIN_LETRAS_TRANSPARENCIA.png">Vinyl GOATS</a>
-        </div>
-        
-        
-        <div id="headerArribaDerecha">
-            <img id="iconCarrito" src="../Icons/carritoCompra.png" alt="Carrito de la Compra">
-            <div class="container-cart-products hidden-cart">
-                <div class="row-product">
-                    <div class="cart-product">
-                        <div class="info-cart-product">
-                            <span class="cantidad-producto-carrito"></span>
-                            <p class="titulo-producto-carrito">El carrito está vacío</p>
-                            <span class="precio-producto-carrito"></span>
-                        </div>
-                        <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            fill="none"
-                            viewBox="0 0 24 24"
-                            stroke-width="1.5"
-                            stroke="currentColor"
-                            class="icon-close"
-                        >
-                            <path
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            d="M6 18L18 6M6 6l12 12"
-                            >
-                            </path>
-                        </svg>
+            <div id="caja-vacia">
+                <div class="dropdown open p-3">
+                    <button
+                        class="btn border-none dropdown-toggle text-white" type="button" id="triggerId" data-bs-toggle="dropdown" aria-haspopup="true"
+                        aria-expanded="false">
+                        <i class="fa fa-user"></i><span class="ms-2">User</span>
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="triggerId">
+                        <button class="dropdown-item" href="#">Setting</button>
+                        <button class="dropdown-item disabled" href="#">Profile</button>
                     </div>
-                </div>
-                
-                <div class="cart-total">
-                    <h3>Total</h3>
-                    <span class="total-pagar">$200</span>
                 </div>
             </div>
 
-            <div id="usuarioFR" class="usuario">
-                <a id="register" href="../VISTA/landingPage.html">REGISTRATE</a>
+            <div id="logo-cabra">
+                <a href="../VISTA/Page2.html"><img src="../IMG/LOGO_VINYL_GOATS_1_SIN_LETRAS_TRANSPARENCIA.png">Vinyl GOATS</a>
+            </div>
+            
+            
+            <div id="headerArribaDerecha">
+                <div id="usuarioFR" class="usuario">
+                    <a id="register" href="../VISTA/landingPage.html">REGISTRATE</a>
+                </div>
+
+                <img id="iconCarrito" src="../Icons/carritoCompra.png" alt="Carrito de la Compra">
+                <div class="container-cart-products hidden-cart">
+                    <div class="row-product">
+                        <div class="cart-product">
+                            <div class="info-cart-product">
+                                <span class="cantidad-producto-carrito"></span>
+                                <p class="titulo-producto-carrito">El carrito está vacío</p>
+                                <span class="precio-producto-carrito"></span>
+                            </div>
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                stroke-width="1.5"
+                                stroke="currentColor"
+                                class="icon-close"
+                            >
+                                <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                d="M6 18L18 6M6 6l12 12"
+                                >
+                                </path>
+                            </svg>
+                        </div>
+                    </div>
+                    
+                    <div class="cart-total">
+                        <h3>Total</h3>
+                        <span class="total-pagar">$200</span>
+                    </div>
+                </div>
             </div>
         </div>
     </header>
 
-    <!-- *Nueva* barra de navegación -->
+    <!-- Barra de navegación -->
     <nav class="navbar">
-        <div id="idiomas">  
-            <a href=""><img src="../IMG/espaniol.png"></a>
-            <a href=""><img src="../IMG/ingles.png"></a>
-        </div>
+        <div id="div-caja-nav">
+            <div id="idiomas">  
+                <a href=""><img src="../IMG/espaniol.png"></a>
+                <a href=""><img src="../IMG/ingles.png"></a>
+            </div>
 
-        <a href="#">Ofertas</a>
-        <a href="#">Novedades</a>
-        <a href="#">Categorías</a>
-        <a href="#">Contacto</a>
+            <a href="#">Ofertas</a>
+            <a href="#">Novedades</a>
+            <a href="#">Categorías</a>
+            <a href="#">Contacto</a>
+        </div>
     </nav>
 
     <!-- MAIN SECTION -->
@@ -98,6 +108,8 @@
 
             <!-- Aside con  barra lateral -->
             <div class="bg-dark col-auto col-md-3 col-lg-2 min-vh-100 d-flex flex-column justify-content-between d-none d-sm-block">
+                
+                
                 <div class="bg-dark p-2">
                     <a class="d-flex text-decoration-none mt-1 align-items-center text-white">
                         <span class="fs-4 d-none d-sm-inline">SideMenu</span>
@@ -135,17 +147,7 @@
                         </li>
                     </ul>
                 </div>
-                <div class="dropdown open p-3">
-                    <button
-                        class="btn border-none dropdown-toggle text-white" type="button" id="triggerId" data-bs-toggle="dropdown" aria-haspopup="true"
-                        aria-expanded="false">
-                        <i class="fa fa-user"></i><span class="ms-2">User</span>
-                    </button>
-                    <div class="dropdown-menu" aria-labelledby="triggerId">
-                        <button class="dropdown-item" href="#">Setting</button>
-                        <button class="dropdown-item disabled" href="#">Profile</button>
-                    </div>
-                </div>
+                
             </div>
 
             <!-- Contenido -->
@@ -155,18 +157,26 @@
                 <section id="vinilos" class="text-center justify-content-center">
 
                     <!-- Slider -->
-                    <div id="slide" class="d-none d-sm-block mx-auto text-center justify-content-center">
-                        <div class="slideCapa">
-                            <div class="slider">
-                                <img src="../IMG/SLIDER/1.png" alt="">
-                                <img src="../IMG/SLIDER/2.png" alt="">
-                                <img src="../IMG/SLIDER/3.png" alt="">
-                                <img src="../IMG/SLIDER/4.png" alt="">
+                    <!-- Slider -->
+                    <div id="sliderBlock" class="container">
+                        <div class="row">
+                            <div class="col">
+                                <div id="slide" class="text-center">
+                                    <div class="slideCapa">
+                                        <div class="slider">
+                                            <img src="../IMG/SLIDER/1.png" alt="">
+                                            <img src="../IMG/SLIDER/2.png" alt="">
+                                            <img src="../IMG/SLIDER/3.png" alt="">
+                                            <img src="../IMG/SLIDER/4.png" alt="">
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
 
-                    <h2 id="titulo">Vinilos Disponibles</h2>
+
+                        <h2 id="titulo">vINILOS</h2>
                         <!-- Plantilla para cada vinilo **copiad esto** -->
                         <!-- 
                         <div class="col-lg-4 col-xl-3 mb-4">
