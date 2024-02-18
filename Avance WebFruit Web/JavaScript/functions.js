@@ -448,6 +448,9 @@ function slider(){
         const productList = document.querySelector(".container-vinilos");
         // array de productos
         let allProducts  = [];
+        const valorTotal = document.querySelector(".total-pagar");
+        const countProducts = document.querySelector("#contador-productos");
+        let isCartEmpty = true; // Variable para rastrear si el carrito está vacío
     
         btnCart.addEventListener("click", () => 
         {
@@ -468,9 +471,9 @@ function slider(){
                 };
 
                 const existingProduct = allProducts.find(product => product.title === infoProduct.title);
-                if (existingProduct)
+                if (existingProduct) // si el producto existe
                 {
-                    existingProduct.quantity++;
+                    existingProduct.quantity++; // aumentamos el producto en uno
                 }
                 else
                 {
@@ -480,10 +483,36 @@ function slider(){
             showHTML();
         });
     
+        rowProduct.addEventListener("click", (e) =>
+        {
+            if (e.target.classList.contains("icon-close")) // si hacemos click en la "x"
+            {
+                const product = e.target.parentElement;
+                const title = product.querySelector("p").textContent;
+                allProducts = allProducts.filter(product => product.title !== title);
+                showHTML();
+            }
+        });
 
         const showHTML = () =>
         {
+            // Verificamos si el carrito está vacío antes de limpiar el contenido
+            if (allProducts.length === 0) {
+                isCartEmpty = true; // El carrito está vacío
+            } else {
+                isCartEmpty = false; // El carrito no está vacío
+            }
+    
+            // Mostrar mensaje si el carrito está vacío
+            if (isCartEmpty) {
+                containerCartProducts.innerHTML = `<p class="cart-empty">El carrito está vacío</p>`;
+                return; // Salir de la función si el carrito está vacío
+            }
+
             rowProduct.innerHTML  = ""; // con esto limpiamos el HTML y así no salen todos los vinilos repetidos un montón de veces al hacer click sobre uno
+            let total = 0; // es el total del dinero a pagar
+            let productosTotales = 0; // es el total de lo que tiene el carrito
+
             allProducts.forEach(product => 
                 {
                     const containerProduct = document.createElement('div');
@@ -511,6 +540,11 @@ function slider(){
                     </svg>
                     `
                     rowProduct.append(containerProduct);
+
+                    total = total + parseFloat(product.price.replace('€', '')) * product.quantity;
+                    productosTotales += product.quantity;
                 });
+                valorTotal.innerText = `${total}€`;
+                countProducts.innerText = `${productosTotales}`;
         }
     });
