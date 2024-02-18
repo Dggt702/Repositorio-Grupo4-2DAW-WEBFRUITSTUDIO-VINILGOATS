@@ -50,7 +50,10 @@ header{
 #iconCarrito {
     max-width: 100%; 
     height: auto;
-    object-fit: contain; /* Ajusta la imagen al contenedor sin deformarla */
+    object-fit: contain;
+    align-items: center;
+    display: flex;
+    font-size: 1.5em;
 }
 
 .usuario{
@@ -76,6 +79,10 @@ header{
 .usuario img{
     border-radius: 100%;
     width: 2em;
+}
+
+#contenedorCarrito{
+    width: 20%;
 }
 
 .hidden-cart
@@ -178,4 +185,9 @@ header{
     color: white;
     align-items: center;
     transition: transform 0.3s ease;    
+}
+
+.cantidad-producto-carrito,
+.precio-producto-carrito {
+    font-size:0.1em; /* Tamaño de fuente más pequeño */
 }
