@@ -201,3 +201,6 @@ header{
 .precio-producto-carrito {
     font-size:0.1em; /* Tamaño de fuente más pequeño */
 }
+#informacion{
+    color:orange;
+}
