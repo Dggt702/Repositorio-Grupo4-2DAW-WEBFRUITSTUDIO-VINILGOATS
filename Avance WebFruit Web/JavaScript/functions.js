@@ -406,7 +406,8 @@ function slider(){
     {
         const vinilosSection = document.getElementById('vinilos');
         vinilosSection.innerHTML = '';
-        productsToShow.forEach(product => {
+        productsToShow.forEach(product => 
+        {
             const colDiv = document.createElement('div');
             colDiv.classList.add('col-3', 'col-sm-3', 'col-md-3', 'col-lg-3', 'col-xl-3');
 
@@ -440,17 +441,15 @@ function slider(){
 
     document.addEventListener("DOMContentLoaded", function() 
     {
-        const btnCart = document.getElementById("iconCarrito");
         const containerCartProducts = document.querySelector(".container-cart-products");
-        //const cartInfo = document.querySelector(".cart-product");
         const rowProduct = document.querySelector(".row-product"); 
+        const btnCart = document.getElementById("iconCarrito");
         // lista de todos los contenedores de productos
         const productList = document.querySelector(".container-vinilos");
         // array de productos
         let allProducts  = [];
         const valorTotal = document.querySelector(".total-pagar");
-        const countProducts = document.querySelector("#contador-productos");
-        let isCartEmpty = true; // Variable para rastrear si el carrito está vacío
+        //let isCartEmpty = true; // Variable para rastrear si el carrito está vacío
     
         btnCart.addEventListener("click", () => 
         {
@@ -470,6 +469,11 @@ function slider(){
                     price: productV.querySelector("p").textContent,
                 };
 
+                /*if (isCartEmpty) 
+                {
+                    isCartEmpty = false; // Si el carrito está vacío y se agrega un producto, establecer isCartEmpty en false
+                }*/
+
                 const existingProduct = allProducts.find(product => product.title === infoProduct.title);
                 if (existingProduct) // si el producto existe
                 {
@@ -486,32 +490,32 @@ function slider(){
         rowProduct.addEventListener("click", (e) =>
         {
             if (e.target.classList.contains("icon-close")) // si hacemos click en la "x"
-            {
+            {   // Eliminamos el producto seleccionado
                 const product = e.target.parentElement;
-                const title = product.querySelector("p").textContent;
+                const title = product.querySelector("p.titulo-producto-carrito").textContent;
                 allProducts = allProducts.filter(product => product.title !== title);
-                showHTML();
+                showHTML(); // Llamamos a showHTML() después de eliminar un producto para que el contenido del carrito se actualice de manera adecuada
             }
         });
 
         const showHTML = () =>
         {
             // Verificamos si el carrito está vacío antes de limpiar el contenido
-            if (allProducts.length === 0) {
-                isCartEmpty = true; // El carrito está vacío
-            } else {
-                isCartEmpty = false; // El carrito no está vacío
-            }
-    
-            // Mostrar mensaje si el carrito está vacío
-            if (isCartEmpty) {
-                containerCartProducts.innerHTML = `<p class="cart-empty">El carrito está vacío</p>`;
-                return; // Salir de la función si el carrito está vacío
-            }
+            let total = 0;
+            rowProduct.innerHTML = "";
 
-            rowProduct.innerHTML  = ""; // con esto limpiamos el HTML y así no salen todos los vinilos repetidos un montón de veces al hacer click sobre uno
-            let total = 0; // es el total del dinero a pagar
-            let productosTotales = 0; // es el total de lo que tiene el carrito
+            if (allProducts.length === 0) 
+            {
+                //isCartEmpty = true; // El carrito está vacío
+                containerCartProducts.classList.add("hidden-cart");
+                containerCartProducts.innerHTML = `<p class="cart-empty">El carrito está vacío</p>`;
+                return; // Salimos de la función si el carrito está vacío
+            }
+            else
+            {
+                containerCartProducts.classList.remove("hidden-cart");
+                //isCartEmpty = false; // El carrito no está vacío
+            }
 
             allProducts.forEach(product => 
                 {
@@ -542,9 +546,16 @@ function slider(){
                     rowProduct.append(containerProduct);
 
                     total = total + parseFloat(product.price.replace('€', '')) * product.quantity;
-                    productosTotales += product.quantity;
                 });
-                valorTotal.innerText = `${total}€`;
-                countProducts.innerText = `${productosTotales}`;
+                valorTotal.innerText = `${total.toFixed(2)}€`
+                let iconClose =  document.querySelector('.icon-close');
+                if (containerCartProducts.classList.contains("hidden-cart")) 
+                {
+                    iconClose.style.display = "none"; // Oculta el icono si el carrito está oculto
+                } 
+                else 
+                {
+                    iconClose.style.display = "block"; // Muestra el icono si el carrito está visible
+                }
         }
     });

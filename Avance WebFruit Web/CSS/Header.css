@@ -130,7 +130,7 @@ header{
     font-weight: 700;
     font-size: 20px;
     margin-left: 10px;
-    color: rgb(238, 136, 19,0.85);
+    color: black;
 }
 
 .cantidad-producto-carrito
@@ -145,6 +145,12 @@ header{
     width: 25px;
     height: 25px;
     color: black;
+    display: none; /* Oculta la "X" inicialmente */
+}
+
+.hidden-cart .icon-close 
+{
+    display: block; /* Muestra la "X" cuando el carrito no está vacío */
 }
 
 .icon-close:hover
@@ -195,9 +201,4 @@ header{
     color: white;
     align-items: center;
     transition: transform 0.3s ease;    
-}
-
-.cantidad-producto-carrito,
-.precio-producto-carrito {
-    font-size:0.1em; /* Tamaño de fuente más pequeño */
 }
