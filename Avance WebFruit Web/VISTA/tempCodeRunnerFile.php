@@ -1,3 +1,4 @@
+<?php
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -22,7 +23,7 @@
     <header>
 
         <div id="logo-cabra">
-            <a href="Page2.php"><img src="../IMG/LOGO_VINYL_GOATS_1_SIN_LETRAS_TRANSPARENCIA.png">Vinyl GOATS</a>
+            <a href="Page2.html"><img src="../IMG/LOGO_VINYL_GOATS_1_SIN_LETRAS_TRANSPARENCIA.png">Vinyl GOATS</a>
             
         </div>
         <div class="usuario">
@@ -43,10 +44,8 @@
 
         <form method="post" action="../CONTROLADOR/logIn.php" id="registroForm">
           
-         
-            <label class="textoLogin" >Correo<span class="error">*</span>:</label>
-            <input id="correo" class="campos" type="email" name="Correo" placeholder="Correo"/> 
-
+            <label class="textoLogin" >Correo electrónico<span class="error">*</span>:</label>
+            <input id="correo" class="campos" type="email" name="Correo" placeholder="Correo"/>
             <br>
             <div id="errorC"> <!-- Un div para poner los mensajitos de los errores del correo -->
 
@@ -111,6 +110,3 @@
 </body>
     
 </html>
-
-
-

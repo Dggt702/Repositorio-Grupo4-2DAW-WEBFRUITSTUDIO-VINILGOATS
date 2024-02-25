@@ -1,33 +1,21 @@
 <?php
 
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/PHPClass.php to edit this template
- */
-
-
 class BBDD {
-   
-    private $servidor;
-    private $usuario;
-    private $password; 
-    private $nombre;
-    public $mysql;
-    
-    public function __construct() {
-        $this->usuario = "admin_vb"; 
-        $this->password = "";
-        $this->nombre="bdd_vnbros";
-        $this->servidor="localhost";
-        $this->mysql = new mysqli($this->servidor, $this->usuario, $this->password, $this->nombre);
-        if ($this->mysql->connect_errno) {
-                 
-            die("error de conexión: " . $mysql->connect_error);
-            
-       
-               
-        }
-}
-}
+        public static function conectar(){
+           $server="localhost";
+           $dbname="bdd_vnbros";
+           $user="admin_vb";
+           $password="";
 
+            try{
+                $connection = new PDO("mysql:host=$server;dbname=$dbname", $user, $password);
+                $connection->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
+                return $connection;
+            } catch(PDOException $e){
+                die("ERROR: ".$e->getMessage());
+            }
+
+           
+        }
+    }
 ?>

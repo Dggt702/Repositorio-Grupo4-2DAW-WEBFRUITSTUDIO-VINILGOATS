@@ -25,10 +25,7 @@
             <a href="Page2.php"><img src="../IMG/LOGO_VINYL_GOATS_1_SIN_LETRAS_TRANSPARENCIA.png">Vinyl GOATS</a>
             
         </div>
-        <div class="usuario">
-            <a href="landingPage.html">Registrate</a>
-          
-        </div>
+       
     </header>
     <!---Dioggo: He puesto aca un div, debido a que si no lo está, no habra separacion entre el 
         header, Section y Aside, si alguien conoce alguna forma en la que se pueda arreglar eso, comentelo, o agreguelo--->
@@ -37,29 +34,33 @@
     <div class="col-8 col-sm-8 col-md-8 col-lg-8 col-xl-8 container">    
         <div class=" col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 arow" id="centrar" style="border:none;">
         
-            <h2 id="tituloIniciar">Iniciar Sesión</h2>
+           
             <img src="../IMG/LOGO_VINYL_GOATS_1_SIN_LETRAS_TRANSPARENCIA.png" id="imagenLogo">
-      
+            <?php session_start(); 
+                    if(!isset($_SESSION["usuarioLogeado"])){
+                        header("Location:./LoginIn.php");
+                    }
+                     $nombreUsuario=$_SESSION["usuarioLogeado"];
+                 ?>
+            <h2 id="tituloIniciar"> <?php echo "<h1 style='color:orange'>$nombreUsuario</h1>"?></h2>
+              
+            <?php
+                require_once "../CONTROLADOR/informacionUsuario.php";
+                echo"<br><h2>Informacion Usuario</h2><br><br>";
+                echo "<table style='border: 1px solid white; width:50%; margin-bottom:2em'>";
+                echo "<tr><th style='display:flex; justify-content:center'>Categoria</th><th display:flex; justify-content:center'>Informacion Personal</th></tr>";
+                
+                foreach ($informacionUsuario as $usuario) {
+                    foreach ($usuario as $clave => $valor) {
+                        $claveMayusculas = strtoupper($clave);
+                        echo "<tr><td style='display:flex; justify-content:center'>$claveMayusculas</td><td display:flex; justify-content:center'>$valor</td></tr>";
+                    }
+                }
+                
+                echo "</table>";
 
-        <form method="post" action="../CONTROLADOR/logIn.php" id="registroForm">
-          
-         
-            <label class="textoLogin" >Correo<span class="error">*</span>:</label>
-            <input id="correo" class="campos" type="email" name="Correo" placeholder="Correo"/> 
-
-            <br>
-            <div id="errorC"> <!-- Un div para poner los mensajitos de los errores del correo -->
-
-            </div>
-            <label for="password" class="textoLogin">Contraseña<span class="error">*</span>:</label>
-            <input id="password" class="campos" type="password" name="Contraseña" placeholder="Contraseña"/>
-            <br>
-
-            <div id="submitCaja">
-                <input type="submit" value="Ingresar" id="submitButton" name="submit">
-            </div>
+            ?>
         
-        </form>
         </div>
         </div>    
 </div>
