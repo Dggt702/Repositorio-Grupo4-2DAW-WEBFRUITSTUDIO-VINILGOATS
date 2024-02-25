@@ -12,7 +12,8 @@ class TeamModel extends BBDD{
     public static function grabar($usuario){
         $conn = BBDD::conectar();
         $stmt = $conn->prepare("INSERT INTO usuarios(nombre,correo,contraseña,sexo,fecha_de_nacimiento,direccion,pais,DNI,tarjeta_de_credito,notificaciones,revista_digital) 
-        VALUES(:nombre,:correo,:contraseña,:sexo,:fNacimiento,:direccion,:pais,:dni,:tarjetaDeCredito,:notificaciones,:revista)");
+        VALUES(:nombre,:correo,:pass,:sexo,:fNacimiento,:direccion,:pais,:dni,:tarjetaDeCredito,:notificaciones,:revista)");
+        
         $nombre = $usuario->getNombre();
         $correo = $usuario->getCorreo();
         $contraseña = $usuario->getContraseña();
@@ -27,7 +28,7 @@ class TeamModel extends BBDD{
 
         $stmt->bindParam(':nombre',$nombre);
         $stmt->bindParam(':correo',$correo);
-        $stmt->bindParam(':contraseña',$contraseña);
+        $stmt->bindParam(':pass',$contraseña);
         $stmt->bindParam(':sexo',$sexo);
         $stmt->bindParam(':fNacimiento',$fNacimiento);
         $stmt->bindParam(':direccion',$direccion);
@@ -38,10 +39,11 @@ class TeamModel extends BBDD{
         $stmt->bindParam(':revista',$revista);
 
         if($stmt->execute()){
-            header('HTTP/1.1 201 Cliente creado correctamente');
+            return true;
         }else{
-            header('HTTP/1.1 404 Cliente no se ha creado correctamente');
+            return false;
         }
+        
 
     }
 

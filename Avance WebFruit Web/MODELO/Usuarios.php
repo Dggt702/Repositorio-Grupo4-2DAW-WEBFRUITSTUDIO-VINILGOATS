@@ -19,7 +19,7 @@ class Usuario{
     private $revistaDigital;
 
     
-    public function __construct($nombre, $correo, $contraseña,$sexo="", $fechaDeNacimiento="", $direccion="", $pais="", $dni="", $tarjetaDeCredito="", $notificaciones="", $revistaDigital="") {
+    public function __construct($nombre, $correo, $contraseña, $sexo="", $fechaDeNacimiento="", $direccion="", $pais="", $dni="", $tarjetaDeCredito="", $notificaciones="", $revistaDigital="") {
         $this->nombre = $nombre;
         $this->correo = $correo;
         $this->contraseña = $contraseña;
