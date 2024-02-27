@@ -104,7 +104,7 @@
             <a href="#">Ofertas</a>
             <a href="#">Novedades</a>
             <a href="#">Categorías</a>
-            <a href="contacto.php">Contacto</a>
+            <a href="#">Contacto</a>
         </div>
     </nav>
 
@@ -154,61 +154,17 @@
                 </div>
                 
             </div>
+            <div id="map" style='width:30%'>
+                <script src="../JavaScript/scriptMapa.js"></script>
+                <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBDaeWicvigtP9xPv919E-RNoxfvC-Hqik&callback=iniciarMap"></script>
+            </div>
 
-            <!-- Contenido -->
-            <div id="contenido_main" class="p-2 text-center justify-content-center">
-                <!-- Sección de Vinilos -->
-
-                <section id="vinilos" class="text-center justify-content-center">
-
-                    <!-- Slider -->
-                    <!-- Slider -->
-                    <div id="sliderBlock" class="container">
-                        <div class="row">
-                            <div class="col">
-                                <div id="slide" class="text-center">
-                                    <div class="slideCapa">
-                                        <div class="slider">
-                                            <img src="../IMG/SLIDER/1.png" alt="">
-                                            <img src="../IMG/SLIDER/2.png" alt="">
-                                            <img src="../IMG/SLIDER/3.png" alt="">
-                                            <img src="../IMG/SLIDER/4.png" alt="">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!--CONTENIDO PRINCIPAL-->
-
-                    <h2 id="titulo">vINILOS</h2>
-                        <!-- Plantilla para cada vinilo **copiad esto** -->
-                        <!-- 
-                        <div class="col-lg-4 col-xl-3 mb-4">
-                            <div class="vinilo">
-                                <img src="../IMG/VINILOS/nombre-imagen.jpg" class="img-fluid" alt="Vinilo x">
-                                <a href="./infoDiscos.html">NOMBRE - ARTISTA</a>
-                                <p>Precio: X €</p>
-                                <button class="btn btn-primary">Añadir al carrito</button>
-                            </div>  
-                        </div>
-                        -->
-
-                        <div id="search-group" class="input-group mb-3">
-                            <input type="text" id="searchInput" class="input-group-text" placeholder="Buscar productos/servicios">
-                            <button class="btn btn-secondary" onclick="search()">Buscar</button>
-                        </div>
- <?php
-                        require_once("../MODELO/TeamModel.php");
-                        require_once("TeamVista.php");
-                        require_once("../MODELO/Album.php"); 
-                        echo TeamVista::imprimirFilaAlbum(TeamModel::getListaAlbumes());
-?>
-                        
-                        </div>
-                        <!-- ... (repetir para otros vinilos) ... -->
-                
+            <div id="informacion" style='width:50%; display:flex ; flex-direction:column; margin-top:10em; align-items:center; color:white;'>
+               <h1>Nuestra Ubicación</h1>
+               <h4>Direccion: Carr. de Guadarrama, 85, 28260 Galapagar, Madrid</h4>
+               <h4>Numero de Contacto: +34 689904521</h4>
+               <h4>Correo eletrónico: contacto@vinylgoats.com</h4>            
+            </div>
                 </section>
             </div>
 
