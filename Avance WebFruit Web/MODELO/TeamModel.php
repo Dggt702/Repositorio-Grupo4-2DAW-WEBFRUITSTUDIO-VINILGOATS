@@ -43,8 +43,6 @@ class TeamModel extends BBDD{
         }else{
             return false;
         }
-        
-
     }
 
     public static function getListaPaises(){
@@ -75,7 +73,7 @@ class TeamModel extends BBDD{
 
         if($stmt->execute()){
             while($fila= $stmt->fetch(PDO::FETCH_ASSOC)){
-                array_push($listaAlbumes,new Album($fila['id_album'],$fila['nombre'],$fila['id_artista'],$fila['precio'],$fila['stock'],$fila['url_imagen'],$fila['anio'],$fila['duracion']));
+                array_push($listaAlbumes,new Album($fila['id_album'],$fila['nombre'],$fila['id_artista'],$fila['precio'],$fila['stock'],$fila['imagen'],$fila['anio'],$fila['duracion']));
             }
         }
             return $listaAlbumes; 
@@ -106,6 +104,37 @@ class TeamModel extends BBDD{
         }
 
         return $listaArtistas;
+    }
+
+    public static function grabarAlbum($album){
+        $conn = BBDD::conectar();
+        $ret = false;
+        $sql = "INSERT INTO albumes(nombre, id_artista, precio, stock, anio, duracion, imagen) VALUES(:nombre, :id_artista, :precio, :stock, :anio, :duracion, :imagen)";
+        $stmt = $conn->prepare($sql);
+
+        $nombre = $album->getNombre();
+        $idArtista = $album->getIdArtista();
+        $precio = $album->getPrecio();
+        $stock = $album->getStock();
+        $anio = $album->getAnio();
+        $duracion = $album->getDuracion();
+        $imagen = $album->getImagen();
+  
+
+        $stmt->bindParam(":nombre",$nombre);
+        $stmt->bindParam(":id_artista",$idArtista);
+        $stmt->bindParam(":precio",$precio);
+        $stmt->bindParam(":stock",$stock);
+        $stmt->bindParam(":anio",$anio);
+        $stmt->bindParam(":duracion",$duracion);
+        $stmt->bindParam(":imagen",$imagen);
+   
+
+        if($stmt->execute()){
+            $ret = true;
+        }
+            return $ret;
+
     }
 
 }

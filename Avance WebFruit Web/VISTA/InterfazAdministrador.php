@@ -41,9 +41,9 @@
         <h1 class="container-fluid text-light mt-3">Interfaz del Administrador:</h1>
         <?php
 
-if (isset($_POST["submitInserciones"])){
-
-   echo TeamVista::imprimirTipoInsercion($_POST["tInsercion"]);
+if (isset($_POST["submitInserciones"]) && isset($_POST["tInsercion"])){
+        echo TeamVista::imprimirTipoInsercion($_POST["tInsercion"]);
+   
 ?>
       
         

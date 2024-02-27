@@ -6,17 +6,17 @@ class Album{
     private $idArtista;
     private $precio;
     private $stock;
-    private $urlImagen;
+    private $imagen;
     private $anio;
     private $duracion;
     
-    public function __construct($id, $nombre, $idArtista, $precio, $stock, $urlImagen, $anio, $duracion) {
+    public function __construct($id, $nombre, $idArtista, $precio, $stock, $imagen,$anio, $duracion) {
         $this->id = $id;
         $this->nombre = $nombre;
         $this->idArtista = $idArtista;
         $this->precio = $precio;
         $this->stock = $stock;
-        $this->urlImagen = $urlImagen;
+        $this->imagen = $imagen;
         $this->anio = $anio;
         $this->duracion = $duracion;
     }
@@ -41,8 +41,8 @@ class Album{
         return $this->stock;
     }
 
-    public function getUrlImagen() {
-        return $this->urlImagen;
+    public function getImagen() {
+        return $this->imagen;
     }
 
     public function getAnio() {
@@ -51,38 +51,6 @@ class Album{
 
     public function getDuracion() {
         return $this->duracion;
-    }
-
-    public function setId($id): void {
-        $this->id = $id;
-    }
-
-    public function setNombre($nombre): void {
-        $this->nombre = $nombre;
-    }
-
-    public function setIdArtista($idArtista): void {
-        $this->idArtista = $idArtista;
-    }
-
-    public function setPrecio($precio): void {
-        $this->precio = $precio;
-    }
-
-    public function setStock($stock): void {
-        $this->stock = $stock;
-    }
-
-    public function setUrlImagen($urlImagen): void {
-        $this->urlImagen = $urlImagen;
-    }
-
-    public function setAnio($anio): void {
-        $this->anio = $anio;
-    }
-
-    public function setDuracion($duracion): void {
-        $this->duracion = $duracion;
     }
 
     

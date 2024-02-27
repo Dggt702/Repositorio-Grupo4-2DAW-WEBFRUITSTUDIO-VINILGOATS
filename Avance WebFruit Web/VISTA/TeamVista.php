@@ -1,5 +1,6 @@
 <?php
 require_once("../MODELO/TeamModel.php");
+require_once("../MODELO/Album.php");
 
 class TeamVista{
     
@@ -16,11 +17,11 @@ class TeamVista{
             $artista = TeamModel::getArtista($album->getIdArtista());
             $i++;
             
-            $ret.='<div class="container-fluid col-3">
+            $ret.='<div class="container-fluid col-3 mt-2">
                         <div class="bg-dark text-light rounded align-items-center p-4">
-                            <img class=" col-12 rounded" src="../IMG/VINILOS/'.$album->getUrlImagen().'"  alt="Vinilo '.$i.'"/>
-                                <a class="link-warning text-light text-decoration-none display fw-bold" href="./infoDiscos.html">'.$artista->getNombre().'</a>
-                                <p class="fw-light">'.$album->getNombre().'</p>
+                            <img class=" col-12 rounded" src="../IMG/VINILOS/'.$album->getImagen().'"  alt="Vinilo '.$i.'"/>
+                                <a class="link-warning text-light text-decoration-none display fw-bold" href="./infoDiscos.html">'.$album->getNombre().'</a>
+                                <p class="fw-light">'.$artista->getNombre().'</p>
                                 <p class="">Precio: '.$album->getPrecio().' €</p>
                                 <button class="btn btn-primary btn-add-cart">Añadir al carrito</button>
                         </div>
@@ -34,13 +35,13 @@ class TeamVista{
     //METODOS PARA EL CRUD
 
     public static function imprimirTipoInsercion($tipoInsercion){
-        $ret="<form method='POST' action='../CONTROLADOR/grabar.php'>";
+        $ret="<form method='POST' action='../CONTROLADOR/grabar.php' enctype='multipart/form-data'>";
         if($tipoInsercion=="album"){
             $ret.='
                 <div class="container-fluid row text-light ml-2 col-6">
                     <div class="input-group m-1">
                         <span class="input-group-text">Nombre del Album:</span  >
-                        <input class="form-control" type="text"/>
+                        <input class="form-control" name="nAlbum" type="text"/>
                     </div>
                 <div class="input-group m-1">
                     <span class="input-group-text">Autor del album:</span>
@@ -81,6 +82,11 @@ class TeamVista{
                         <span class="input-group-text">Imagen del Album:</</span>
                         <input name="imgAlbum" type="file" required>
                     </div>
+                    <div class="input-group m-1">
+                        <input class="btn btn-warning" name="submitAlbum" type="submit"/>
+                    </div>
+                    
+
             <div>
             ';
 

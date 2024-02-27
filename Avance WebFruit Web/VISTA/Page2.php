@@ -205,18 +205,12 @@
                             <input type="text" id="searchInput" class="input-group-text" placeholder="Buscar productos/servicios">
                             <button class="btn btn-secondary" onclick="search()">Buscar</button>
                         </div>
-
-                        <div class="container-fluid row container-vinilos justify-content-between">
-                            <div class="container-fluid row col-6 bg-dark text-light rounded align-items-center p-4 mt-2">
-                                <img class="col-4 rounded" src="../IMG/VINILOS/EL ÚLTIMO TOUR DEL MUNDO - Bad Bunny.jpg"  alt="Vinilo 1"/>
-                                <div class="row col-8 text-left">
-                                    <a class="link-warning text-light text-decoration-none display fw-bold" href="./infoDiscos.html">EL ÚLTIMO TOUR DEL MUNDO</a>
-                                    <h6 class="fw-light">BAD BUNNY</h6>
-                                    <p class="">20.00 €</p>
-                                    <button class="btn btn-primary btn-add-cart">Añadir al carrito</button>
-                                </div> 
-                            </div>
-                        
+ <?php
+                        require_once("../MODELO/TeamModel.php");
+                        require_once("TeamVista.php");
+                        require_once("../MODELO/Album.php"); 
+                        echo TeamVista::imprimirFilaAlbum(TeamModel::getListaAlbumes());
+?>
                         
                         </div>
                         <!-- ... (repetir para otros vinilos) ... -->
