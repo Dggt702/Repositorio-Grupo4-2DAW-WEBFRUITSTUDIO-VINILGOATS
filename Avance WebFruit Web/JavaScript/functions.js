@@ -441,7 +441,7 @@ function slider(){
 
     document.addEventListener("DOMContentLoaded", function()
     {
-        const containerCartProducts = document.querySelector(".container-cart-products");
+        /*const containerCartProducts = document.querySelector(".container-cart-products");
         const rowProduct = document.querySelector(".row-product"); 
         const btnCart = document.getElementById("iconCarrito");
         // lista de todos los contenedores de productos
@@ -449,7 +449,6 @@ function slider(){
         // array de productos
         let allProducts  = [];
         const valorTotal = document.querySelector(".total-pagar");
-        //let isCartEmpty = true; // Variable para rastrear si el carrito está vacío
     
         btnCart.addEventListener("click", () => 
         {
@@ -468,11 +467,6 @@ function slider(){
                     title: productV.querySelector("a").textContent,
                     price: productV.querySelector("p").textContent,
                 };
-
-                /*if (isCartEmpty) 
-                {
-                    isCartEmpty = false; // Si el carrito está vacío y se agrega un producto, establecer isCartEmpty en false
-                }*/
 
                 const existingProduct = allProducts.find(product => product.title === infoProduct.title);
                 if (existingProduct) // si el producto existe
@@ -501,13 +495,14 @@ function slider(){
 
         const showHTML = () =>
         {
+            
             // Verificamos si el carrito está vacío antes de limpiar el contenido
             let total = 0;
             rowProduct.innerHTML = "";
+            
 
             if (allProducts.length === 0) 
             {
-                //isCartEmpty = true; // El carrito está vacío
                 containerCartProducts.classList.add("hidden-cart");
                 containerCartProducts.innerHTML = `<p class="cart-empty">El carrito está vacío</p>`;
                 return; // Salimos de la función si el carrito está vacío
@@ -515,8 +510,9 @@ function slider(){
             else
             {
                 containerCartProducts.classList.remove("hidden-cart");
-                //isCartEmpty = false; // El carrito no está vacío
             }
+
+            
 
             allProducts.forEach(product => 
                 {
@@ -549,7 +545,7 @@ function slider(){
                     total = total + parseFloat(product.price.replace('€', '')) * product.quantity;
                 });
                 valorTotal.innerText = `${total}€`;
-                let iconClose =  document.querySelector('.icon-close');
+                let iconClose =  document.querySelector(".icon-close");
                 if (containerCartProducts.classList.contains("hidden-cart")) 
                 {
                     iconClose.style.display = "none"; // Oculta el icono si el carrito está oculto
@@ -558,5 +554,209 @@ function slider(){
                 {
                     iconClose.style.display = "block"; // Muestra el icono si el carrito está visible
                 }
+        }*/
+
+        /*// variables
+        let allContainerCart = document.querySelector(".products");
+        let containerBuyCart = document.querySelector(".card-item");
+
+        let buyThings = [];
+
+        // functions
+        loadEventListeners();
+        
+        function loadEventListeners()
+        {
+            allContainerCart.addEventListener("click", addProduct);
+            containerBuyCart.addEventListener("click", deleteProduct);
+        }
+
+        function addProduct(e)
+        {
+            e.preventDefault();
+            if(e.target.classList.contains("btn-add-cart"))
+            {
+                const selectProduct = e.target.parentElement;
+                readTheContent(selectProduct);
+            }
+        }
+
+        function deleteProduct(e)
+        {
+            if(e.target.classList.contains("delete-product"))
+            {
+                const deleteId = e.target.getAttribute("data-id");
+                buyThings = buyThings.filter(product => product.id !== deleteId);
+                loadHTML();
+            }
+        }
+
+        function readTheContent(product)
+        {
+            const infoProduct = 
+            {
+                //image: product.querySelector("div div div img").src,
+                title: product.querySelector("div div div a").textContent,
+                artist: product.querySelector("div div div h6").textContent,
+                price: product.querySelector("div div div p").textContent,
+                id: generateUniqueId(), // Aquí generamos un id único para cada producto
+                amount: 1
+            }
+
+            buyThings = [...buyThings, infoProduct];
+            loadHTML();
+            console.log(infoProduct);
+        }
+        
+        function loadHTML()
+        {
+            clearHTML();
+            buyThings.forEach(product =>
+                {
+                    const {title, artist, price, amount, id} = product;
+                    const row = document.createElement("div");
+                    row.classList.add("item");
+                    row.innerHTML = `
+                    <div id="item-content" class="container-cart-products hidden-cart text-white mt-5">
+                        <h5>${title}</h5>
+                        <h5>${artist}</h5>
+                        <h5 class="cart-price">${price}€</h5>
+                        <h6>$ ${amount}</h6>
+                    </div>
+                    <span class="delete-product" ${id}>X</span>
+                    `;
+                    containerBuyCart.appendChild(row);
+                })
+        }
+
+        function clearHTML()
+        {
+            containerBuyCart.innerHTML = "";
+        }
+
+        // Función para generar un id único
+        function generateUniqueId() 
+        {
+            return '_' + Math.random().toString(36).substr(2, 9);
+        }*/
+
+        // variables
+        let allContainerCart = document.querySelector(".products");
+        let containerBuyCart = document.querySelector(".card-item");
+        let priceTotal = document.querySelector(".price-total");
+
+        let buyThings = [];
+        let totalCard = 0;
+
+        // functions
+        loadEventListeners();
+
+        function loadEventListeners() 
+        {
+            allContainerCart.addEventListener("click", addProduct);
+            containerBuyCart.addEventListener("click", deleteProduct);
+        }
+
+        function addProduct(e) 
+        {
+            e.preventDefault();
+            if (e.target.classList.contains("btn-add-cart")) 
+            {
+                const selectProduct = e.target.parentElement;
+                readTheContent(selectProduct);
+            }
+        }
+
+        function deleteProduct(e) 
+        {
+            if (e.target.classList.contains("delete-product")) 
+            {
+                const deleteId = e.target.getAttribute("data-id");
+                buyThings.forEach(value =>
+                    {
+                        if (value.id == deleteId)
+                            {
+                                let priceReduce = parseFloat(value.price) * parseFloat(value.amount);
+                                totalCard = totalCard - priceReduce;
+                                //totalCard = totalCard.toFixed(2);
+                            }
+                    })
+                buyThings = buyThings.filter(product => product.id !== deleteId);
+                loadHTML();
+            }
+        }
+
+        function readTheContent(product) 
+        {
+            const infoProduct = 
+            {
+                //image: product.querySelector("div div div img").src,
+                title: product.querySelector(".product-title").textContent,
+                artist: product.querySelector(".product-artist").textContent,
+                price: product.querySelector(".product-price").textContent,
+                id: generateUniqueId(), // Aquí generamos un id único para cada producto
+                amount: 1
+            }
+            
+
+            totalCard = totalCard + parseFloat(infoProduct.price);
+            //totalCard = totalCard.toFixed(2);
+
+            const exists = buyThings.some(product => product === infoProduct.id);
+            if(exists)
+            {
+                const pro = buyThings.map(product =>
+                    {
+                        if (product.id === infoProduct.id)
+                        {
+                            product.amount++;
+                            return product;
+                        }
+                        else
+                        {
+                            return product;
+                        }
+                    });
+                buyThings = [...pro];
+            }
+            else
+            {
+                buyThings = [...buyThings, infoProduct];
+            }
+            loadHTML();
+        }
+
+        function loadHTML() 
+        {
+            clearHTML();
+            buyThings.forEach(product => 
+                {
+                const { title, artist, price, amount, id } = product;
+                const row = document.createElement("div");
+                row.classList.add("item");
+                row.innerHTML = `
+                    <div id="item-content" class="container-cart-products hidden-cart text-white mt-5">
+                        <h5>${title}</h5>
+                        <h5>${artist}</h5>
+                        <h5 class="cart-price">${price}€</h5>
+                        <h6>$ ${amount}</h6>
+                    </div>
+                    <span class="delete-product" data-id="${id}">X</span>
+                `;
+                containerBuyCart.appendChild(row);
+
+                priceTotal.innerHTML = totalCard;
+            });
+        }
+
+        function clearHTML() 
+        {
+            containerBuyCart.innerHTML = "";
+        }
+
+        // Función para generar un id único
+        function generateUniqueId() 
+        {
+            return '_' + Math.random().toString(36).substr(2, 9);
         }
     });
