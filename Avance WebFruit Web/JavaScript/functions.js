@@ -441,7 +441,7 @@ function slider(){
 
     document.addEventListener("DOMContentLoaded", function()
     {
-        /*const containerCartProducts = document.querySelector(".container-cart-products");
+        const containerCartProducts = document.querySelector(".container-cart-products");
         const rowProduct = document.querySelector(".row-product"); 
         const btnCart = document.getElementById("iconCarrito");
         // lista de todos los contenedores de productos
@@ -478,6 +478,7 @@ function slider(){
                     allProducts.push(infoProduct);
                 }   
             }
+            console.log("Llamado desde añadir");
             showHTML();
         });
     
@@ -488,7 +489,7 @@ function slider(){
                 const product = e.target.parentElement;
                 const title = product.querySelector("p.titulo-producto-carrito").textContent;
                 allProducts = allProducts.filter(product => product.title !== title);
-                console.log("Productos después de eliminar:", allProducts);
+                console.log("Llamado desde la x");
                 showHTML(); // Llamamos a showHTML() después de eliminar un producto para que el contenido del carrito se actualice de manera adecuada
             }
         });
@@ -499,23 +500,55 @@ function slider(){
             // Verificamos si el carrito está vacío antes de limpiar el contenido
             let total = 0;
             rowProduct.innerHTML = "";
-            
+            console.log("ha entrado en showHTML");
 
             if (allProducts.length === 0) 
             {
                 containerCartProducts.classList.add("hidden-cart");
                 containerCartProducts.innerHTML = `<p class="cart-empty">El carrito está vacío</p>`;
-                return; // Salimos de la función si el carrito está vacío
+                //return; // Salimos de la función si el carrito está vacío
             }
             else
             {
                 containerCartProducts.classList.remove("hidden-cart");
             }
-
+            console.log("showHTML-->tras los ifs"+JSON.stringify(allProducts));
             
+            if (allProducts.length === 0)
+            {
+                console.log("showHTML-->DENTRO ALLpRODUCTS");
+                const containerProduct = document.createElement('div');
+                containerProduct.classList.add("cart-product");
+                containerProduct.innerHTML = 
+                `<div class="info-cart-product">
+                    <span class="cantidad-producto-carrito">0</span>
+                    <p class="titulo-producto-carrito">0</p>
+                    <span class="precio-producto-carrito">0</span>
+                </div>
+                <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke-width="1.5"
+                    stroke="currentColor"
+                    class="icon-close"
+                >
+                    <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M6 18L18 6M6 6l12 12"
+                    >
+                    </path>
+                </svg>
+                `
+                rowProduct.append(containerProduct);
+
+                //total = total + parseFloat(product.price.replace('€', '')) * product.quantity;
+            }
 
             allProducts.forEach(product => 
                 {
+                    console.log("showHTML-->DENTRO ALLpRODUCTS");
                     const containerProduct = document.createElement('div');
                     containerProduct.classList.add("cart-product");
                     containerProduct.innerHTML = 
@@ -546,18 +579,23 @@ function slider(){
                 });
                 valorTotal.innerText = `${total}€`;
                 let iconClose =  document.querySelector(".icon-close");
-                if (containerCartProducts.classList.contains("hidden-cart")) 
+                console.log("primera indicacion:" + iconClose);
+                if (containerCartProducts.classList.contains("hidden-cart") && iconClose) 
                 {
                     iconClose.style.display = "none"; // Oculta el icono si el carrito está oculto
                 } 
-                else 
+                else
                 {
-                    iconClose.style.display = "block"; // Muestra el icono si el carrito está visible
+                    if (iconClose)
+                    {
+                        console.log(iconClose);
+                        iconClose.style.display = "block"; // Muestra el icono si el carrito está visible
+                    }
                 }
-        }*/
+        }
 
-        /*// variables
-        let allContainerCart = document.querySelector(".products");
+        // variables
+        /*let allContainerCart = document.querySelector(".products");
         let containerBuyCart = document.querySelector(".card-item");
 
         let buyThings = [];
@@ -590,7 +628,7 @@ function slider(){
                 loadHTML();
             }
         }
-
+ 
         function readTheContent(product)
         {
             const infoProduct = 
@@ -638,8 +676,10 @@ function slider(){
         function generateUniqueId() 
         {
             return '_' + Math.random().toString(36).substr(2, 9);
-        }*/
+        }
 
+/************************************************* 
+                 
         // variables
         let allContainerCart = document.querySelector(".products");
         let containerBuyCart = document.querySelector(".card-item");
@@ -744,6 +784,7 @@ function slider(){
                     <span class="delete-product" data-id="${id}">X</span>
                 `;
                 containerBuyCart.appendChild(row);
+                console.log("ROW: "+row);
 
                 priceTotal.innerHTML = totalCard;
             });
@@ -759,4 +800,5 @@ function slider(){
         {
             return '_' + Math.random().toString(36).substr(2, 9);
         }
+        ****************************************/
     });
