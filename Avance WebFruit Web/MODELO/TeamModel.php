@@ -112,6 +112,8 @@ class TeamModel extends BBDD{
         $sql = "INSERT INTO albumes(nombre, id_artista, precio, stock, anio, duracion, imagen) VALUES(:nombre, :id_artista, :precio, :stock, :anio, :duracion, :imagen)";
         $stmt = $conn->prepare($sql);
 
+        $relacionidAlbum = $conn->prepare("INSERT INTO artista/album(id_album,id_artista) VALUES(:idAlbum,:idArtista)");
+
         $nombre = $album->getNombre();
         $idArtista = $album->getIdArtista();
         $precio = $album->getPrecio();

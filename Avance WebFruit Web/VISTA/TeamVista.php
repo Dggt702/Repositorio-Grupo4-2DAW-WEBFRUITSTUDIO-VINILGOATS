@@ -82,9 +82,7 @@ class TeamVista{
                         <span class="input-group-text">Imagen del Album:</</span>
                         <input name="imgAlbum" type="file" required>
                     </div>
-                    <div class="input-group m-1">
-                        <input class="btn btn-warning" name="submitAlbum" type="submit"/>
-                    </div>
+                    
                     
 
             <div>
@@ -92,13 +90,25 @@ class TeamVista{
 
             
         }elseif($tipoInsercion=="cancion"){
-
+            
         }elseif($tipoInsercion=="artista"){
+            $ret.=' <div class="container-fluid row text-light ml-2 col-6">
+            <div class="input-group m-1">
+                <span class="input-group-text">Nombre del Artista:</span  >
+                <input class="form-control" name="nArtista" type="text"/>
+            </div>
+            <div class="input-group m-1">
+                <span class="input-group-text">Descripcion:</span  >
+                <input class="form-control" name="descripcion" type="text"/>
+            </div>
+            ';
 
         }else{
             $ret.="<h2>No se ha encontrando el tipo de insercion que se quiere hacer</h2>";
         }
-
+        $ret.='<div class="input-group m-1">
+        <input class="btn btn-warning" name="submitForm" type="submit"/>
+        </div>';
         $ret.="</form>";
         return $ret;
     }
