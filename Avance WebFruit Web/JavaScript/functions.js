@@ -490,8 +490,8 @@ function slider(){
                 const title = product.querySelector("p.titulo-producto-carrito").textContent;
                 allProducts = allProducts.filter(product => product.title !== title);
                 console.log("Llamado desde la x");
-                showHTML(); // Llamamos a showHTML() después de eliminar un producto para que el contenido del carrito se actualice de manera adecuada
             }
+            showHTML(); // Llamamos a showHTML() después de eliminar un producto para que el contenido del carrito se actualice de manera adecuada
         });
 
         const showHTML = () =>
@@ -580,17 +580,15 @@ function slider(){
                 valorTotal.innerText = `${total}€`;
                 let iconClose =  document.querySelector(".icon-close");
                 console.log("primera indicacion:" + iconClose);
-                if (containerCartProducts.classList.contains("hidden-cart") && iconClose) 
+                if (containerCartProducts.classList.contains("hidden-cart")) 
                 {
                     iconClose.style.display = "none"; // Oculta el icono si el carrito está oculto
                 } 
                 else
                 {
-                    if (iconClose)
-                    {
-                        console.log(iconClose);
-                        iconClose.style.display = "block"; // Muestra el icono si el carrito está visible
-                    }
+                    console.log(iconClose);
+                    iconClose.style.display = "block"; // Muestra el icono si el carrito está visible
+
                 }
         }
 
