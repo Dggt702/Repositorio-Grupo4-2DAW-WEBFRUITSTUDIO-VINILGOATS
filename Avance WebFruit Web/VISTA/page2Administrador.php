@@ -18,7 +18,7 @@
 </head>
 
 <body onload="slider()">
-   
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
     <!-- Header (logo y "regístrate")-->
     <header>
@@ -31,10 +31,10 @@
                         <i class="fa fa-user"></i><span class="ms-2">User</span>
                     </button>
                     <div class="dropdown-menu" aria-labelledby="triggerId">
-                        <?php   
+                        <?php
                             session_start();
-                            if(isset($_SESSION["usuarioLogeado"])){
-                                $nombreUsuario=$_SESSION["usuarioLogeado"];
+                            if(isset($_SESSION["usuarioAdmin"])){
+                                $nombreUsuario=$_SESSION["usuarioAdmin"];
                                 echo "<a class='dropdown-item' href='configuracionUsuario.php'>$nombreUsuario</a>";
                             }else{
                                 session_destroy();
@@ -48,10 +48,10 @@
             </div>
 
             <div id="logo-cabra">
-                <a href="../VISTA/Page2.php"><img src="../IMG/LOGO_VINYL_GOATS_1_SIN_LETRAS_TRANSPARENCIA.png">Vinyl GOATS</a>
+                <a href="../VISTA/page2Administrador.php"><img src="../IMG/LOGO_VINYL_GOATS_1_SIN_LETRAS_TRANSPARENCIA.png">Vinyl GOATS</a>
             </div>
-            
-            
+
+
             <div id="headerArribaDerecha">
                 <div id="usuarioFR" class="usuario">
                     <a id="register" href="../VISTA/landingPage.html">REGISTRATE</a>
@@ -83,7 +83,7 @@
                             </svg>
                         </div>
                     </div>
-                    
+
                     <div class="cart-total">
                         <h3>Total</h3>
                         <span class="total-pagar">0€</span>
@@ -96,8 +96,17 @@
     <!-- Barra de navegación -->
     <nav class="navbar">
         <div id="div-caja-nav">
-            <div id="idiomas">  
-                <a href="Page2.php"><img src="../IMG/espaniol.png"></a>
+        <div id="idiomas">  
+                <?php  
+                if(isset($_SESSION["usuarioAdmin"])){ 
+                    echo "<a href='page2Administrador.php'>";
+                    echo "<img src='../IMG/espaniol.png'>";
+
+                }elseif(isset($_SESSION["usuarioLogeado"]) || !isset($_SESSION["usuarioLogeado"])){
+                    echo "<a href='Page2.php'>";
+                    echo "<img src='../IMG/espaniol.png'>";
+
+                } ?> </a>
                 <a href="pageIngles.php"><img src="../IMG/ingles.png"></a>
             </div>
 
@@ -115,15 +124,18 @@
 
             <!-- Aside con  barra lateral -->
             <div class="bg-dark col-auto col-md-3 col-lg-2 min-vh-100 d-flex flex-column justify-content-between d-none d-sm-block">
-                
-                
+
+
                 <div class="bg-dark p-2">
-                  
+
                     <ul class="nav nav-pills flex-column mt-4">
                         <li class="nav-item py-2 py-sm-0">
-                        
+                            <a href="InterfazAdministrador.php" class="nav-link text-white">
+                                <i class="fs-5 fa fa-gauge"></i><span class="fs-4 ms-3 d-none d-sm-inline">I. Gráfica</span>
+                            </a>
+                        </li>
                         <li class="nav-item py-2 py-sm-0">
-                            <a href="Page2.php" class="nav-link text-white">
+                            <a href="page2Administrador.php" class="nav-link text-white">
                                 <i class="fs-5 fa fa-house"></i><span class="fs-4 ms-3 d-none d-sm-inline">Home</span>
                             </a>
                         </li>
@@ -149,7 +161,7 @@
                         </li>
                     </ul>
                 </div>
-                
+
             </div>
 
             <!-- Contenido -->
@@ -181,14 +193,14 @@
 
                     <h2 id="titulo">vINILOS</h2>
                         <!-- Plantilla para cada vinilo **copiad esto** -->
-                        <!-- 
+                        <!--
                         <div class="col-lg-4 col-xl-3 mb-4">
                             <div class="vinilo">
                                 <img src="../IMG/VINILOS/nombre-imagen.jpg" class="img-fluid" alt="Vinilo x">
                                 <a href="./infoDiscos.html">NOMBRE - ARTISTA</a>
                                 <p>Precio: X €</p>
                                 <button class="btn btn-primary">Añadir al carrito</button>
-                            </div>  
+                            </div>
                         </div>
                         -->
 
@@ -199,28 +211,28 @@
  <?php
                         require_once("../MODELO/TeamModel.php");
                         require_once("TeamVista.php");
-                        require_once("../MODELO/Album.php"); 
+                        require_once("../MODELO/Album.php");
                         echo TeamVista::imprimirFilaAlbum(TeamModel::getListaAlbumes());
 ?>
-                        
+
                         </div>
                         <!-- ... (repetir para otros vinilos) ... -->
-                
+
                 </section>
             </div>
 
         </div>
     </div>
 
-    
+
 
     <footer id="footer">
 
         <div class="container-fluid">
             <div class="row">
-            
+
                 <p class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2 pFooter">&copy; 2023 VinylGOATs. Todos los derechos reservados.</p>
-        
+
                 <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2 infoNosotros">
                     <p><strong>We are Vinyl Goats</strong></p>
                     <a href="quienesSomos.html">Sobre Vinyl Goats</a>
@@ -230,9 +242,9 @@
                 <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2 infoNosotros">
                     <p><strong>¿Aún no tienes cuenta?</strong></p>
                     <a href="landingPage.html">Registrase en Vinyl Goats</a>
-                
+
                 </div>
-            
+
                 <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2 icons">
                     <img id="icon" src="../Icons/whatsapp.png" alt="Icono de WhatsApp">
                     <img id="icon" src="../Icons/telegram.png" alt="Icono de Telegram">

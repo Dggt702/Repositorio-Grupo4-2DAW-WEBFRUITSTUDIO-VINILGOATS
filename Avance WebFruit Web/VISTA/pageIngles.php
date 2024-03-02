@@ -31,14 +31,17 @@
                         <i class="fa fa-user"></i><span class="ms-2">User</span>
                     </button>
                     <div class="dropdown-menu" aria-labelledby="triggerId">
-                        <?php   
+                    <?php   
                             session_start();
                             if(isset($_SESSION["usuarioLogeado"])){
                                 $nombreUsuario=$_SESSION["usuarioLogeado"];
                                 echo "<a class='dropdown-item' href='configuracionUsuario.php'>$nombreUsuario</a>";
+                            }elseif(isset($_SESSION["usuarioAdmin"])){
+                                $nombreUsuario=$_SESSION["usuarioAdmin"];
+                                echo "<a class='dropdown-item' href='configuracionUsuario.php'>$nombreUsuario</a>";
                             }else{
                                 session_destroy();
-                                echo "<a class='dropdown-item' href='./LoginIn.php'>Log In</a>";
+                                echo "<a class='dropdown-item' href='./LoginIn.php'>Iniciar Sesión</a>";
                             }
                         ?>
                         <button class="dropdown-item" href="#">Setting</button>
@@ -96,8 +99,14 @@
     <!-- Navigation Bar -->
     <nav class="navbar">
         <div id="div-caja-nav">
+    
             <div id="idiomas">  
-                <a href="Page2.php"><img src="../IMG/espaniol.png"></a>
+                <?php  
+                if(isset($_SESSION["usuarioAdmin"])){ 
+                    echo "<a href='page2Administrador.php'>";
+                }elseif(isset($_SESSION["usuarioLogeado"]) || !isset($_SESSION["usuarioLogeado"])){
+                    echo "<a href='Page2.php'>";
+                } ?><img src="../IMG/espaniol.png"></a>
                 <a href="pageIngles.php"><img src="../IMG/ingles.png"></a>
             </div>
 
@@ -120,19 +129,22 @@
                 <div class="bg-dark p-2">
                    
                     <ul class="nav nav-pills flex-column mt-4">
-                        <li class="nav-item py-2 py-sm-0">
-                            <a href="#" class="nav-link text-white">
-                                <i class="fs-5 fa fa-gauge"></i><span class="fs-4 ms-3 d-none d-sm-inline">Dashboard</span>
-                            </a>
-                        </li>
+                    <?php
+                    if(isset($_SESSION["usuarioAdmin"])){
+                        echo"<li class='nav-item py-2 py-sm-0'>
+                        <a href='InterfazAdministrador.php' class='nav-link text-white'>
+                        <i class='fs-5 fa fa-gauge'></i><span class='fs-4 ms-3 d-none d-sm-inline'>Dashboard</span></a></li>";
+                    } 
+                    
+                       ?>
                         <li class="nav-item py-2 py-sm-0">
                             <a href="pageIngles.php" class="nav-link text-white">
                                 <i class="fs-5 fa fa-house"></i><span class="fs-4 ms-3 d-none d-sm-inline">Home</span>
                             </a>
                         </li>
-                        <li class="nav-item py-2 py-sm-0">
+                        <li class="nav-item py-2 py-sm-0 mask">
                             <a href="#" class="nav-link text-white">
-                                <i class="fs-5 fa fa-tables-list"></i><span class="fs-4ms-3 d-none d-sm-inline">Articles</span>
+                                <i class="fs-5 fa fa-tables-list"></i><span class="fs-4 ms-3 d-none d-sm-inline">Articles</span>
                             </a>
                         </li>
                         <li class="nav-item py-2 py-sm-0">

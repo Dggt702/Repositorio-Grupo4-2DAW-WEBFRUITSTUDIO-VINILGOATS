@@ -167,12 +167,35 @@ CREATE TABLE `usuarios` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
+-- Estructura de tabla para la tabla `adminlogin`
+--
+
+
+create table adminlogin(
+	id int primary key AUTO_INCREMENT,
+    nombre varchar(30) not null,
+    email varchar(80) not null,
+    password varchar(80) not null
+);
+
+
+
+--
 -- Volcado de datos para la tabla `usuarios`
 --
 
 INSERT INTO `usuarios` (`nombre`, `correo`, `contraseña`, `sexo`, `fecha_de_nacimiento`, `direccion`, `pais`, `DNI`, `tarjeta_de_credito`, `notificaciones`, `revista_digital`) VALUES
 ('Elena Martinez', 'e.martinez@ggnet.com', 'Alumno123*', 'masculino', '0000-00-00', '', 'espana', '', 0, 0, 0),
 ('Javier Herce Sánchez', 'javierhs2003@gmail.com', '$Ccontraseña123', 'masculino', '2003-08-20', 'mI CASA 2', 'espana', '51740969P', 2147483647, 0, 0);
+
+--
+-- Volcado de datos para la tabla `adminlogin`
+--
+insert into adminlogin(nombre,email,password)values('Dioggo','dioggo@hotmail.com','Admin1234*');
+insert into adminlogin(nombre,email,password)values('Martin','martin@hotmail.com','Admin1234*');
+insert into adminlogin(nombre,email,password)values('Javier','javier@hotmail.com','Admin1234*');
+insert into adminlogin(nombre,email,password)values('Claudia','claudia@hotmail.com','Admin1234*');
+
 
 --
 -- Índices para tablas volcadas

@@ -2,6 +2,6 @@
 
     session_start();
     session_destroy();
-    header("Location:../VISTA/landingPage.html");
+    header("Location:../VISTA/LoginIn.php");
 
 ?>

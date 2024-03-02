@@ -58,7 +58,10 @@
             <div id="submitCaja">
                 <input type="submit" value="Ingresar" id="submitButton" name="submit">
             </div>
-        
+            <div style="display:flex; justify-content:center">
+            <p>Iniciar como <a href="logInAdministrador.php"style="text-decoration:none; color:orange">Administrador</a></p>
+            </div>
+                
         </form>
         </div>
         </div>    

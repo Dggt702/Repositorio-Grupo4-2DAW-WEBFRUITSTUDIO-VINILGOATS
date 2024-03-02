@@ -37,6 +37,43 @@
         }  
     }
 
+    public static function logInAdmin($email,$password){
+
+        $conexion=BBDD_PDO::conectar();
+
+        $sql="select * from adminLogin where email= :email and password= :password";
+        $stmt=$conexion->prepare($sql);
+        $stmt->bindParam(":email",$email);
+        $stmt->bindParam(":password",$password);
+        $stmt->execute();
+        $existe=$stmt->rowCount();
+
+        if($existe!=0){
+            session_start();
+            return $email;
+        }else{
+            return null;
+        }
+
+
+    }
+
+    public static function mostrarInformacionAdmin($email){
+            
+        $conexion=BBDD_PDO::conectar();
+
+        $sql="select id,nombre, email from adminlogin where email=:email";
+        $stmt=$conexion->prepare($sql);
+        $stmt->bindParam(":email",$email);
+        if($stmt->execute()){
+            $resultados=$stmt->fetchAll(PDO::FETCH_ASSOC);
+            return $resultados;
+        }  
+    }
+
+
+
+
 
 
  }

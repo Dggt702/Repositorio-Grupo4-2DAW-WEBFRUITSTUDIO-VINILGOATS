@@ -36,6 +36,9 @@
                             if(isset($_SESSION["usuarioLogeado"])){
                                 $nombreUsuario=$_SESSION["usuarioLogeado"];
                                 echo "<a class='dropdown-item' href='configuracionUsuario.php'>$nombreUsuario</a>";
+                            }elseif(isset($_SESSION["usuarioAdmin"])){
+                                $nombreUsuario=$_SESSION["usuarioAdmin"];
+                                echo "<a class='dropdown-item' href='configuracionUsuario.php'>$nombreUsuario</a>";
                             }else{
                                 session_destroy();
                                 echo "<a class='dropdown-item' href='./LoginIn.php'>Iniciar Sesión</a>";
