@@ -10,11 +10,14 @@
     font-family: 'Roboto', sans-serif;
     font-size: 2.5rem;
     color: #e7e7e7;
-    text-transform: uppercase; /* Convierte el texto en mayúsculas */
+    text-transform: uppercase; /* texto a mayúsculas */
     text-align: center;
+    margin-bottom: 10px;
     margin-bottom: 30px;
-    border-bottom: 2px solid #ee8813; /* línea decorativa debajo del título */
+    border-top: 2px solid #ee8813;
+    border-bottom: 2px solid #ee8813; /*linea decorativa*/
     padding-bottom: 10px;
+    padding-top: 10px;
 }
 
 
