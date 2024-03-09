@@ -449,6 +449,7 @@ function slider(){
         // array de productos
         let allProducts  = [];
         const valorTotal = document.querySelector(".total-pagar");
+        const totalContainer = document.querySelector(".cart-total");
     
         btnCart.addEventListener("click", () => 
         {
@@ -465,6 +466,7 @@ function slider(){
                 {
                     quantity: 1,
                     title: productV.querySelector("a").textContent,
+                    artist: productV.querySelector("h6").textContent,
                     price: productV.querySelector("p").textContent,
                 };
 
@@ -478,7 +480,6 @@ function slider(){
                     allProducts.push(infoProduct);
                 }   
             }
-            console.log("Llamado desde añadir");
             showHTML();
         });
     
@@ -487,9 +488,8 @@ function slider(){
             if (e.target.classList.contains("icon-close")) // si hacemos click en la "x"
             {   // Eliminamos el producto seleccionado
                 const product = e.target.parentElement;
-                const title = product.querySelector("p.titulo-producto-carrito").textContent;
+                const title = product.querySelector("a").textContent;
                 allProducts = allProducts.filter(product => product.title !== title);
-                console.log("Llamado desde la x");
             }
             showHTML(); // Llamamos a showHTML() después de eliminar un producto para que el contenido del carrito se actualice de manera adecuada
         });
@@ -505,14 +505,15 @@ function slider(){
             if (allProducts.length === 0) 
             {
                 containerCartProducts.classList.add("hidden-cart");
-                containerCartProducts.innerHTML = `<p class="cart-empty">El carrito está vacío</p>`;
-                //return; // Salimos de la función si el carrito está vacío
+                rowProduct.innerHTML = `<p class="cart-empty">El carrito está vacío</p>`;
+                totalContainer.style.display = "none";
+                return; // Salimos de la función si el carrito está vacío
             }
             else
             {
                 containerCartProducts.classList.remove("hidden-cart");
+                totalContainer.style.display = "flex";
             }
-            console.log("showHTML-->tras los ifs"+JSON.stringify(allProducts));
             
             if (allProducts.length === 0)
             {
@@ -544,19 +545,22 @@ function slider(){
                 rowProduct.append(containerProduct);
 
                 //total = total + parseFloat(product.price.replace('€', '')) * product.quantity;
+                //totalCard = totalCard.toFixed(2);
             }
 
+            console.log("paso" ,  allProducts);
             allProducts.forEach(product => 
                 {
                     console.log("showHTML-->DENTRO ALLpRODUCTS");
                     const containerProduct = document.createElement('div');
                     containerProduct.classList.add("cart-product");
+                    containerProduct.classList.add("artista-producto-carrito"); // CAMBIAR EL RESTO DE COSAS
                     containerProduct.innerHTML = 
-                    `<div class="info-cart-product">
-                        <span class="cantidad-producto-carrito">${product.quantity}</span>
-                        <p class="titulo-producto-carrito">${product.title}</p>
-                        <span class="precio-producto-carrito">${product.price}</span>
-                    </div>
+                    `<div class="row col-8 text-left">
+                    <a class="titulo-producto-carrito text-decoration-none display fw-bold" href="./infoDiscos.html">${product.title}</a>
+                    <h6 class="fw-light">${product.artist}</h6>
+                    <p class="precio">${product.price}</p>
+                </div> 
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
                         fill="none"
@@ -564,6 +568,7 @@ function slider(){
                         stroke-width="1.5"
                         stroke="currentColor"
                         class="icon-close"
+                        style="display:block"
                     >
                         <path
                         stroke-linecap="round"
@@ -575,10 +580,14 @@ function slider(){
                     `
                     rowProduct.append(containerProduct);
 
-                    total = total + parseFloat(product.price.replace('€', '')) * product.quantity;
+                    console.log(1 , total);
+                    total = Number(total) + Number.parseFloat(product.price.replace('€', '')) * product.quantity;
+                    console.log(2 , total);
+                    total = Number.parseFloat(total).toFixed(2);
+                    console.log(3 , total);
                 });
                 valorTotal.innerText = `${total}€`;
-                let iconClose =  document.querySelector(".icon-close");
+                /*let iconClose =  document.querySelector(".icon-close");
                 console.log("primera indicacion:" + iconClose);
                 if (containerCartProducts.classList.contains("hidden-cart")) 
                 {
@@ -588,8 +597,7 @@ function slider(){
                 {
                     console.log(iconClose);
                     iconClose.style.display = "block"; // Muestra el icono si el carrito está visible
-
-                }
+                }*/
         }
 
         // variables

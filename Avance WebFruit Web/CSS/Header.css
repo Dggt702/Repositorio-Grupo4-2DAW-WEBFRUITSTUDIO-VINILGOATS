@@ -140,6 +140,12 @@ header{
     color: black;
 }
 
+.artista-producto-carrito
+{
+    font-size: 20px;
+    color: rgb(238, 136, 19,0.85);
+}
+
 .icon-close
 {
     width: 25px;

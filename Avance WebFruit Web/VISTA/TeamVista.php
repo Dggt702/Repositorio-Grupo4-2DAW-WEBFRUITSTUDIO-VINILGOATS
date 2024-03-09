@@ -18,11 +18,11 @@ class TeamVista{
             $i++;
             
             $ret.='<div class="container-fluid col-3 mt-2">
-                        <div class="bg-dark text-light rounded align-items-center p-4">
+                        <div class="bg-dark text-light rounded align-items-center p-4 row-product">
                             <img class=" col-12 rounded" src="../IMG/VINILOS/'.$album->getImagen().'"  alt="Vinilo '.$i.'"/>
                                 <a class="link-warning text-light text-decoration-none display fw-bold" href="./infoDiscos.html">'.$album->getNombre().'</a>
-                                <p class="fw-light">'.$artista->getNombre().'</p>
-                                <p class="">Precio: '.$album->getPrecio().' €</p>
+                                <h6 class="fw-light">'.$artista->getNombre().'</h6>
+                                <p class="">'.$album->getPrecio().' €</p>
                                 <button class="btn btn-primary btn-add-cart">Añadir al carrito</button>
                         </div>
                     </div>
