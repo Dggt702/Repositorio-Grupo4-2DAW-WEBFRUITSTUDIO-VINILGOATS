@@ -517,7 +517,6 @@ function slider(){
             
             if (allProducts.length === 0)
             {
-                console.log("showHTML-->DENTRO ALLpRODUCTS");
                 const containerProduct = document.createElement('div');
                 containerProduct.classList.add("cart-product");
                 containerProduct.innerHTML = 
@@ -554,12 +553,12 @@ function slider(){
                     console.log("showHTML-->DENTRO ALLpRODUCTS");
                     const containerProduct = document.createElement('div');
                     containerProduct.classList.add("cart-product");
-                    containerProduct.classList.add("artista-producto-carrito"); // CAMBIAR EL RESTO DE COSAS
+
                     containerProduct.innerHTML = 
                     `<div class="row col-8 text-left">
                     <a class="titulo-producto-carrito text-decoration-none display fw-bold" href="./infoDiscos.html">${product.title}</a>
-                    <h6 class="fw-light">${product.artist}</h6>
-                    <p class="precio">${product.price}</p>
+                    <h6 class="artista-producto-carrito fw-light">${product.artist}</h6>
+                    <p class="precio-producto-carrito precio">${product.price}</p>
                 </div> 
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
