@@ -465,6 +465,7 @@ function slider(){
                 const infoProduct = 
                 {
                     quantity: 1,
+                    image: productV.querySelector("img").src,
                     title: productV.querySelector("a").textContent,
                     artist: productV.querySelector("h6").textContent,
                     price: productV.querySelector("p").textContent,
@@ -500,7 +501,6 @@ function slider(){
             // Verificamos si el carrito está vacío antes de limpiar el contenido
             let total = 0;
             rowProduct.innerHTML = "";
-            console.log("ha entrado en showHTML");
 
             if (allProducts.length === 0) 
             {
@@ -546,16 +546,15 @@ function slider(){
                 //total = total + parseFloat(product.price.replace('€', '')) * product.quantity;
                 //totalCard = totalCard.toFixed(2);
             }
-
-            console.log("paso" ,  allProducts);
             allProducts.forEach(product => 
                 {
-                    console.log("showHTML-->DENTRO ALLpRODUCTS");
                     const containerProduct = document.createElement('div');
                     containerProduct.classList.add("cart-product");
 
                     containerProduct.innerHTML = 
                     `<div class="row col-8 text-left">
+                    <p class="cantidad-producto-carrito">${product.quantity}</p>
+                    <img class=" col-12 rounded" src="../IMG/VINILOS/${product.image}"  alt="Vinilo '.$i.'"/>
                     <a class="titulo-producto-carrito text-decoration-none display fw-bold" href="./infoDiscos.html">${product.title}</a>
                     <h6 class="artista-producto-carrito fw-light">${product.artist}</h6>
                     <p class="precio-producto-carrito precio">${product.price}</p>
@@ -579,231 +578,9 @@ function slider(){
                     `
                     rowProduct.append(containerProduct);
 
-                    console.log(1 , total);
                     total = Number(total) + Number.parseFloat(product.price.replace('€', '')) * product.quantity;
-                    console.log(2 , total);
                     total = Number.parseFloat(total).toFixed(2);
-                    console.log(3 , total);
                 });
                 valorTotal.innerText = `${total}€`;
-                /*let iconClose =  document.querySelector(".icon-close");
-                console.log("primera indicacion:" + iconClose);
-                if (containerCartProducts.classList.contains("hidden-cart")) 
-                {
-                    iconClose.style.display = "none"; // Oculta el icono si el carrito está oculto
-                } 
-                else
-                {
-                    console.log(iconClose);
-                    iconClose.style.display = "block"; // Muestra el icono si el carrito está visible
-                }*/
         }
-
-        // variables
-        /*let allContainerCart = document.querySelector(".products");
-        let containerBuyCart = document.querySelector(".card-item");
-
-        let buyThings = [];
-
-        // functions
-        loadEventListeners();
-        
-        function loadEventListeners()
-        {
-            allContainerCart.addEventListener("click", addProduct);
-            containerBuyCart.addEventListener("click", deleteProduct);
-        }
-
-        function addProduct(e)
-        {
-            e.preventDefault();
-            if(e.target.classList.contains("btn-add-cart"))
-            {
-                const selectProduct = e.target.parentElement;
-                readTheContent(selectProduct);
-            }
-        }
-
-        function deleteProduct(e)
-        {
-            if(e.target.classList.contains("delete-product"))
-            {
-                const deleteId = e.target.getAttribute("data-id");
-                buyThings = buyThings.filter(product => product.id !== deleteId);
-                loadHTML();
-            }
-        }
- 
-        function readTheContent(product)
-        {
-            const infoProduct = 
-            {
-                //image: product.querySelector("div div div img").src,
-                title: product.querySelector("div div div a").textContent,
-                artist: product.querySelector("div div div h6").textContent,
-                price: product.querySelector("div div div p").textContent,
-                id: generateUniqueId(), // Aquí generamos un id único para cada producto
-                amount: 1
-            }
-
-            buyThings = [...buyThings, infoProduct];
-            loadHTML();
-            console.log(infoProduct);
-        }
-        
-        function loadHTML()
-        {
-            clearHTML();
-            buyThings.forEach(product =>
-                {
-                    const {title, artist, price, amount, id} = product;
-                    const row = document.createElement("div");
-                    row.classList.add("item");
-                    row.innerHTML = `
-                    <div id="item-content" class="container-cart-products hidden-cart text-white mt-5">
-                        <h5>${title}</h5>
-                        <h5>${artist}</h5>
-                        <h5 class="cart-price">${price}€</h5>
-                        <h6>$ ${amount}</h6>
-                    </div>
-                    <span class="delete-product" ${id}>X</span>
-                    `;
-                    containerBuyCart.appendChild(row);
-                })
-        }
-
-        function clearHTML()
-        {
-            containerBuyCart.innerHTML = "";
-        }
-
-        // Función para generar un id único
-        function generateUniqueId() 
-        {
-            return '_' + Math.random().toString(36).substr(2, 9);
-        }
-
-/************************************************* 
-                 
-        // variables
-        let allContainerCart = document.querySelector(".products");
-        let containerBuyCart = document.querySelector(".card-item");
-        let priceTotal = document.querySelector(".price-total");
-
-        let buyThings = [];
-        let totalCard = 0;
-
-        // functions
-        loadEventListeners();
-
-        function loadEventListeners() 
-        {
-            allContainerCart.addEventListener("click", addProduct);
-            containerBuyCart.addEventListener("click", deleteProduct);
-        }
-
-        function addProduct(e) 
-        {
-            e.preventDefault();
-            if (e.target.classList.contains("btn-add-cart")) 
-            {
-                const selectProduct = e.target.parentElement;
-                readTheContent(selectProduct);
-            }
-        }
-
-        function deleteProduct(e) 
-        {
-            if (e.target.classList.contains("delete-product")) 
-            {
-                const deleteId = e.target.getAttribute("data-id");
-                buyThings.forEach(value =>
-                    {
-                        if (value.id == deleteId)
-                            {
-                                let priceReduce = parseFloat(value.price) * parseFloat(value.amount);
-                                totalCard = totalCard - priceReduce;
-                                //totalCard = totalCard.toFixed(2);
-                            }
-                    })
-                buyThings = buyThings.filter(product => product.id !== deleteId);
-                loadHTML();
-            }
-        }
-
-        function readTheContent(product) 
-        {
-            const infoProduct = 
-            {
-                //image: product.querySelector("div div div img").src,
-                title: product.querySelector(".product-title").textContent,
-                artist: product.querySelector(".product-artist").textContent,
-                price: product.querySelector(".product-price").textContent,
-                id: generateUniqueId(), // Aquí generamos un id único para cada producto
-                amount: 1
-            }
-            
-
-            totalCard = totalCard + parseFloat(infoProduct.price);
-            //totalCard = totalCard.toFixed(2);
-
-            const exists = buyThings.some(product => product === infoProduct.id);
-            if(exists)
-            {
-                const pro = buyThings.map(product =>
-                    {
-                        if (product.id === infoProduct.id)
-                        {
-                            product.amount++;
-                            return product;
-                        }
-                        else
-                        {
-                            return product;
-                        }
-                    });
-                buyThings = [...pro];
-            }
-            else
-            {
-                buyThings = [...buyThings, infoProduct];
-            }
-            loadHTML();
-        }
-
-        function loadHTML() 
-        {
-            clearHTML();
-            buyThings.forEach(product => 
-                {
-                const { title, artist, price, amount, id } = product;
-                const row = document.createElement("div");
-                row.classList.add("item");
-                row.innerHTML = `
-                    <div id="item-content" class="container-cart-products hidden-cart text-white mt-5">
-                        <h5>${title}</h5>
-                        <h5>${artist}</h5>
-                        <h5 class="cart-price">${price}€</h5>
-                        <h6>$ ${amount}</h6>
-                    </div>
-                    <span class="delete-product" data-id="${id}">X</span>
-                `;
-                containerBuyCart.appendChild(row);
-                console.log("ROW: "+row);
-
-                priceTotal.innerHTML = totalCard;
-            });
-        }
-
-        function clearHTML() 
-        {
-            containerBuyCart.innerHTML = "";
-        }
-
-        // Función para generar un id único
-        function generateUniqueId() 
-        {
-            return '_' + Math.random().toString(36).substr(2, 9);
-        }
-        ****************************************/
     });
