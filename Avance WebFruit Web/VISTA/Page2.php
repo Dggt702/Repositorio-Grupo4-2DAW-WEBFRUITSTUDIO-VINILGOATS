@@ -17,11 +17,11 @@
     <script src="../JavaScript/functions.js"></script>
 </head>
 
-<body onload="slider()">
+<body>
    
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
     <!-- Header (logo y "regístrate")-->
-    <header>
+    <header class="bg-orange py-3">
         <div id="div-caja-header">
             <div id="caja-vacia">
                 <div class="dropdown open p-3">
@@ -196,7 +196,7 @@
                     <!--CONTENIDO PRINCIPAL-->
 
                     <h2 id="titulo">vINILOS</h2>
-                        <!-- Plantilla para cada vinilo **copiad esto** -->
+                        <!-- Plantilla **ANTIGUA** para cada vinilo **copiad esto** --> 
                         <!-- 
                         <div class="col-lg-4 col-xl-3 mb-4">
                             <div class="vinilo">
@@ -218,12 +218,11 @@
                         require_once("../MODELO/Album.php"); 
                         echo TeamVista::imprimirFilaAlbum(TeamModel::getListaAlbumes());
 ?>
-                        
+                </section>     
             </div>
-                        <!-- ... (repetir para otros vinilos) ... -->
                 
-                </section>
-            </div>
+                
+        </div>
 
         </div>
     </div>
