@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-    <!-- commit -->
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -18,13 +17,13 @@
     <script src="../JavaScript/functions.js"></script>
 </head>
 
-<body>
-   
+<body onload="slider()">
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
     <!-- Header (logo y "regístrate")-->
-    <header class="bg-orange py-3">
-        <div id="div-caja-header" class="d-flex justify-content-between align-items-center">
-            <div id="caja-vacia" class="d-none d-sm-block">
+    <header>
+        <div id="div-caja-header">
+            <div id="caja-vacia">
                 <div class="dropdown open p-3">
                     <button
                         class="btn border-none dropdown-toggle text-white" type="button" id="triggerId" data-bs-toggle="dropdown" aria-haspopup="true"
@@ -32,7 +31,7 @@
                         <i class="fa fa-user"></i><span class="ms-2">User</span>
                     </button>
                     <div class="dropdown-menu" aria-labelledby="triggerId">
-                        <?php   
+                    <?php   
                             session_start();
                             if(isset($_SESSION["usuarioLogeado"])){
                                 $nombreUsuario=$_SESSION["usuarioLogeado"];
@@ -48,17 +47,13 @@
                 </div>
             </div>
 
-            <div id="logo-cabra" class="d-flex justify-content-center align-items-center">
-                <a href="../VISTA/Page2.php" class="text-light">
-                    <img src="../IMG/LOGO_VINYL_GOATS_1_SIN_LETRAS_TRANSPARENCIA.png" alt="Vinyl GOATS Logo">
-                    Vinyl GOATS
-                </a>
+            <div id="logo-cabra">
+                <a href="../VISTA/page2Administrador.php"><img src="../IMG/LOGO_VINYL_GOATS_1_SIN_LETRAS_TRANSPARENCIA.png">Vinyl GOATS</a>
             </div>
 
-            
-            
+
             <div id="headerArribaDerecha">
-                <div id="usuarioFR" class="usuario d-none d-sm-flex">
+                <div id="usuarioFR" class="usuario">
                     <a id="register" href="../VISTA/landingPage.html">REGISTRATE</a>
                 </div>
 
@@ -88,7 +83,7 @@
                             </svg>
                         </div>
                     </div>
-                    
+
                     <div class="cart-total">
                         <h3>Total</h3>
                         <span class="total-pagar">0€</span>
@@ -101,14 +96,23 @@
     <!-- Barra de navegación -->
     <nav class="navbar">
         <div id="div-caja-nav">
-            <div id="idiomas">  
-                <a href="Page2.php"><img src="../IMG/espaniol.png"></a>
+        <div id="idiomas">  
+                <?php  
+                if(isset($_SESSION["usuarioAdmin"])){ 
+                    echo "<a href='page2Administrador.php'>";
+                    echo "<img src='../IMG/espaniol.png'>";
+
+                }elseif(isset($_SESSION["usuarioLogeado"]) || !isset($_SESSION["usuarioLogeado"])){
+                    echo "<a href='Page2.php'>";
+                    echo "<img src='../IMG/espaniol.png'>";
+
+                } ?> </a>
                 <a href="pageIngles.php"><img src="../IMG/ingles.png"></a>
             </div>
 
-            <a href="#titulo">Ofertas</a>
-            <a href="#titulo">Novedades</a>
-            <a href="#titulo">Categorías</a>
+            <a href="#">Ofertas</a>
+            <a href="#">Novedades</a>
+            <a href="#">Categorías</a>
             <a href="contacto.php">Contacto</a>
         </div>
     </nav>
@@ -120,25 +124,23 @@
 
             <!-- Aside con  barra lateral -->
             <div class="bg-dark col-auto col-md-3 col-lg-2 min-vh-100 d-flex flex-column justify-content-between d-none d-sm-block">
-                
-                
+
+
                 <div class="bg-dark p-2">
-                  
+
                     <ul class="nav nav-pills flex-column mt-4">
                         <li class="nav-item py-2 py-sm-0">
-                        
-                        <li class="nav-item py-2 py-sm-0">
-                            <a href="Page2.php" class="nav-link text-white">
-                                <i class="fs-5 fa fa-house"></i><span class="fs-4 ms-3 d-none d-sm-inline">Inicio</span>
+                            <a href="page2Administrador.php" class="nav-link text-white">
+                                <i class="fs-5 fa fa-house"></i><span class="fs-4 ms-3 d-none d-sm-inline">Home</span>
                             </a>
                         </li>
                         <li class="nav-item py-2 py-sm-0">
-                            <a href="#titulo" class="nav-link text-white">
+                            <a href="#" class="nav-link text-white">
                                 <i class="fs-5 fa fa-tables-list"></i><span class="fs-4 ms-3 d-none d-sm-inline">Articulos</span>
                             </a>
                         </li>
                         <li class="nav-item py-2 py-sm-0">
-                            <a href="#titulo" class="nav-link text-white">
+                            <a href="#" class="nav-link text-white">
                                 <i class="fs-5 fa fa-grid2"></i><span class="fs-4 ms-3 d-none d-sm-inline">Productos</span>
                             </a>
                         </li>
@@ -148,13 +150,13 @@
                             </a>
                         </li>
                         <li class="nav-item py-2 py-sm-0">
-                            <a href="../VISTA/landingPage.html" class="nav-link text-white">
+                            <a href="#" class="nav-link text-white">
                                 <i class="fs-5 fa fa-users"></i><span class="fs-4 ms-3 d-none d-sm-inline">Clientes</span>
                             </a>
                         </li>
                     </ul>
                 </div>
-                
+
             </div>
 
             <!-- Contenido -->
@@ -164,7 +166,7 @@
                 <section id="vinilos" class="text-center justify-content-center">
 
                     <!-- Slider -->
-                    <div class="slider-container my-4" id="divContainer">
+                    <div class="slider-container mb-3" id="divContainer">
                         <div id="carouselExampleIndicators" class="carousel slide">
                             <div class="carousel-indicators">
                                 <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
@@ -197,95 +199,52 @@
                         </div>
                     </div>
 
-
                     <!--CONTENIDO PRINCIPAL-->
 
                     <h2 id="titulo">vINILOS</h2>
-                        <!-- Plantilla **ANTIGUA** para cada vinilo **copiad esto** --> 
-                        <!-- 
+                        <!-- Plantilla para cada vinilo **copiad esto** -->
+                        <!--
                         <div class="col-lg-4 col-xl-3 mb-4">
                             <div class="vinilo">
                                 <img src="../IMG/VINILOS/nombre-imagen.jpg" class="img-fluid" alt="Vinilo x">
                                 <a href="./infoDiscos.html">NOMBRE - ARTISTA</a>
                                 <p>Precio: X €</p>
                                 <button class="btn btn-primary">Añadir al carrito</button>
-                            </div>  
+                            </div>
                         </div>
                         -->
 
-                        <div id="search-group" class="input-group mb-3 d-flex justify-content-center align-items-center">
+                        <div id="search-group" class="input-group mb-3">
                             <input type="text" id="searchInput" class="input-group-text" placeholder="Buscar productos/servicios">
                             <button class="btn btn-secondary" onclick="search()">Buscar</button>
                         </div>
  <?php
                         require_once("../MODELO/TeamModel.php");
                         require_once("TeamVista.php");
-                        require_once("../MODELO/Album.php"); 
+                        require_once("../MODELO/Album.php");
                         echo TeamVista::imprimirFilaAlbum(TeamModel::getListaAlbumes());
-?>                   
-                </section>  
+?>
 
-                <!--ACCORDION-->
-                <div class="accordion rounded mb-4" id="accordionExample">
-                    <div class="accordion-item bg-transparent text-light">
-                        <h2 class="accordion-header">
-                            <button class="accordion-button bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                ¿Dónde se encuentra la tienda física?
-                            </button>
-                        </h2>
-                        <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
-                            <div class="accordion-body text-start">
-                                Tenemos un apartado <strong><a href="contacto.php">contacto</a></strong> en la página con nuestra dirección. De todas formas aquí os proporcionamos nuestra ubicación: <br>Direccion: Carr. de Guadarrama, 85, 28260 Galapagar, Madrid
-                                <br>Numero de Contacto: +34 689904521
-                                <br>Correo eletrónico: contacto@vinylgoats.com
-                            </div>
                         </div>
-                    </div>
-                    <div class="accordion-item bg-transparent text-light">
-                        <h2 class="accordion-header">
-                            <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                Accordion Item #2
-                            </button>
-                        </h2>
-                        <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
-                            <div class="accordion-body">
-                                <strong>This is the second item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
-                            </div>
-                        </div>
-                    </div>
-                    <div class="accordion-item bg-transparent text-light">
-                        <h2 class="accordion-header">
-                            <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                Accordion Item #3
-                            </button>
-                        </h2>
-                        <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
-                            <div class="accordion-body  text-start">
-                                <strong>This is the third item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                   
+                        <!-- ... (repetir para otros vinilos) ... -->
+
+                </section>
             </div>
-                
-                
-        </div>
 
         </div>
     </div>
 
-    
+
 
     <footer id="footer">
 
         <div class="container-fluid">
             <div class="row">
-            
+
                 <p class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2 pFooter">&copy; 2023 VinylGOATs. Todos los derechos reservados.</p>
-        
+
                 <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2 infoNosotros">
-                    <p><strong>Somos Vinyl Goats</strong></p>
+                    <p><strong>We are Vinyl Goats</strong></p>
                     <a href="quienesSomos.html">Sobre Vinyl Goats</a>
                     <a href="sostenibilidad.html">Sostenibilidad</a>
                 </div>
@@ -293,16 +252,16 @@
                 <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2 infoNosotros">
                     <p><strong>¿Aún no tienes cuenta?</strong></p>
                     <a href="landingPage.html">Registrase en Vinyl Goats</a>
-                
+
                 </div>
-            
-                <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2 icons mt-2 d-flex justify-content-evenly align-items-center">
-                    <i class="bi bi-whatsapp"></i>
-                    <i class="bi bi-telegram"></i>
-                    <i class="bi bi-twitter"></i>
-                    <i class="bi bi-instagram"></i>
-                    <i class="bi bi-facebook"></i>
-                    <i class="bi bi-youtube"></i>
+
+                <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2 icons">
+                    <img id="icon" src="../Icons/whatsapp.png" alt="Icono de WhatsApp">
+                    <img id="icon" src="../Icons/telegram.png" alt="Icono de Telegram">
+                    <img id="icon" src="../Icons/twitter.png" alt="Icono de Twitter">
+                    <img id="icon" src="../Icons/instagram.png" alt="Icono de Instagram">
+                    <img id="icon" src="../Icons/facebook.png" alt="Icono de Facebook">
+                    <img id="icon" src="../Icons/youtube.png" alt="Icono de Youtube">
                 </div>
 
 
@@ -310,7 +269,5 @@
             </div>
         </div>
     </footer>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-
 </body>
 </html>

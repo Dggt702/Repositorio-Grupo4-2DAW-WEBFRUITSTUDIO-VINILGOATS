@@ -4,7 +4,7 @@ class BBDD {
         public static function conectar(){
            $server="localhost";
            $dbname="bdd_vnbros";
-           $user="admin_vb";
+           $user="root";
            $password="";
 
             try{
