@@ -409,7 +409,7 @@ function slider(){
         productsToShow.forEach(product => 
         {
             const colDiv = document.createElement('div');
-            colDiv.classList.add('col-3', 'col-sm-3', 'col-md-3', 'col-lg-3', 'col-xl-3');
+            colDiv.classList.add('col-3', 'col-sm-3', 'col-md-3', 'col-lg-3', 'col-xl-3',);
 
             const viniloDiv = document.createElement('div');
             viniloDiv.classList.add('vinilo');
@@ -465,7 +465,6 @@ function slider(){
                 const infoProduct = 
                 {
                     quantity: 1,
-                    image: productV.querySelector("img").src,
                     title: productV.querySelector("a").textContent,
                     artist: productV.querySelector("h6").textContent,
                     price: productV.querySelector("p").textContent,
@@ -554,7 +553,6 @@ function slider(){
                     containerProduct.innerHTML = 
                     `<div class="row col-8 text-left">
                     <p class="cantidad-producto-carrito">${product.quantity}</p>
-                    <img class=" col-12 rounded" src="../IMG/VINILOS/${product.image}"  alt="Vinilo '.$i.'"/>
                     <a class="titulo-producto-carrito text-decoration-none display fw-bold" href="./infoDiscos.html">${product.title}</a>
                     <h6 class="artista-producto-carrito fw-light">${product.artist}</h6>
                     <p class="precio-producto-carrito precio">${product.price}</p>
