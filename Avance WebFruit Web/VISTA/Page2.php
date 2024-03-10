@@ -105,9 +105,9 @@
                 <a href="pageIngles.php"><img src="../IMG/ingles.png"></a>
             </div>
 
-            <a href="#">Ofertas</a>
-            <a href="#">Novedades</a>
-            <a href="#">Categorías</a>
+            <a href="#titulo">Ofertas</a>
+            <a href="#titulo">Novedades</a>
+            <a href="#titulo">Categorías</a>
             <a href="contacto.php">Contacto</a>
         </div>
     </nav>
@@ -132,12 +132,12 @@
                             </a>
                         </li>
                         <li class="nav-item py-2 py-sm-0">
-                            <a href="#" class="nav-link text-white">
+                            <a href="#titulo" class="nav-link text-white">
                                 <i class="fs-5 fa fa-tables-list"></i><span class="fs-4 ms-3 d-none d-sm-inline">Articulos</span>
                             </a>
                         </li>
                         <li class="nav-item py-2 py-sm-0">
-                            <a href="#" class="nav-link text-white">
+                            <a href="#titulo" class="nav-link text-white">
                                 <i class="fs-5 fa fa-grid2"></i><span class="fs-4 ms-3 d-none d-sm-inline">Productos</span>
                             </a>
                         </li>
@@ -147,7 +147,7 @@
                             </a>
                         </li>
                         <li class="nav-item py-2 py-sm-0">
-                            <a href="#" class="nav-link text-white">
+                            <a href="../VISTA/landingPage.html" class="nav-link text-white">
                                 <i class="fs-5 fa fa-users"></i><span class="fs-4 ms-3 d-none d-sm-inline">Clientes</span>
                             </a>
                         </li>
@@ -163,7 +163,7 @@
                 <section id="vinilos" class="text-center justify-content-center">
 
                     <!-- Slider -->
-                    <div class="slider-container mb-3" id="divContainer">
+                    <div class="slider-container my-4" id="divContainer">
                         <div id="carouselExampleIndicators" class="carousel slide">
                             <div class="carousel-indicators">
                                 <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
@@ -221,8 +221,51 @@
                         require_once("TeamVista.php");
                         require_once("../MODELO/Album.php"); 
                         echo TeamVista::imprimirFilaAlbum(TeamModel::getListaAlbumes());
-?>
-                </section>     
+?>                   
+                </section>  
+
+                <!--ACCORDION-->
+                <div class="accordion rounded mb-4" id="accordionExample">
+                    <div class="accordion-item bg-transparent text-light">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                ¿Dónde se encuentra la tienda física?
+                            </button>
+                        </h2>
+                        <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
+                            <div class="accordion-body text-start">
+                                Tenemos un apartado <strong><a href="contacto.php">contacto</a></strong> en la página con nuestra dirección. De todas formas aquí os proporcionamos nuestra ubicación: <br>Direccion: Carr. de Guadarrama, 85, 28260 Galapagar, Madrid
+                                <br>Numero de Contacto: +34 689904521
+                                <br>Correo eletrónico: contacto@vinylgoats.com
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item bg-transparent text-light">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                Accordion Item #2
+                            </button>
+                        </h2>
+                        <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                                <strong>This is the second item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item bg-transparent text-light">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                Accordion Item #3
+                            </button>
+                        </h2>
+                        <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                            <div class="accordion-body  text-start">
+                                <strong>This is the third item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                   
             </div>
                 
                 

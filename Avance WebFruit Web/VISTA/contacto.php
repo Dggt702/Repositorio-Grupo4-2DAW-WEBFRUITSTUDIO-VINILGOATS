@@ -157,21 +157,21 @@
                 </div>
                 
             </div>
-            <div id="map" style='width:30%'>
-                <script src="../JavaScript/scriptMapa.js"></script>
-                <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBDaeWicvigtP9xPv919E-RNoxfvC-Hqik&callback=iniciarMap"></script>
-            </div>
+<div id="map" style='width:30%'>
+                    <script src="../JavaScript/scriptMapa.js"></script>
+                    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBDaeWicvigtP9xPv919E-RNoxfvC-Hqik&callback=iniciarMap"></script>
+                </div>
 
-            <div id="informacion" style='width:50%; display:flex ; flex-direction:column; margin-top:10em; align-items:center; color:white;'>
-               <h1>Nuestra Ubicación</h1>
-               <h4>Direccion: Carr. de Guadarrama, 85, 28260 Galapagar, Madrid</h4>
-               <h4>Numero de Contacto: +34 689904521</h4>
-               <h4>Correo eletrónico: contacto@vinylgoats.com</h4>            
-            </div>
-                </section>
-            </div>
-
+                <div id="informacion" style='width:50%; display:flex ; flex-direction:column; margin-top:10em; align-items:center; color:white;'>
+                <h1>Nuestra Ubicación</h1>
+                <h4>Direccion: Carr. de Guadarrama, 85, 28260 Galapagar, Madrid</h4>
+                <h4>Numero de Contacto: +34 689904521</h4>
+                <h4>Correo eletrónico: contacto@vinylgoats.com</h4>            
+                </div>
+               </section>
         </div>
+
+                    </div>
     </div>
 
     
