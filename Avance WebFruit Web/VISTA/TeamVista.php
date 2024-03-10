@@ -20,7 +20,7 @@ class TeamVista{
             $ret.='<div class="container-fluid col-lg-3 col-sm-4 col-6 mb-4 mt-2">
                         <div class="bg-dark text-light rounded align-items-center p-4 row-product">
                             <img class=" col-12 rounded" src="../IMG/VINILOS/'.$album->getImagen().'"  alt="Vinilo '.$i.'"/>
-                                <a class="link-warning text-light text-decoration-none display fw-bold" href="./infoDiscos.html">'.$album->getNombre().'</a>
+                                <a class="link-warning text-light text-decoration-none display fw-bold" href="./info.php?idAlbum='.$album->getId().'">'.$album->getNombre().'</a>
                                 <h6 class="fw-light">'.$artista->getNombre().'</h6>
                                 <p class="">'.$album->getPrecio().' €</p>
                                 <button class="btn btn-primary btn-add-cart">Añadir al carrito</button>
@@ -31,6 +31,60 @@ class TeamVista{
         $ret.='</div>';
         return $ret;
     }    
+
+    public static function informacionDelAlbum($id){
+        //Lo que hace este método es imprimir la información de acuerdo a la id del álbum que recibe por parámetro
+        //Para mostrar toda la información de la base de datos.
+        $album = TeamModel::getAlbum($id);
+
+
+
+        if($album==null){
+            $rend = '
+            <div class="d-flex justify-content-center">
+                <div class="bg-dark col-6 alert alert-success mt-5 justify-content-center text-light" role="alert">
+                    <h4 class="alert-heading text-center">ALBUM NO ENCONTRADO</h4>
+                    <p class="alert-heading text-center">A menos que seas un viajero en el tiempo, todavía no hay un album con esa "id"</p>
+                    <hr>
+                    <p class="alert-heading text-center">Intenta introducir un álbum válido</p>
+                </div>
+            </div>';
+
+        }else{
+            $artista = TeamModel::getArtista($album->getIdArtista());
+            $nombreArtista=$artista->getNombre(); 
+            $rend ='
+            <div class="row justify-content-center align-items-center mt-5">
+            <div class="col-4">
+                <img class="w-100 rounded border border-light" src="../IMG/VINILOS/'.$album->getImagen().'" alt="">
+            </div>
+            <div class="col-7">
+                <p class="display-4 fw-bold text-center text-warning">'.$album->getNombre().'-'.$nombreArtista.'</p>
+                <table class="table table-dark table-hover ">
+                    <thead>
+                            <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Título</th>
+                            <th scope="col">Duración</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                            <th scope="row">1</th>
+                            <td>Mark</td>
+                            <td>Otto</td>
+                            </tr>
+                          
+                            
+                        </tbody>
+                    </table>
+                </div>
+            </div>        
+            '; 
+        }
+
+        return $rend;
+    }
 
     //METODOS PARA EL CRUD
 

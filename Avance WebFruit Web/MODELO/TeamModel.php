@@ -79,6 +79,25 @@ class TeamModel extends BBDD{
             return $listaAlbumes; 
     }
 
+
+    public static function getAlbum($id){
+        $conn = BBDD::conectar();
+        $stmt = $conn->prepare("SELECT * FROM albumes WHERE id_album = :id");
+        $album = null;
+
+
+        $stmt->bindParam(":id",$id);
+
+        if($stmt->execute()){
+            $fila = $stmt->fetch(PDO::FETCH_ASSOC);
+
+            if($fila){
+               $album = new Album($fila['id_album'],$fila['nombre'],$fila['id_artista'],$fila['precio'],$fila['stock'],$fila['imagen'],$fila['anio'],$fila['duracion']);
+            }  
+        }
+        return $album;
+    }
+
     public static function getArtista($id){
             $conn = BBDD::conectar();
             $stmt = $conn->prepare("SELECT * FROM artistas WHERE id_artista = :id");

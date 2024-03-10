@@ -9,8 +9,6 @@ if(isset($_POST["nAlbum"])){
     $tipoImg = $_FILES["imgAlbum"]["type"];
     $sizeImg = $_FILES["imgAlbum"]["size"];
 
-    var_dump($tipoImg);
-
     $carpetaDestino=$_SERVER["DOCUMENT_ROOT"]."/Repositorio-Grupo4-2DAW-WEBFRUITSTUDIO-VINILGOATS/Avance WebFruit Web/IMG/VINILOS/";
 
     move_uploaded_file($_FILES["imgAlbum"]["tmp_name"],$carpetaDestino.$nombreImg);
@@ -32,7 +30,7 @@ if(isset($_POST["nAlbum"])){
 
     header("Location: ../VISTA/InterfazAdministrador.php");
 
-}elseif($_POST["nArtista"]){
+}elseif(isset($_POST["nArtista"])){
     $nombreArtista = $_POST["nArtista"];
     $descripcion = $_POST["descripcion"];
 
@@ -40,6 +38,19 @@ if(isset($_POST["nAlbum"])){
     header("Location: ../VISTA/InterfazAdministrador.php");
 }elseif($_POST["nCancion"]){
     
+    $nombre = $_POST["nCancion"];
+    $album = $_POST["album"];   
+    $posicion = $_POST["posicion"];
+
+    $horas = $_POST["horas"];
+    $minutos = $_POST["minutos"];
+    $segundos = $_POST["segundos"]; 
+
+    $duracion = date("$horas:$minutos:$segundos");
+
+    $cancion = new Cancion("",$album,$nombre,$duracion,$posicion);
+    TeamModel::grabarCancion($cancion);
+    header("Location: ../VISTA/InterfazAdministrador.php");
 }
 
 
