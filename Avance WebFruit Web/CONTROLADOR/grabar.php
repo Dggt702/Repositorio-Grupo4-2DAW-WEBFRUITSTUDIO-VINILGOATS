@@ -1,6 +1,8 @@
 <?php
 require_once("../MODELO/Album.php");
+require_once("../MODELO/Artista.php");
 require_once("../MODELO/TeamModel.php");
+require_once("../MODELO/Cancion.php");
 
 
 if(isset($_POST["nAlbum"])){
@@ -28,18 +30,38 @@ if(isset($_POST["nAlbum"])){
 
 
     $album = new Album("",$nombre,$autor,$precio,$stock,$nombreImg,$anio,$duracion);
-    TeamModel::grabarAlbum($album);
 
-    header("Location: ../VISTA/InterfazAdministrador.php");
+    if(TeamModel::comprobacion($album)){
+        TeamModel::grabarAlbum($album);
+        header("Location: ../VISTA/InterfazAdministrador.php");
+    }else{
+        TeamVista::insercionRepetida();
+    }
+    
 
-}elseif($_POST["nArtista"]){
+}elseif(isset($_POST["nArtista"])){
     $nombreArtista = $_POST["nArtista"];
     $descripcion = $_POST["descripcion"];
 
+    $artista = new Artista("",$nombreArtista,$descripcion);
+    TeamModel::grabarArtista($artista);
 
     header("Location: ../VISTA/InterfazAdministrador.php");
 }elseif($_POST["nCancion"]){
     
+    $nombre = $_POST["nCancion"];
+    $album = $_POST["album"];   
+    $posicion = $_POST["posicion"];
+
+    $horas = $_POST["horas"];
+    $minutos = $_POST["minutos"];
+    $segundos = $_POST["segundos"]; 
+
+    $duracion = date("$horas:$minutos:$segundos");
+
+    $cancion = new Cancion("",$album,$nombre,$duracion,$posicion);
+    TeamModel::grabarCancion($cancion);
+    header("Location: ../VISTA/InterfazAdministrador.php");
 }
 
 
