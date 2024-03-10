@@ -5,7 +5,7 @@ class Artista{
     private $nombre;
     private $descripcion;
 
-    public function __construct($id, $nombre, $descripcion) {
+    public function __construct($nombre, $id, $descripcion) {
         $this->id = $id;
         $this->nombre = $nombre;
         $this->descripcion = $descripcion;
@@ -20,7 +20,7 @@ class Artista{
     }
 
     public function getDescripcion(){
-        return $this->descripcion;
+        return $this->getDescripcion;
     }
 
 }

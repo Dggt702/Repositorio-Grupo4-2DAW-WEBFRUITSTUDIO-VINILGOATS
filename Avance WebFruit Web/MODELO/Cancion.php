@@ -8,12 +8,8 @@ class Cancion{
     private $duracion;
     private $num_pista;
 
-    public function __construct($id, $id_album, $nombre, $duracion, $num_pista){
-        $this->id = $id;
-        $this->id_album=$id_album;
-        $this->nombre=$nombre;
-        $this->duracion = $duracion;
-        $this->num_pista = $num_pista;
+    public function __construct(){
+
     }
     public function getId() {
         return $this->id;

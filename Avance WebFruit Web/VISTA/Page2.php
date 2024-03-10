@@ -17,13 +17,13 @@
     <script src="../JavaScript/functions.js"></script>
 </head>
 
-<body onload="slider()">
+<body>
    
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
     <!-- Header (logo y "regístrate")-->
-    <header>
-        <div id="div-caja-header">
-            <div id="caja-vacia">
+    <header class="bg-orange py-3">
+        <div id="div-caja-header" class="d-flex justify-content-between align-items-center">
+            <div id="caja-vacia" class="d-none d-sm-block">
                 <div class="dropdown open p-3">
                     <button
                         class="btn border-none dropdown-toggle text-white" type="button" id="triggerId" data-bs-toggle="dropdown" aria-haspopup="true"
@@ -47,13 +47,17 @@
                 </div>
             </div>
 
-            <div id="logo-cabra">
-                <a href="../VISTA/Page2.php"><img src="../IMG/LOGO_VINYL_GOATS_1_SIN_LETRAS_TRANSPARENCIA.png">Vinyl GOATS</a>
+            <div id="logo-cabra" class="d-flex justify-content-center align-items-center">
+                <a href="../VISTA/Page2.php" class="text-light">
+                    <img src="../IMG/LOGO_VINYL_GOATS_1_SIN_LETRAS_TRANSPARENCIA.png" alt="Vinyl GOATS Logo">
+                    Vinyl GOATS
+                </a>
             </div>
+
             
             
             <div id="headerArribaDerecha">
-                <div id="usuarioFR" class="usuario">
+                <div id="usuarioFR" class="usuario d-none d-sm-flex">
                     <a id="register" href="../VISTA/landingPage.html">REGISTRATE</a>
                 </div>
 
@@ -124,7 +128,7 @@
                         
                         <li class="nav-item py-2 py-sm-0">
                             <a href="Page2.php" class="nav-link text-white">
-                                <i class="fs-5 fa fa-house"></i><span class="fs-4 ms-3 d-none d-sm-inline">Home</span>
+                                <i class="fs-5 fa fa-house"></i><span class="fs-4 ms-3 d-none d-sm-inline">Inicio</span>
                             </a>
                         </li>
                         <li class="nav-item py-2 py-sm-0">
@@ -159,28 +163,44 @@
                 <section id="vinilos" class="text-center justify-content-center">
 
                     <!-- Slider -->
-                    <!-- Slider -->
-                    <div id="sliderBlock" class="container">
-                        <div class="row">
-                            <div class="col">
-                                <div id="slide" class="text-center">
-                                    <div class="slideCapa">
-                                        <div class="slider">
-                                            <img src="../IMG/SLIDER/1.png" alt="">
-                                            <img src="../IMG/SLIDER/2.png" alt="">
-                                            <img src="../IMG/SLIDER/3.png" alt="">
-                                            <img src="../IMG/SLIDER/4.png" alt="">
-                                        </div>
-                                    </div>
+                    <div class="slider-container mb-3" id="divContainer">
+                        <div id="carouselExampleIndicators" class="carousel slide">
+                            <div class="carousel-indicators">
+                                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3" aria-label="Slide 4"></button>
+                            </div>
+                            <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                    <img src="../IMG/SLIDER/1.png" class="d-block w-100" alt="...">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="../IMG/SLIDER/2.png" class="d-block w-100" alt="...">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="../IMG/SLIDER/3.png" class="d-block w-100" alt="...">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="../IMG/SLIDER/4.png" class="d-block w-100" alt="...">
                                 </div>
                             </div>
+                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Previous</span>
+                            </button>
+                            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Next</span>
+                            </button>
                         </div>
                     </div>
 
+
                     <!--CONTENIDO PRINCIPAL-->
 
-                    <h2 id="titulo">VINILOS</h2>
-                        <!-- Plantilla para cada vinilo **copiad esto** -->
+                    <h2 id="titulo">vINILOS</h2>
+                        <!-- Plantilla **ANTIGUA** para cada vinilo **copiad esto** --> 
                         <!-- 
                         <div class="col-lg-4 col-xl-3 mb-4">
                             <div class="vinilo">
@@ -192,24 +212,21 @@
                         </div>
                         -->
 
-                        <div id="search-group" class="input-group mb-3">
+                        <div id="search-group" class="input-group mb-3 d-flex justify-content-center align-items-center">
                             <input type="text" id="searchInput" class="input-group-text" placeholder="Buscar productos/servicios">
                             <button class="btn btn-secondary" onclick="search()">Buscar</button>
                         </div>
  <?php
- 
                         require_once("../MODELO/TeamModel.php");
                         require_once("TeamVista.php");
                         require_once("../MODELO/Album.php"); 
                         echo TeamVista::imprimirFilaAlbum(TeamModel::getListaAlbumes());
-
 ?>
-                        
-                        </div>
-                        <!-- ... (repetir para otros vinilos) ... -->
-                
-                </section>
+                </section>     
             </div>
+                
+                
+        </div>
 
         </div>
     </div>
@@ -224,7 +241,7 @@
                 <p class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2 pFooter">&copy; 2023 VinylGOATs. Todos los derechos reservados.</p>
         
                 <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2 infoNosotros">
-                    <p><strong>We are Vinyl Goats</strong></p>
+                    <p><strong>Somos Vinyl Goats</strong></p>
                     <a href="quienesSomos.html">Sobre Vinyl Goats</a>
                     <a href="sostenibilidad.html">Sostenibilidad</a>
                 </div>
@@ -235,13 +252,13 @@
                 
                 </div>
             
-                <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2 icons">
-                    <img id="icon" src="../Icons/whatsapp.png" alt="Icono de WhatsApp">
-                    <img id="icon" src="../Icons/telegram.png" alt="Icono de Telegram">
-                    <img id="icon" src="../Icons/twitter.png" alt="Icono de Twitter">
-                    <img id="icon" src="../Icons/instagram.png" alt="Icono de Instagram">
-                    <img id="icon" src="../Icons/facebook.png" alt="Icono de Facebook">
-                    <img id="icon" src="../Icons/youtube.png" alt="Icono de Youtube">
+                <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2 icons mt-2 d-flex justify-content-evenly align-items-center">
+                    <i class="bi bi-whatsapp"></i>
+                    <i class="bi bi-telegram"></i>
+                    <i class="bi bi-twitter"></i>
+                    <i class="bi bi-instagram"></i>
+                    <i class="bi bi-facebook"></i>
+                    <i class="bi bi-youtube"></i>
                 </div>
 
 
@@ -249,5 +266,7 @@
             </div>
         </div>
     </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
 </body>
 </html>

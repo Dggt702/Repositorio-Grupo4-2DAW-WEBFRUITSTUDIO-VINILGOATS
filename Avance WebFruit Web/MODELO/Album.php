@@ -10,7 +10,7 @@ class Album{
     private $anio;
     private $duracion;
     
-    public function __construct($id="", $nombre, $idArtista, $precio, $stock, $imagen,$anio, $duracion) {
+    public function __construct($id, $nombre, $idArtista, $precio, $stock, $imagen,$anio, $duracion) {
         $this->id = $id;
         $this->nombre = $nombre;
         $this->idArtista = $idArtista;

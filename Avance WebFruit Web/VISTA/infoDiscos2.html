@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="../CSS/CSS.css">
+    <link rel="stylesheet" type="text/css" href="../CSS/navbar.css"> <!-- Agregamos el nuevo archivo CSS para la barra de navegación -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+
+  </head>
+<body onload="cargar()">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+
+    <script src="../functions.js"></script>
+
+    <!-- Header (logo y "regístrate")-->
+    <header>
+      
+      <div id="logo-cabra">
+        <a href="Page2.php"><img src="../IMG/LOGO_VINYL_GOATS_1_SIN_LETRAS_TRANSPARENCIA.png">Vinyl GOATS</a>
+        
+    </div>
+        
+        <div id="usuarioTR" class="usuario">
+            <a id="usuarioR" href=""></a> 
+            <div id="lista">
+                <a href="" onclick="desloguear()">Cerrar Sesión</a>
+                <a href="">Más opciones</a>
+            </div>
+            <img src="../IMG/VN.png" alt="">
+        </div>
+        
+        <div id="usuarioFR" class="usuario">
+            <a id="register" href="../VISTA/landingPage.html">REGISTRATE</a>
+        </div>
+    </header>
+
+    <!-- *Nueva* barra de navegación -->
+    <nav class="navbar">
+        <div id="idiomas">  
+            <a href=""><img src="../IMG/espaniol.png"></a>
+            <a href=""><img src="../IMG/ingles.png"></a>
+        </div>
+
+        <a href="#">Ofertas</a>
+        <a href="#">Novedades</a>
+        <a href="#">Categorías</a>
+        <a href="#">Contacto</a>
+    </nav>
+
+    <section id="sectionInfo">
+            <!-- Primer Vinilo -->
+            <div class="viniloInfo">
+                <img src="../IMG/VINILOS/Rodeo.jpg" alt="Vinilo 2">
+        </div>
+
+        <div class="viniloCanciones">
+            
+            <div class="tituloVinilos">
+                <h1>Rodeo</h1>
+            </div>
+
+            <table id="tabla">
+
+                <thead>
+                    <tr>
+                      <th>Orden</th>
+                      <th>Titulo</th>
+                      <th>Duracion</th>
+                    </tr>
+                  </thead>
+                  
+                    <tr>
+                      <td>1</td>
+                      <td>Pornography</td>
+                      <td>3:51</td>
+                    </tr>
+
+                    <tr>
+                      <td>2</td>
+                      <td>Oh My Dis Side (feat. Quavo)</td>
+                      <td>5:51</td>
+                    </tr>
+
+                    <tr>
+                        <td>3</td>
+                        <td>3500 (feat. Future & 2 Chainz)</td>
+                        <td>7:41</td>
+                      </tr>
+
+                      <tr>
+                        <td>4</td>
+                        <td>Wasted (feat. Juicy J)</td>
+                        <td>3:55</td>
+                      </tr>
+
+                      <tr>
+                        <td>5</td>
+                        <td>90210</td>
+                        <td>5:39</td>
+                      </tr>
+
+                      <tr>
+                        <td>6</td>
+                        <td>Pray 4 Love (feat. The Weeknd)</td>
+                        <td>5:07</td>
+                      </tr>
+
+                      <tr>
+                        <td>7</td>
+                        <td>Nightcrawler (feat. Swae Lee & Chief Keef)</td>
+                        <td>5:21</td>
+                      </tr>
+
+
+                      <tr>
+                        <td>8</td>
+                        <td>Piss On Your Grave (feat. Kanye West)</td>
+                        <td>3:37</td>
+                      </tr>
+
+                      <tr>
+                        <td>9</td>
+                        <td>Antidote</td>
+                        <td>4:22</td>
+                      </tr>
+
+                      <tr>
+                        <td>10</td>
+                        <td>Impossible</td>
+                        <td>4:02</td>
+                      </tr>
+
+                      <tr>
+                        <td>11</td>
+                        <td>Maria I`m Drunk (feat. Justin Bieber)</td>
+                        <td>5:49</td>
+                      </tr>
+
+                      <tr>
+                        <td>12</td>
+                        <td>Flying High (feat. Toro y Moi)</td>
+                        <td>3:28</td>
+                      </tr>
+
+                      <tr>
+                        <td>13</td>
+                        <td>I Can Tell</td>
+                        <td>3:55</td>
+                      </tr>
+
+
+                      <tr>
+                        <td>14</td>
+                        <td>Apple Pie</td>
+                        <td>3:39</td>
+                      </tr>
+
+                      <tr>
+                        <td>15</td>
+                        <td>Ok Alright (feat. ScHoolboy Q)</td>
+                        <td>6:57</td>
+                      </tr>
+
+                      <tr>
+                        <td>16</td>
+                        <td>Never Catch Me</td>
+                        <td>2:56</td>
+                      </tr>
+            </table>
+            
+
+         </div>
+
+
+
+    </section>
+
+    <footer id="footer">
+      <div class="container-fluid">
+        <div class="row">
+        
+            <p class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2 pFooter">&copy; 2023 VinylGOATs. Todos los derechos reservados.</p>
+       
+            <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2 infoNosotros">
+                <p><strong>We are Vinyl Goats</strong></p>
+                <a href="quienesSomos.html">Sobre Vinyl Goats</a>
+                <a href="sostenibilidad.html">Sostenibilidad</a>
+            </div>
+
+            <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2 infoNosotros">
+                <p><strong>¿Aún no tienes cuenta?</strong></p>
+                <a href="landingPage.html">Registrase en Vinyl Goats</a>
+              
+            </div>
+        
+            <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2 icons">
+                <img id="icon" src="../Icons/whatsapp.png" alt="Icono de WhatsApp">
+                <img id="icon" src="../Icons/telegram.png" alt="Icono de Telegram">
+                <img id="icon" src="../Icons/twitter.png" alt="Icono de Twitter">
+                <img id="icon" src="../Icons/instagram.png" alt="Icono de Instagram">
+                <img id="icon" src="../Icons/facebook.png" alt="Icono de Facebook">
+                <img id="icon" src="../Icons/youtube.png" alt="Icono de Youtube">
+            </div>
+
+
+
+        </div>
+    </div>
+    </footer>
+</body>
+</html>

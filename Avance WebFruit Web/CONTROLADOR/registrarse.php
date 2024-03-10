@@ -25,7 +25,7 @@ if (isset($_POST["submit"])){
         $usuario = new Usuario($nombre, $correo, $contraseña);
     }
 
-    if(TeamModel::grabarUsuario($usuario)){
+    if(TeamModel::grabar($usuario)){
         header("Location: ../VISTA/page2.php");
     }
 }
