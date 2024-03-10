@@ -41,6 +41,11 @@
     color: #ee8813; 
 }
 
+#vinilos
+{
+    display: flex;
+    justify-content: space-around;
+}
 
 .viniloInfo img{
   width: 75%;
