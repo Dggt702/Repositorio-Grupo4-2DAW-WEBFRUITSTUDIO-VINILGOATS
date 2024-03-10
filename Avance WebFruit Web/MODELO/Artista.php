@@ -5,8 +5,10 @@ class Artista{
     private $nombre;
     private $descripcion;
 
-    public function __construct($nombre, $id, $descripcion) {
-        $this->id = $id;
+    public function __construct($id="",$nombre, $descripcion) {
+        if($id!=""){
+            $this->id = $id;
+        }
         $this->nombre = $nombre;
         $this->descripcion = $descripcion;
     }
@@ -20,7 +22,7 @@ class Artista{
     }
 
     public function getDescripcion(){
-        return $this->getDescripcion;
+        return $this->descripcion;
     }
 
 }

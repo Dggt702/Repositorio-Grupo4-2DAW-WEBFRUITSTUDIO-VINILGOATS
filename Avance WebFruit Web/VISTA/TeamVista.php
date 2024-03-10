@@ -19,7 +19,7 @@ class TeamVista{
             
             $ret.='<div class="container-fluid col-lg-3 col-sm-4 col-6 mb-4 mt-2">
                         <div class="bg-dark text-light rounded align-items-center p-4 row-product">
-                            <img class=" col-12 rounded" src="../IMG/VINILOS/'.$album->getImagen().'"  alt="Vinilo '.$i.'"/>
+                            <img class=" w-100 rounded" src="../IMG/VINILOS/'.$album->getImagen().'"  alt="Vinilo '.$i.'"/>
                                 <a class="link-warning text-light text-decoration-none display fw-bold" href="./info.php?idAlbum='.$album->getId().'">'.$album->getNombre().'</a>
                                 <h6 class="fw-light">'.$artista->getNombre().'</h6>
                                 <p class="">'.$album->getPrecio().' €</p>
@@ -37,8 +37,6 @@ class TeamVista{
         //Para mostrar toda la información de la base de datos.
         $album = TeamModel::getAlbum($id);
 
-
-
         if($album==null){
             $rend = '
             <div class="d-flex justify-content-center">
@@ -53,13 +51,14 @@ class TeamVista{
         }else{
             $artista = TeamModel::getArtista($album->getIdArtista());
             $nombreArtista=$artista->getNombre(); 
+            $listaCanciones = TeamModel::getListaCancionesPerAlbum($album->getId());
             $rend ='
-            <div class="row justify-content-center align-items-center mt-5">
+            <div class="row justify-content-center m-5">
             <div class="col-4">
-                <img class="w-100 rounded border border-light" src="../IMG/VINILOS/'.$album->getImagen().'" alt="">
+                <img class="w-100 rounded" src="../IMG/VINILOS/'.$album->getImagen().'" alt="">
             </div>
-            <div class="col-7">
-                <p class="display-4 fw-bold text-center text-warning">'.$album->getNombre().'-'.$nombreArtista.'</p>
+            <div class="col-6">
+                <p class="display-5 fw-bold text-center text-warning">'.$album->getNombre().'-'.$nombreArtista.'</p>
                 <table class="table table-dark table-hover ">
                     <thead>
                             <tr>
@@ -68,14 +67,21 @@ class TeamVista{
                             <th scope="col">Duración</th>
                             </tr>
                         </thead>
+                    
                         <tbody>
-                            <tr>
-                            <th scope="row">1</th>
-                            <td>Mark</td>
-                            <td>Otto</td>
-                            </tr>
-                          
+
+                        ';
+                        foreach($listaCanciones as $cancion){
                             
+                            $rend .='
+                            <tr>
+                                <th scope="row">'.$cancion->getNum_pista().'</th>
+                                <td>'.$cancion->getNombre().'</td>
+                                <td>'.$cancion->getDuracion().'</td>
+                            </tr>';
+                        }
+                          
+                            $rend .='
                         </tbody>
                     </table>
                 </div>
@@ -94,7 +100,7 @@ class TeamVista{
             $ret.='
                 <div class="container-fluid row text-light ml-2 col-6">
                     <div class="input-group m-1">
-                        <span class="input-group-text">Nombre del Album:</span  >
+                        <span class="input-group-text">Nombre del Album:</span>
                         <input class="form-control" name="nAlbum" type="text"/>
                     </div>
                 <div class="input-group m-1">
@@ -144,7 +150,32 @@ class TeamVista{
 
             
         }elseif($tipoInsercion=="cancion"){
-            
+            $ret.=' <div class="container-fluid row text-light ml-2">
+            <div class="input-group m-1">
+                <select class="form-select" name="album" required>
+                <option disabled hidden selected>Album:</option>
+                ';
+                foreach(TeamModel::getListaAlbumes() as $album){
+                    $idAlbum = $album->getId();
+                    $nombreAlbum = $album->getNombre();
+
+                    $ret.='<option value="'.$idAlbum.'">'.$nombreAlbum.'</option>';
+                }
+
+            $ret.='</select>
+                <br>
+                <span class="input-group-text">Posición de la cancion:</span>
+                <input class="form-control" name="posicion" type="number" min="1" max="999"/>
+                <span class="input-group-text">Nombre de la cancion:</span>
+                <input class="form-control" name="nCancion" type="text"/>
+                <span class="input-group-text">Duracion:</span>
+                <input class="form-control" placeholder="horas" name="horas" type="number" min="0" max="1000" required/>     
+                <input class="form-control" placeholder="minutos" name="minutos" type="number" min="0" max="59" required/>
+                <input class="form-control" placeholder="segundos" name="segundos" type="number" min="0" max="59" required/>
+                
+                
+            </div>
+            ';
         }elseif($tipoInsercion=="artista"){
             $ret.=' <div class="container-fluid row text-light ml-2 col-6">
             <div class="input-group m-1">
@@ -167,6 +198,32 @@ class TeamVista{
         return $ret;
     }
 
+    public static function insercionRepetida(){
+        $rend ='
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+          </div>
+        </div>
+      </div>';
+
+      return $rend;
+
+    }
+
+    
+    
 
 }
 ?>

@@ -2,6 +2,7 @@
 require_once "Usuarios.php";
 require_once "Artista.php";
 require_once "BBDD.php";
+require_once "Cancion.php";
 
 class TeamModel extends BBDD{
 
@@ -55,17 +56,7 @@ class TeamModel extends BBDD{
         return $listaPaises; 
     
     }
-/*
-    public static function getListaUsuarios(){
-        $listaUsuarios = array();
-            $sql = "SELECT * FROM usuarios";
-            $resul = $this->mysql->query($sql);
-            while($fila =$resul->fetch_row()){
-                array_push($this->listaUsuarios,new Usuario($fila[0],$fila[1],$fila[2],$fila[3],$fila[4],$fila[5],$fila[6],$fila[7],$fila[8],$fila[9],$fila[10]));
-            }
-            return $listaUsuarios; 
-    }
-*/
+
     public static function getListaAlbumes(){
         $listaAlbumes = array();
         $conn = BBDD::conectar();        
@@ -105,7 +96,7 @@ class TeamModel extends BBDD{
             
             if($stmt->execute()){
                 $fila = $stmt->fetch(PDO::FETCH_ASSOC);
-                $artista = new Artista($fila['nombre'], $fila['id_artista'], $fila['descripcion']); 
+                $artista = new Artista($fila['id_artista'],$fila['nombre'], $fila['descripcion']); 
             }
 
             return $artista;
@@ -118,12 +109,28 @@ class TeamModel extends BBDD{
 
         if($stmt->execute()){
             while($fila = $stmt->fetch(PDO::FETCH_ASSOC)){
-                array_push($listaArtistas,new Artista($fila['nombre'], $fila['id_artista'], $fila['descripcion']));
+                array_push($listaArtistas,new Artista($fila['id_artista'],$fila['nombre'], $fila['descripcion']));
             }
         }
 
         return $listaArtistas;
     }
+
+    public static function getListaCancionesPerAlbum($idAlbum){
+        $listaCanciones = array();
+        $conn = BBDD::conectar();
+        $sql = "SELECT * FROM canciones WHERE id_album=:id_album";
+        $stmt = $conn->prepare($sql);
+        $stmt->bindParam(":id_album",$idAlbum);
+
+        if($stmt->execute()){
+            while($fila = $stmt->fetch(PDO::FETCH_ASSOC)){
+                array_push($listaCanciones,new Cancion($fila["id_cancion"],$fila["id_album"],$fila["nombre"],$fila["duracion"],$fila["num_pista"]));
+            }
+        }
+        return $listaCanciones;
+    }
+
 
     public static function grabarAlbum($album){
         $conn = BBDD::conectar();
@@ -156,6 +163,44 @@ class TeamModel extends BBDD{
         }
             return $ret;
 
+    }
+
+    public static function grabarArtista($artista){
+        $conn = BBDD::conectar();
+        $ret = false;
+        $sql = "INSERT INTO artistas(nombre,descripcion) VALUES(:nombre,:descripcion)";
+        $stmt = $conn->prepare($sql);
+
+        $nombre = $artista->getNombre();
+        $descripcion = $artista->getDescripcion();
+
+        $stmt->bindParam(":nombre",$nombre);
+        $stmt->bindParam(":descripcion",$descripcion);
+
+        if($stmt->execute()){
+            $ret = true;
+        }
+        return $ret;
+
+
+    }
+
+    public static function comprobacion($objeto){
+        $ret = true;
+
+        if($objeto instanceof Album){
+            foreach(self::getListaAlbumes() as $album){
+                if($objeto->getNombre() == $album->getNombre()){
+                    $ret=false;
+                }
+            }
+        }elseif($objeto instanceof Cancion){
+
+        }elseif($objeto instanceof Artista){
+
+        }
+
+        return $ret;
     }
 
 }

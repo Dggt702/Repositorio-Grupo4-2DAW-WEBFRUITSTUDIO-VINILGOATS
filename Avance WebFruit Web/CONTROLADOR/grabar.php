@@ -1,5 +1,6 @@
 <?php
 require_once("../MODELO/Album.php");
+require_once("../MODELO/Artista.php");
 require_once("../MODELO/TeamModel.php");
 
 
@@ -34,10 +35,11 @@ if(isset($_POST["nAlbum"])){
     $nombreArtista = $_POST["nArtista"];
     $descripcion = $_POST["descripcion"];
 
-
+    $artista = new Artista("",$nombreArtista,$descripcion);
+    TeamModel::grabarArtista($artista);
     header("Location: ../VISTA/InterfazAdministrador.php");
 }elseif($_POST["nCancion"]){
-    
+
     $nombre = $_POST["nCancion"];
     $album = $_POST["album"];   
     $posicion = $_POST["posicion"];
