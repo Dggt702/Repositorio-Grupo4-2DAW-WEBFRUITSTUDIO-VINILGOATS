@@ -238,25 +238,24 @@
                     <div class="accordion-item bg-transparent text-light">
                         <h2 class="accordion-header">
                             <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                Accordion Item #2
+                                No puedes iniciar sesión correctamente?
                             </button>
                         </h2>
                         <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
                             <div class="accordion-body">
-                                <strong>This is the second item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+                                Puede ser que estés tratando de iniciar sesion en el log in del administrador, por lo que tienes que leer en cual login estas intentado ingresar tu cuenta.
                             </div>
                         </div>
                     </div>
                     <div class="accordion-item bg-transparent text-light">
                         <h2 class="accordion-header">
                             <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                Accordion Item #3
+                                ¿No encuentras tu disco?
                             </button>
                         </h2>
                         <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
                             <div class="accordion-body  text-start">
-                                <strong>This is the third item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
-                            </div>
+                                En <strong>Vinyl Goats</strong> tenemos una gran variedad de discos por lo que puedes buscar en nuestra barra de navegación, si no llegas a encontrarlo, probablemente no lo tengamos, por lo que deberías de hablar con la tienda por si lo quieres reservar y nosotros cuando lo tengamos ¡serás el primero en saberlo!</div>
                         </div>
                     </div>
                 </div>
