@@ -51,7 +51,7 @@
                 </div>
 
                 <i class="bi bi-cart4" id="iconCarrito" alt="Carrito de la Compra"></i>
-                <div id="contenedorCarrito" class="container-cart-products hidden-cart text-white mt-5">
+                <div id="contenedorCarrito" class="container-cart-products w-25 hidden-cart text-white mt-5">
                     <div class="row-product">
                         <div class="cart-product">
                             <div class="info-cart-product">
