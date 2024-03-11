@@ -25,27 +25,15 @@
     <header class="bg-orange py-3">
         <div id="div-caja-header" class="d-flex justify-content-between align-items-center">
             <div id="caja-vacia" class="d-none d-sm-block">
-                <div class="dropdown open p-3">
-                    <button
-                        class="btn border-none dropdown-toggle text-white" type="button" id="triggerId" data-bs-toggle="dropdown" aria-haspopup="true"
-                        aria-expanded="false">
-                        <i class="fa fa-user"></i><span class="ms-2">User</span>
-                    </button>
-                    <div class="dropdown-menu" aria-labelledby="triggerId">
-                        <?php   
-                            session_start();
-                            if(isset($_SESSION["usuarioLogeado"])){
-                                $nombreUsuario=$_SESSION["usuarioLogeado"];
-                                echo "<a class='dropdown-item' href='configuracionUsuario.php'>$nombreUsuario</a>";
-                            }else{
-                                session_destroy();
-                                echo "<a class='dropdown-item' href='./LoginIn.php'>Iniciar Sesión</a>";
-                            }
-                        ?>
-                        <button class="dropdown-item" href="#">Configuración</button>
-                        <a class="dropdown-item" href="../CONTROLADOR/cerrarSesion.php">Cerrar Sesión</a>
-                    </div>
-                </div>
+                <?php 
+                    if(isset($_SESSION["usuarioLogeado"])){
+                        $nombreUsuario=$_SESSION["usuarioLogeado"];
+                        echo "<a href='configuracionUsuario.php' class='text-decoration-none text-white'>$nombreUsuario</a>";
+                    } else {
+                        echo "<a href='LoginIn.php' class='text-decoration-none text-white fs-5'>Iniciar Sesion</a>";
+
+                    } 
+                ?>
             </div>
 
             <div id="logo-cabra" class="d-flex justify-content-center align-items-center">
@@ -152,6 +140,11 @@
                                 <i class="fs-5 fa fa-users"></i><span class="fs-4 ms-3 d-none d-sm-inline">Clientes</span>
                             </a>
                         </li>
+                        <li class="nav-item py-2 py-sm-0">
+                            <a href="../CONTROLADOR/cerrarSesion.php" class="nav-link text-white">
+                                <i class="fs-5 fa fa-users"></i><span class="fs-5 ms-3 d-none d-sm-inline">Cerrar Sesión</span>
+                            </a>
+                        </li>
                     </ul>
                 </div>
                 
@@ -217,16 +210,17 @@
                             <input type="text" id="searchInput" class="input-group-text" placeholder="Buscar productos/servicios">
                             <button class="btn btn-secondary" onclick="search()">Buscar</button>
                         </div>
+                        <div id="barra">
  <?php
                         require_once("../MODELO/TeamModel.php");
                         require_once("TeamVista.php");
                         require_once("../MODELO/Album.php"); 
                         echo TeamVista::imprimirFilaAlbum(TeamModel::getListaAlbumes());
-?>                   
+?>                      </div>
                 </section>  
 
                 <!--ACCORDION-->
-                <div class="accordion rounded mb-4" id="accordionExample">
+                <div class="accordion rounded my-5" id="accordionExample">
                     <div class="accordion-item bg-transparent text-light">
                         <h2 class="accordion-header">
                             <button class="accordion-button bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">

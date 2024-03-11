@@ -375,24 +375,30 @@ function slider(){
 
     // Datos de ejemplo de productos/servicios
 
-    const products = 
-    [
-
-        { id: 1, name: "EL ÚLTIMO TOUR DEL MUNDO - BAD BUNNY", description: "Precio: 20.00€" },
-
-        { id: 2, name: "Rodeo - Travis Scott", description: "Precio: 25.00€" },
-
-        { id: 1, name: "Dangerous - Michael Jackson", description: "Precio: 30.00€" },
-
-        { id: 2, name: "Nimrod - Green Day", description: "Precio: 25.00€" },
-
-        // Agrega más productos aquí...
-
-  ];
-
-    // Función para buscar productos
-    function search() 
-    {
+    const products = [
+        { id: 23, name: "The Miracle", description: "Precio: 20.00€" },
+        { id: 25, name: "Innuendo", description: "Precio: 21.00€" },
+        { id: 27, name: "Rodeo", description: "Precio: 37.49€" },
+        { id: 28, name: "Nimrod", description: "Precio: 28.27€" },
+        { id: 29, name: "El Último Tour del Mundo", description: "Precio: 50.00€" },
+        { id: 30, name: "3MEN2 KBRN", description: "Precio: 50.00€" },
+        { id: 31, name: "News Of The World", description: "Precio: 25.00€" },
+        { id: 34, name: "Off The Wall", description: "Precio: 23.45€" },
+        { id: 35, name: "Pray For Paris", description: "Precio: 23.45€" },
+        { id: 36, name: "Get A Grip", description: "Precio: 19.99€" },
+        { id: 37, name: "American Idiot", description: "Precio: 17.69€" },
+        { id: 38, name: "Sauce Boyz", description: "Precio: 19.98€" },
+        { id: 39, name: "Whole Lotta Red", description: "Precio: 20.15€" },
+        { id: 40, name: "More Life", description: "Precio: 23.90€" },
+        { id: 41, name: "Heroes & Villians", description: "Precio: 23.10€" },
+        { id: 42, name: "Nada Personal", description: "Precio: 18.20€" },
+        { id: 43, name: "Thriller", description: "Precio: 19.99€" },
+        { id: 44, name: "Mi Sangre", description: "Precio: 24.59€" },
+        { id: 45, name: "A Night At The Opera", description: "Precio: 30.00€" },
+        { id: 46, name: "Apettite For Desctruction", description: "Precio: 29.00€" }
+    ];
+    
+    function search() {
         const searchInput = document.getElementById('searchInput');
         const searchTerm = searchInput.value.toLowerCase();
         const searchResults = products.filter(product =>
@@ -400,44 +406,55 @@ function slider(){
         );
         showProducts(searchResults);
     }
-
-    // Función para mostrar los productos en donde están en los vinilos
-    function showProducts(productsToShow) 
-    {
-        const vinilosSection = document.getElementById('vinilos');
+    
+    function showProducts(productsToShow) {
+        const vinilosSection = document.getElementById('barra');
         vinilosSection.innerHTML = '';
-        productsToShow.forEach(product => 
-        {
+    
+        // Creamos un div row para contener los productos
+        const rowDiv = document.createElement('div');
+        rowDiv.classList.add('row');
+    
+        productsToShow.forEach(product => {
+            // En lugar de crear un div de columna por cada producto, creamos un div de columna que contendrá un producto
             const colDiv = document.createElement('div');
-            colDiv.classList.add('col-3', 'col-sm-3', 'col-md-3', 'col-lg-3', 'col-xl-3',);
-
-            const viniloDiv = document.createElement('div');
-            viniloDiv.classList.add('vinilo');
-            viniloDiv.classList.add('viniloSeleccionado');
-
+            colDiv.classList.add('col-lg-3', 'col-sm-4', 'col-6', 'mb-4', 'mt-2');
+    
+            const productDiv = document.createElement('div');
+            productDiv.classList.add('bg-dark', 'text-light', 'rounded', 'align-items-center', 'p-4', 'row-product');
+    
             const img = document.createElement('img');
-            img.src = `../IMG/VINILOS/${product.name}.jpg`; // Ajusta el nombre de la imagen según tus archivos
+            img.classList.add('w-100', 'rounded');
+            img.src = `../IMG/BARRA/${product.name}.jpg`; //ruta img
             img.alt = `Vinilo ${product.id}`;
-
+    
             const productLink = document.createElement('a');
+            productLink.classList.add('link-warning', 'text-light', 'text-decoration-none', 'display', 'fw-bold');
             productLink.href = `./infoDiscos${product.id}.html`;
             productLink.textContent = product.name;
-
+    
             const priceParagraph = document.createElement('p');
+            priceParagraph.classList.add('fw-light');
             priceParagraph.textContent = product.description;
-
+    
             const addButton = document.createElement('button');
+            addButton.classList.add('btn', 'btn-primary', 'btn-add-cart');
             addButton.textContent = 'Añadir al carrito';
-
-            viniloDiv.appendChild(img);
-            viniloDiv.appendChild(productLink);
-            viniloDiv.appendChild(priceParagraph);
-            viniloDiv.appendChild(addButton);
-
-            colDiv.appendChild(viniloDiv);
-            vinilosSection.appendChild(colDiv);
+    
+            productDiv.appendChild(img);
+            productDiv.appendChild(productLink);
+            productDiv.appendChild(priceParagraph);
+            productDiv.appendChild(addButton);
+    
+            colDiv.appendChild(productDiv);
+            rowDiv.appendChild(colDiv); // Agregamos cada columna al div de fila
         });
+    
+        vinilosSection.appendChild(rowDiv); // Agregamos la fila completa al contenedor principal
     }
+    
+    
+    
 
     document.addEventListener("DOMContentLoaded", function()
     {
