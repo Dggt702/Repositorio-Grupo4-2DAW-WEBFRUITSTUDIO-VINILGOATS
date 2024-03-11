@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 28-02-2024 a las 12:07:55
+-- Tiempo de generación: 11-03-2024 a las 00:58:29
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -20,8 +20,30 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `bdd_vnbros`
 --
-CREATE DATABASE IF NOT EXISTS bdd_vnbros;
-USE bdd_vnbros;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `adminlogin`
+--
+
+CREATE TABLE `adminlogin` (
+  `id` int(11) NOT NULL,
+  `nombre` varchar(30) NOT NULL,
+  `email` varchar(80) NOT NULL,
+  `password` varchar(80) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `adminlogin`
+--
+
+INSERT INTO `adminlogin` (`id`, `nombre`, `email`, `password`) VALUES
+(1, 'Dioggo', 'dioggo@hotmail.com', 'Admin1234*'),
+(2, 'Martin', 'martin@hotmail.com', 'Admin1234*'),
+(3, 'Javier', 'javier@hotmail.com', 'Admin1234*'),
+(4, 'Claudia', 'claudia@hotmail.com', 'Admin1234*');
+
 -- --------------------------------------------------------
 
 --
@@ -49,7 +71,21 @@ INSERT INTO `albumes` (`id_album`, `nombre`, `id_artista`, `precio`, `stock`, `i
 (27, 'Rodeo', 2, 37.49, 11, 'Rodeo - Travis Scott.jpg', '2015', '01:15:02'),
 (28, 'Nimrod', 3, 28.27, 32, 'Nimrod - Green Day.jpg', '1997', '00:49:06'),
 (29, 'El Último Tour del Mundo', 4, 50.00, 32, 'EL ÚLTIMO TOUR DEL MUNDO - Bad Bunny.jpg', '2020', '00:47:19'),
-(30, '3MEN2 KBRN', 6, 50.00, 23, '3men2 kbrn eladio carrion.jpg', '2023', '00:54:51');
+(30, '3MEN2 KBRN', 6, 50.00, 23, '3men2 kbrn eladio carrion.jpg', '2023', '00:54:51'),
+(31, 'News Of The World', 5, 25.00, 6, 'news of the world queen.jpg', '1977', '00:39:15'),
+(34, 'Off The Wall', 1, 23.45, 22, 'off the wall michael jackson.jpg', '1979', '00:42:24'),
+(35, 'Pray For Paris', 9, 23.45, 23, 'pray for paris wsg.jpg', '2020', '00:36:25'),
+(36, 'Get A Grip', 8, 19.99, 12, 'get_aGrip.jpg', '1993', '01:02:00'),
+(37, 'American Idiot', 3, 17.69, 4, 'american idiot green dat.jpg', '2004', '00:57:23'),
+(38, 'Sauce Boyz', 6, 19.98, 5, 'sauce_boyz.jfif', '2020', '00:59:08'),
+(39, 'Whole Lotta Red', 10, 20.15, 13, 'wlr playboi carti.png', '2020', '01:03:00'),
+(40, 'More Life', 11, 23.90, 23, 'more life.jpg', '2017', '01:21:00'),
+(41, 'Heroes & Villians', 12, 23.10, 6, 'Metro_Boomin_-_Heroes_&_Villains.png', '2022', '00:48:04'),
+(42, 'Nada Personal', 13, 18.20, 5, 'nada_personal.jpg', '2006', '00:39:57'),
+(43, 'Thriller', 1, 19.99, 10, 'thriller.jpg', '1982', '00:42:21'),
+(44, 'Mi Sangre', 14, 24.59, 23, 'mi_sangre.jpg', '2004', '00:45:21'),
+(45, 'A Night At The Opera', 5, 30.00, 4, 'a night at the opera.jpg', '1975', '00:43:05'),
+(46, 'Apettite For Desctruction', 15, 29.00, 5, 'apettite for destruction.jpg', '1987', '00:53:46');
 
 -- --------------------------------------------------------
 
@@ -85,7 +121,16 @@ INSERT INTO `artistas` (`nombre`, `id_artista`, `descripcion`) VALUES
 ('Green Day', 3, 'Banda de Grunge'),
 ('Bad Bunny', 4, 'Un cantante'),
 ('Queen', 5, 'Banda de Rock británica'),
-('Eladio Carrion', 6, 'Coño Eladio');
+('Eladio Carrion', 6, 'Coño Eladio'),
+('Pink Floyd', 7, 'Banda de Rock psicodélico'),
+('Aerosmith', 8, 'Los Chicos Malos de Boston'),
+('Westside Gunn', 9, 'Rapero Americano'),
+('Playboi Carti', 10, 'Rapero'),
+('Drake', 11, 'Rapero'),
+('Metro Boomin', 12, 'Rapero que apareció en Spiderman Beyond the Spiderverse'),
+('Soda Stereo', 13, 'Ya estás feliz Gorge?'),
+('Juanes', 14, 'Uno por pobre y feo, hombre Pero antoja\'o, ay ome'),
+('Guns N\' Roses', 15, 'Esa banda que canta la de megamente');
 
 -- --------------------------------------------------------
 
@@ -100,6 +145,16 @@ CREATE TABLE `canciones` (
   `num_pista` int(11) NOT NULL,
   `nombre` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `canciones`
+--
+
+INSERT INTO `canciones` (`id_cancion`, `id_album`, `duracion`, `num_pista`, `nombre`) VALUES
+(1, 23, '00:02:24', 1, 'Party'),
+(2, 23, '00:02:47', 2, 'Khashoggi\'s Ship'),
+(3, 23, '00:05:21', 3, 'The Miracle'),
+(4, 23, '00:04:40', 4, 'I Want It All');
 
 -- --------------------------------------------------------
 
@@ -167,20 +222,6 @@ CREATE TABLE `usuarios` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Estructura de tabla para la tabla `adminlogin`
---
-
-
-create table adminlogin(
-	id int primary key AUTO_INCREMENT,
-    nombre varchar(30) not null,
-    email varchar(80) not null,
-    password varchar(80) not null
-);
-
-
-
---
 -- Volcado de datos para la tabla `usuarios`
 --
 
@@ -189,17 +230,14 @@ INSERT INTO `usuarios` (`nombre`, `correo`, `contraseña`, `sexo`, `fecha_de_nac
 ('Javier Herce Sánchez', 'javierhs2003@gmail.com', '$Ccontraseña123', 'masculino', '2003-08-20', 'mI CASA 2', 'espana', '51740969P', 2147483647, 0, 0);
 
 --
--- Volcado de datos para la tabla `adminlogin`
---
-insert into adminlogin(nombre,email,password)values('Dioggo','dioggo@hotmail.com','Admin1234*');
-insert into adminlogin(nombre,email,password)values('Martin','martin@hotmail.com','Admin1234*');
-insert into adminlogin(nombre,email,password)values('Javier','javier@hotmail.com','Admin1234*');
-insert into adminlogin(nombre,email,password)values('Claudia','claudia@hotmail.com','Admin1234*');
-
-
---
 -- Índices para tablas volcadas
 --
+
+--
+-- Indices de la tabla `adminlogin`
+--
+ALTER TABLE `adminlogin`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indices de la tabla `albumes`
@@ -251,22 +289,28 @@ ALTER TABLE `usuarios`
 --
 
 --
+-- AUTO_INCREMENT de la tabla `adminlogin`
+--
+ALTER TABLE `adminlogin`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
 -- AUTO_INCREMENT de la tabla `albumes`
 --
 ALTER TABLE `albumes`
-  MODIFY `id_album` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+  MODIFY `id_album` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
 
 --
 -- AUTO_INCREMENT de la tabla `artistas`
 --
 ALTER TABLE `artistas`
-  MODIFY `id_artista` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id_artista` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT de la tabla `canciones`
 --
 ALTER TABLE `canciones`
-  MODIFY `id_cancion` int(5) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_cancion` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- Restricciones para tablas volcadas
