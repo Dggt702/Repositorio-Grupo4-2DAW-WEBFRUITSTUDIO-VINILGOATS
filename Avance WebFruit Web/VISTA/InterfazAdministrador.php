@@ -32,7 +32,7 @@
             </div>
 
             <div id="logo-cabra">
-                <a href="../VISTA/Page2.html"><img src="../IMG/LOGO_VINYL_GOATS_1_SIN_LETRAS_TRANSPARENCIA.png"></a>
+                <a href="../VISTA/Page2.php"><img src="../IMG/LOGO_VINYL_GOATS_1_SIN_LETRAS_TRANSPARENCIA.png"></a>
             </div>
         
         </div>
