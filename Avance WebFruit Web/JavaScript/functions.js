@@ -373,29 +373,42 @@ function slider(){
     
     }
 
+    function getAllProducts()
+    {
+        if (window.localStorage.getItem('allProducts'))
+            return JSON.parse(window.localStorage.getItem('allProducts'));
+        else
+            return [];
+    }
+
+    function setAllProducts(allProducts)
+    {
+        window.localStorage.setItem('allProducts', JSON.stringify(allProducts));
+    }
+
     // Datos de ejemplo de productos/servicios
 
     const products = [
-        { id: 23, name: "The Miracle", artist: "Queen", description: "Precio: 20.00€" },
-        { id: 25, name: "Innuendo", artist: "Queen",  description: "Precio: 21.00€" },
-        { id: 27, name: "Rodeo", artist: "Travis Scott", description: "Precio: 37.49€" },
-        { id: 28, name: "Nimrod", artist: "Green Day", description: "Precio: 28.27€" },
-        { id: 29, name: "El Último Tour del Mundo", artist: "Bad Bunny", description: "Precio: 50.00€" },
-        { id: 30, name: "3MEN2 KBRN", artist: "Eladio Carrión", description: "Precio: 50.00€" },
-        { id: 31, name: "News Of The World", artist: "Queen", description: "Precio: 25.00€" },
-        { id: 34, name: "Off The Wall", artist: "Michael Jackson", description: "Precio: 23.45€" },
-        { id: 35, name: "Pray For Paris", artist: "Westside Gunn", description: "Precio: 23.45€" },
-        { id: 36, name: "Get A Grip", artist: "Aerosmith", description: "Precio: 19.99€" },
-        { id: 37, name: "American Idiot", artist: "Green Day", description: "Precio: 17.69€" },
-        { id: 38, name: "Sauce Boyz", artist: "Eladio Carrión", description: "Precio: 19.98€" },
-        { id: 39, name: "Whole Lotta Red", artist: "Playboi Carti", description: "Precio: 20.15€" },
-        { id: 40, name: "More Life", artist: "Drake", description: "Precio: 23.90€" },
-        { id: 41, name: "Heroes & Villians", artist: "Metro Boomin", description: "Precio: 23.10€" },
-        { id: 42, name: "Nada Personal", artist: "Soda Stereo", description: "Precio: 18.20€" },
-        { id: 43, name: "Thriller", artist: "Michael Jackson", description: "Precio: 19.99€" },
-        { id: 44, name: "Mi Sangre", artist: "Juanes", description: "Precio: 24.59€" },
-        { id: 45, name: "A Night At The Opera", artist: "Queen", description: "Precio: 30.00€" },
-        { id: 46, name: "Apettite For Desctruction", artist: "Guns N' Roses", description: "Precio: 29.00€" }
+        { id: 23, name: "The Miracle", artist: "Queen", description: "20.00€" },
+        { id: 25, name: "Innuendo", artist: "Queen",  description: "21.00€" },
+        { id: 27, name: "Rodeo", artist: "Travis Scott", description: "37.49€" },
+        { id: 28, name: "Nimrod", artist: "Green Day", description: "28.27€" },
+        { id: 29, name: "El Último Tour del Mundo", artist: "Bad Bunny", description: "50.00€" },
+        { id: 30, name: "3MEN2 KBRN", artist: "Eladio Carrión", description: "50.00€" },
+        { id: 31, name: "News Of The World", artist: "Queen", description: "25.00€" },
+        { id: 34, name: "Off The Wall", artist: "Michael Jackson", description: "23.45€" },
+        { id: 35, name: "Pray For Paris", artist: "Westside Gunn", description: "23.45€" },
+        { id: 36, name: "Get A Grip", artist: "Aerosmith", description: "19.99€" },
+        { id: 37, name: "American Idiot", artist: "Green Day", description: "17.69€" },
+        { id: 38, name: "Sauce Boyz", artist: "Eladio Carrión", description: "19.98€" },
+        { id: 39, name: "Whole Lotta Red", artist: "Playboi Carti", description: "20.15€" },
+        { id: 40, name: "More Life", artist: "Drake", description: "23.90€" },
+        { id: 41, name: "Heroes & Villians", artist: "Metro Boomin", description: "23.10€" },
+        { id: 42, name: "Nada Personal", artist: "Soda Stereo", description: "18.20€" },
+        { id: 43, name: "Thriller", artist: "Michael Jackson", description: "19.99€" },
+        { id: 44, name: "Mi Sangre", artist: "Juanes", description: "24.59€" },
+        { id: 45, name: "A Night At The Opera", artist: "Queen", description: "30.00€" },
+        { id: 46, name: "Apettite For Desctruction", artist: "Guns N' Roses", description: "29.00€" }
     ];
     
     function search() 
@@ -410,6 +423,8 @@ function slider(){
     
     function showProducts(productsToShow) 
     {
+
+        const containerCartProducts = document.querySelector(".container-cart-products");
         const vinilosSection = document.getElementById('barra');
         vinilosSection.innerHTML = '';
     
@@ -434,6 +449,10 @@ function slider(){
             productLink.classList.add('link-warning', 'text-light', 'text-decoration-none', 'display', 'fw-bold');
             productLink.href = `./infoDiscos${product.id}.html`;
             productLink.textContent = product.name;
+
+            const artistH6 = document.createElement('h6');
+            artistH6.classList.add('fw-light');
+            artistH6.textContent = product.artist;
     
             const priceParagraph = document.createElement('p');
             priceParagraph.classList.add('fw-light');
@@ -445,37 +464,19 @@ function slider(){
     
             productDiv.appendChild(img);
             productDiv.appendChild(productLink);
+            productDiv.appendChild(artistH6);
             productDiv.appendChild(priceParagraph);
             productDiv.appendChild(addButton);
-    
+            
             colDiv.appendChild(productDiv);
             rowDiv.appendChild(colDiv); // Agregamos cada columna al div de fila
         });
     
         vinilosSection.appendChild(rowDiv); // Agregamos la fila completa al contenedor principal
-    }
 
-    document.addEventListener("DOMContentLoaded", function()
-    {
-        const containerCartProducts = document.querySelector(".container-cart-products");
-        const rowProduct = document.querySelector(".row-product"); 
-        const btnCart = document.getElementById("iconCarrito");
-        // lista de todos los contenedores de productos
-        const productList = document.querySelector(".container-vinilos");
-        // array de productos
-        let allProducts  = [];
-        const valorTotal = document.querySelector(".total-pagar");
-        const totalContainer = document.querySelector(".cart-total");
-    
-        btnCart.addEventListener("click", () => 
+        vinilosSection.addEventListener("click", (e) => 
         {
-            containerCartProducts.classList.toggle("hidden-cart");
-        });
-
-        // El event listener para que al hacer click sobre los botones para añadir al carrito se añadan al carrito
-        productList.addEventListener("click", e =>
-        {
-            if(e.target.classList.contains("btn-add-cart"))
+        if (e.target.classList.contains("btn-add-cart"))
             {
                 const productV = e.target.parentElement;
                 const infoProduct = 
@@ -486,17 +487,63 @@ function slider(){
                     price: productV.querySelector("p").textContent,
                 };
 
-                const existingProduct = allProducts.find(product => product.title === infoProduct.title);
+                const existingProduct = getAllProducts().find(product => product.title === infoProduct.title);
                 if (existingProduct) // si el producto existe
                 {
                     existingProduct.quantity++; // aumentamos el producto en uno
                 }
                 else
                 {
-                    allProducts.push(infoProduct);
+                    const auxAllProducts = getAllProducts();
+                    auxAllProducts.push(infoProduct);
+                    setAllProducts(auxAllProducts);
                 }   
             }
-            showHTML();
+            showHTML (containerCartProducts);
+        });
+    
+    }
+
+    document.addEventListener("DOMContentLoaded", function()
+    {
+        const containerCartProducts = document.querySelector(".container-cart-products"); 
+        const btnCart = document.getElementById("iconCarrito");
+        const rowProduct = document.querySelector(".row-product");
+        // lista de todos los contenedores de productos
+        const productList = document.querySelector(".container-vinilos");
+        
+        btnCart.addEventListener("click", () => 
+        {
+            containerCartProducts.classList.toggle("hidden-cart");
+        });
+
+        // El event listener para que al hacer click sobre los botones para añadir al carrito se añadan al carrito
+        productList.addEventListener("click", e =>
+        {
+            if (e.target.classList.contains("btn-add-cart"))
+            {
+                const productV = e.target.parentElement;
+                const infoProduct = 
+                {
+                    quantity: 1,
+                    title: productV.querySelector("a").textContent,
+                    artist: productV.querySelector("h6").textContent,
+                    price: productV.querySelector("p").textContent,
+                };
+
+                const existingProduct = getAllProducts().find(product => product.title === infoProduct.title);
+                if (existingProduct) // si el producto existe
+                {
+                    existingProduct.quantity++; // aumentamos el producto en uno
+                }
+                else
+                {
+                    const auxAllProducts = getAllProducts();
+                    auxAllProducts.push(infoProduct);
+                    setAllProducts(auxAllProducts);
+                }   
+            }
+            showHTML(containerCartProducts);
         });
     
         rowProduct.addEventListener("click", (e) =>
@@ -505,19 +552,25 @@ function slider(){
             {   // Eliminamos el producto seleccionado
                 const product = e.target.parentElement;
                 const title = product.querySelector("a").textContent;
-                allProducts = allProducts.filter(product => product.title !== title);
-            }
-            showHTML(); // Llamamos a showHTML() después de eliminar un producto para que el contenido del carrito se actualice de manera adecuada
-        });
+                console.log(title);
+                setAllProducts(getAllProducts().filter(product => product.title !== title));
 
-        const showHTML = () =>
+            }
+            showHTML(containerCartProducts); // Llamamos a showHTML() después de eliminar un producto para que el contenido del carrito se actualice de manera adecuada
+        });
+    });
+
+    function showHTML (containerCartProducts)
         {
-            
+            const rowProduct = document.querySelector(".row-product");
+            const totalContainer = document.querySelector(".cart-total");
+            const valorTotal = document.querySelector(".total-pagar");
+    
             // Verificamos si el carrito está vacío antes de limpiar el contenido
             let total = 0;
             rowProduct.innerHTML = "";
 
-            if (allProducts.length === 0) 
+            if (getAllProducts().length === 0) 
             {
                 containerCartProducts.classList.add("hidden-cart");
                 rowProduct.innerHTML = `<p class="cart-empty">El carrito está vacío</p>`;
@@ -530,46 +583,38 @@ function slider(){
                 totalContainer.style.display = "flex";
             }
             
-            if (allProducts.length === 0)
+            if (getAllProducts().length === 0)
             {
                 const containerProduct = document.createElement('div');
                 containerProduct.classList.add("cart-product");
                 containerProduct.innerHTML = 
-                    `<div class="row align-items-center text-left">
-                        
-                            <div class="col-7">
-                                <a class="titulo-producto-carrito text-decoration-none display fw-bold fs-6" href="./infoDiscos.html">${product.title}</a>
-                                <h6 class="artista-producto-carrito fw-light fs-6">${product.artist}</h6>
-                            </div> 
-                            <div class="col-5">
-                                <p class="precio-producto-carrito precio fs-6">${product.price}(x${product.quantity})</p>
-                            </div> 
-                        
-                    </div>     
-                    <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke-width="1.5"
-                        stroke="currentColor"
-                        class="icon-close"
-                        style="display:block"
-                        
+                `<div class="info-cart-product">
+                    <span class="cantidad-producto-carrito">0</span>
+                    <p class="titulo-producto-carrito">0</p>
+                    <span class="precio-producto-carrito">0</span>
+                </div>
+                <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke-width="1.5"
+                    stroke="currentColor"
+                    class="icon-close"
+                >
+                    <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M6 18L18 6M6 6l12 12"
                     >
-                        <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        d="M6 18L18 6M6 6l12 12"
-                        >
-                        </path>
-                    </svg>
+                    </path>
+                </svg>
                 `
                 rowProduct.append(containerProduct);
 
                 //total = total + parseFloat(product.price.replace('€', '')) * product.quantity;
                 //totalCard = totalCard.toFixed(2);
             }
-            allProducts.forEach(product => 
+            getAllProducts().forEach(product => 
                 {
                     const containerProduct = document.createElement('div');
                     containerProduct.classList.add("cart-product");
@@ -605,4 +650,3 @@ function slider(){
                 });
                 valorTotal.innerText = `${total}€`;
         }
-    });
