@@ -535,26 +535,34 @@ function slider(){
                 const containerProduct = document.createElement('div');
                 containerProduct.classList.add("cart-product");
                 containerProduct.innerHTML = 
-                `<div class="info-cart-product">
-                    <span class="cantidad-producto-carrito">0</span>
-                    <p class="titulo-producto-carrito">0</p>
-                    <span class="precio-producto-carrito">0</span>
-                </div>
-                <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke-width="1.5"
-                    stroke="currentColor"
-                    class="icon-close"
-                >
-                    <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    d="M6 18L18 6M6 6l12 12"
+                    `<div class="row align-items-center text-left">
+                        
+                            <div class="col-7">
+                                <a class="titulo-producto-carrito text-decoration-none display fw-bold fs-6" href="./infoDiscos.html">${product.title}</a>
+                                <h6 class="artista-producto-carrito fw-light fs-6">${product.artist}</h6>
+                            </div> 
+                            <div class="col-5">
+                                <p class="precio-producto-carrito precio fs-6">${product.price}(x${product.quantity})</p>
+                            </div> 
+                        
+                    </div>     
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke-width="1.5"
+                        stroke="currentColor"
+                        class="icon-close"
+                        style="display:block"
+                        
                     >
-                    </path>
-                </svg>
+                        <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M6 18L18 6M6 6l12 12"
+                        >
+                        </path>
+                    </svg>
                 `
                 rowProduct.append(containerProduct);
 

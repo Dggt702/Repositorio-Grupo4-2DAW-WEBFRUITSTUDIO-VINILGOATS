@@ -199,7 +199,7 @@
 
                     <!--CONTENIDO PRINCIPAL-->
 
-                    <h2 id="titulo">vINILOS</h2>
+                    <h2 id="titulo">VINYLS</h2>
                         <!-- Plantilla **ANTIGUA** para cada vinilo **copiad esto** --> 
                         <!-- 
                         <div class="col-lg-4 col-xl-3 mb-4">
