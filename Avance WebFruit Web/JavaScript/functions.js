@@ -376,38 +376,40 @@ function slider(){
     // Datos de ejemplo de productos/servicios
 
     const products = [
-        { id: 23, name: "The Miracle", description: "Precio: 20.00€" },
-        { id: 25, name: "Innuendo", description: "Precio: 21.00€" },
-        { id: 27, name: "Rodeo", description: "Precio: 37.49€" },
-        { id: 28, name: "Nimrod", description: "Precio: 28.27€" },
-        { id: 29, name: "El Último Tour del Mundo", description: "Precio: 50.00€" },
-        { id: 30, name: "3MEN2 KBRN", description: "Precio: 50.00€" },
-        { id: 31, name: "News Of The World", description: "Precio: 25.00€" },
-        { id: 34, name: "Off The Wall", description: "Precio: 23.45€" },
-        { id: 35, name: "Pray For Paris", description: "Precio: 23.45€" },
-        { id: 36, name: "Get A Grip", description: "Precio: 19.99€" },
-        { id: 37, name: "American Idiot", description: "Precio: 17.69€" },
-        { id: 38, name: "Sauce Boyz", description: "Precio: 19.98€" },
-        { id: 39, name: "Whole Lotta Red", description: "Precio: 20.15€" },
-        { id: 40, name: "More Life", description: "Precio: 23.90€" },
-        { id: 41, name: "Heroes & Villians", description: "Precio: 23.10€" },
-        { id: 42, name: "Nada Personal", description: "Precio: 18.20€" },
-        { id: 43, name: "Thriller", description: "Precio: 19.99€" },
-        { id: 44, name: "Mi Sangre", description: "Precio: 24.59€" },
-        { id: 45, name: "A Night At The Opera", description: "Precio: 30.00€" },
-        { id: 46, name: "Apettite For Desctruction", description: "Precio: 29.00€" }
+        { id: 23, name: "The Miracle", artist: "Queen", description: "Precio: 20.00€" },
+        { id: 25, name: "Innuendo", artist: "Queen",  description: "Precio: 21.00€" },
+        { id: 27, name: "Rodeo", artist: "Travis Scott", description: "Precio: 37.49€" },
+        { id: 28, name: "Nimrod", artist: "Green Day", description: "Precio: 28.27€" },
+        { id: 29, name: "El Último Tour del Mundo", artist: "Bad Bunny", description: "Precio: 50.00€" },
+        { id: 30, name: "3MEN2 KBRN", artist: "Eladio Carrión", description: "Precio: 50.00€" },
+        { id: 31, name: "News Of The World", artist: "Queen", description: "Precio: 25.00€" },
+        { id: 34, name: "Off The Wall", artist: "Michael Jackson", description: "Precio: 23.45€" },
+        { id: 35, name: "Pray For Paris", artist: "Westside Gunn", description: "Precio: 23.45€" },
+        { id: 36, name: "Get A Grip", artist: "Aerosmith", description: "Precio: 19.99€" },
+        { id: 37, name: "American Idiot", artist: "Green Day", description: "Precio: 17.69€" },
+        { id: 38, name: "Sauce Boyz", artist: "Eladio Carrión", description: "Precio: 19.98€" },
+        { id: 39, name: "Whole Lotta Red", artist: "Playboi Carti", description: "Precio: 20.15€" },
+        { id: 40, name: "More Life", artist: "Drake", description: "Precio: 23.90€" },
+        { id: 41, name: "Heroes & Villians", artist: "Metro Boomin", description: "Precio: 23.10€" },
+        { id: 42, name: "Nada Personal", artist: "Soda Stereo", description: "Precio: 18.20€" },
+        { id: 43, name: "Thriller", artist: "Michael Jackson", description: "Precio: 19.99€" },
+        { id: 44, name: "Mi Sangre", artist: "Juanes", description: "Precio: 24.59€" },
+        { id: 45, name: "A Night At The Opera", artist: "Queen", description: "Precio: 30.00€" },
+        { id: 46, name: "Apettite For Desctruction", artist: "Guns N' Roses", description: "Precio: 29.00€" }
     ];
     
-    function search() {
+    function search() 
+    {
         const searchInput = document.getElementById('searchInput');
         const searchTerm = searchInput.value.toLowerCase();
         const searchResults = products.filter(product =>
-            product.name.toLowerCase().includes(searchTerm) || product.description.toLowerCase().includes(searchTerm)
+            product.name.toLowerCase().includes(searchTerm) || product.artist.toLowerCase().includes(searchTerm) || product.description.toLowerCase().includes(searchTerm)
         );
         showProducts(searchResults);
     }
     
-    function showProducts(productsToShow) {
+    function showProducts(productsToShow) 
+    {
         const vinilosSection = document.getElementById('barra');
         vinilosSection.innerHTML = '';
     
@@ -452,9 +454,6 @@ function slider(){
     
         vinilosSection.appendChild(rowDiv); // Agregamos la fila completa al contenedor principal
     }
-    
-    
-    
 
     document.addEventListener("DOMContentLoaded", function()
     {
