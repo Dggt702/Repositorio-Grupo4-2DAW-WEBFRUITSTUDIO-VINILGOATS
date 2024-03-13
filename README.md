@@ -23,6 +23,22 @@ Dentro de la carpeta de “Avance WebFruit Web”, donde está respectivos archi
 Dentro del zip SPRINT_1_EMPRESA_GRUPO4.zip se encuentran las historias de usuario del módulo de empresa e iniciativa emprendedora.
 
 
+CARRITO DE COMPRA
+Este es un código JavaScript que implementa un carrito de compras para la tienda de vinilos. Permite a los usuarios agregar vinilos al carrito, ver el contenido del carrito, eliminar elementos del carrito y calcular el total a pagar.
+
+FUNCIONALIDADES DEL CARRITO
+Agregar al Carrito: Cuando el usuario hace clic en el botón "Agregar al Carrito" en un producto, se añade ese producto al carrito.
+Mostrar Carrito: Al hacer clic en el ícono del carrito, se muestra u oculta el contenido del carrito.
+Eliminar del Carrito: Al hacer clic en el icono de "X" al lado de un producto en el carrito, se elimina ese producto del carrito.
+Actualizar Total: El total a pagar se calcula automáticamente a medida que se agregan o eliminan productos del carrito.
+
+
+ESTRUCTURA DEL CÓDIGO
+El código está organizado en varias secciones:
+
+Event Listeners: Se definen los event listeners para los botones de "Agregar al Carrito", el ícono del carrito y el ícono de eliminar productos del carrito.
+Función showHTML: Esta función actualiza la interfaz de usuario para mostrar los productos en el carrito y calcular el total a pagar.
+Funciones Auxiliares: Se incluyen funciones auxiliares para obtener y establecer la lista de productos en el carrito.
 
 
 Historial de Commits:
