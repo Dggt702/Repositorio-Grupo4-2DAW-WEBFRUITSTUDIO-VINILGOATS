@@ -1,0 +1,22 @@
+[
+    { "id": 23, "name": "The Miracle", "artist": "Queen", "description": "20.00€" },
+    { "id": 25, "name": "Innuendo", "artist": "Queen",  "description": "21.00€" },
+    { "id": 27, "name": "Rodeo", "artist": "Travis Scott", "description": "37.49€"},
+    { "id": 28, "name": "Nimrod", "artist": "Green Day", "description": "28.27€" },
+    { "id": 29, "name": "El Último Tour del Mundo", "artist": "Bad Bunny", "description": "50.00€" },
+    { "id": 30, "name": "3MEN2 KBRN", "artist": "Eladio Carrión", "description": "50.00€" },
+    { "id": 31, "name": "News Of The World", "artist": "Queen", "description": "25.00€" },
+    { "id": 34, "name": "Off The Wall", "artist": "Michael Jackson", "description": "23.45€" },
+    { "id": 35, "name": "Pray For Paris", "artist": "Westside Gunn", "description": "23.45€" },
+    { "id": 36, "name": "Get A Grip", "artist": "Aerosmith", "description": "19.99€" },
+    { "id": 37, "name": "American Idiot", "artist": "Green Day", "description": "17.69€" },
+    { "id": 38, "name": "Sauce Boyz", "artist": "Eladio Carrión", "description": "19.98€" },
+    { "id": 39, "name": "Whole Lotta Red", "artist": "Playboi Carti", "description": "20.15€" },
+    { "id": 40, "name": "More Life", "artist": "Drake", "description": "23.90€" },
+    { "id": 41, "name": "Heroes & Villians", "artist": "Metro Boomin", "description": "23.10€" },
+    { "id": 42, "name": "Nada Personal", "artist": "Soda Stereo", "description": "18.20€" },
+    { "id": 43, "name": "Thriller", "artist": "Michael Jackson", "description": "19.99€" },
+    { "id": 44, "name": "Mi Sangre", "artist": "Juanes", "description": "24.59€" },
+    { "id": 45, "name": "A Night At The Opera", "artist": "Queen", "description": "30.00€" },
+    { "id": 46, "name": "Apettite For Desctruction", "artist": "Guns N' Roses", "description": "29.00€"}
+]

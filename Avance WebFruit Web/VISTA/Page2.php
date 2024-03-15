@@ -208,7 +208,7 @@
 
                         <div id="search-group" class="input-group mb-3 d-flex justify-content-center align-items-center">
                             <input type="text" id="searchInput" class="input-group-text" placeholder="Buscar productos/servicios">
-                            <button class="btn btn-secondary" onclick="search()">Buscar</button>
+                            <button class="btn btn-secondary">Buscar</button>
                         </div>
                         <div id="barra">
  <?php
